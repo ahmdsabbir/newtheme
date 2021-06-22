@@ -14,20 +14,19 @@
                                 <?php the_title() ?>
                             </a>
                         </h1>
-                        
-                        <p>
-                            Posted On
-                            <a href="<?php echo get_permalink(); ?>">
-                                <time datetime="<?php echo get_the_date('c'); ?>"><?php echo get_the_date() ?></time>
-                            </a>
-                            By <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>"><?php echo get_the_author(); ?></a>
-                        </p>
+
+                        <div class="post-meta">
+                            <?php newtheme_post_meta(); ?>
+                        </div><!-- post-meta end -->
+                
                         
                     </header><!-- .entry-header -->
 
                     <div class="entry-content">
 
-                        <?php the_content(); ?>
+                        <?php the_excerpt(); ?>
+
+                        <?php newtheme_read_more_link(); ?>
 
                     </div><!-- .entry-content -->
 
@@ -40,14 +39,17 @@
             <?php endwhile; ?>
       
         <?php else: ?>
-            No posts matched your criteria
+            <p>
+                <?php esc_html_e('No posts matched your criteria', 'newtheme'); ?>
+            </p>
         <?php endif; ?>
 
     </main><!-- main end-->
 
     <!-- sidebar start -->
-    <aside>
-        
+    <aside role="complementary">
+        <h3>Sidebar</h3>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi quae ipsum iusto autem laborum. Iure laborum dolorum ut facere sed fuga ipsa consequatur illum quo. Non sequi voluptate unde! Deleniti enim rerum voluptates rem amet. Eaque fuga ratione aliquid neque fugit. Debitis nobis officiis consequuntur distinctio enim fugit consequatur itaque consectetur iste quis. Aperiam deserunt hic magnam dolor possimus consectetur tempora deleniti accusantium amet illo
     </aside><!-- sidebar end -->
 
 <?php get_footer(); ?>
