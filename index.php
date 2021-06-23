@@ -16,7 +16,7 @@
                         </h1>
 
                         <div class="post-meta">
-                            <?php newtheme_post_meta(); ?>
+                            <?php _themename_post_meta(); ?>
                         </div><!-- post-meta end -->
                 
                         
@@ -26,7 +26,7 @@
 
                         <?php the_excerpt(); ?>
 
-                        <?php newtheme_read_more_link(); ?>
+                        <?php _themename_read_more_link(); ?>
 
                     </div><!-- .entry-content -->
 
@@ -40,7 +40,7 @@
       
         <?php else: ?>
             <p>
-                <?php esc_html_e('No posts matched your criteria', 'newtheme'); ?>
+                <?php esc_html_e('No posts matched your criteria', '_themename'); ?>
             </p>
         <?php endif; ?>
 
