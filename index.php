@@ -27,6 +27,7 @@
                         <?php the_excerpt(); ?>
 
                         <?php _themename_read_more_link(); ?>
+                        
 
                     </div><!-- .entry-content -->
 
@@ -37,7 +38,8 @@
                 </article><!--  article- -->
 
             <?php endwhile; ?>
-      
+
+            <?php the_posts_pagination();?>
         <?php else: ?>
             <p>
                 <?php esc_html_e('No posts matched your criteria', '_themename'); ?>
