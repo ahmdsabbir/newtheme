@@ -31,8 +31,15 @@ function _themename_post_meta() {
 /**
   * echos a Read More Link in a post
   */
-function _themename_read_more_link() {
-    echo '<a href="' . esc_url(get_the_permalink()) . '" title="' . the_title_attribute(['echo' => false]) . '">';
+function _themename_read_more_link($btn_class='') {
+
+    if ( $btn_class != '' ) {
+        $class = 'Class="' . $btn_class . '"';
+    } else {
+        $class= null;
+    }
+    
+    echo '<a href="' . esc_url(get_the_permalink()) . '" title="' . the_title_attribute(['echo' => false]) . '" ' . $class . '>';
     
     /** translators: %s Post Title */
     printf(
@@ -112,3 +119,83 @@ function _themename_change_excerpt_length( $length ) {
 //     return $mimes;
 //   }
 //   add_filter('upload_mimes', '_themename_enable_svg_upload');
+
+/**
+ * Function to get the wrapper ID of the div
+ * return: string
+ */
+function _themename_get_wrapper_id() {
+
+    $wrapper_id = '';
+
+    if( is_home() ) {
+        $wrapper_id = 'index';
+    } elseif ( is_page() ) {
+        $wrapper_id = 'page';
+    } elseif ( is_archive() ) {
+        $wrapper_id = 'archive';
+    } elseif ( is_search() ) {
+        $wrapper_id = 'search';
+    } elseif ( is_single() ) {
+        $wrapper_id = 'single';
+    }
+
+    return $wrapper_id;
+}
+
+
+/**
+ * Function to determine if a sidebar is active
+ * accepts arguments
+ * return: boolean
+ */
+function _themename_left_sidebarmain_column_length() {
+
+    if ( is_active_sidebar( 'left-sidebar' ) ) {
+        if ( is_active_sidebar( 'right-sidebar' ) ) {
+            echo 'col-3';
+        } else {
+            echo 'col-4';
+        }
+    }
+
+}
+
+/**
+ * Function to determine if a sidebar is active
+ * accepts arguments
+ * return: string
+ */
+function _themename_right_sidebarmain_column_length() {
+
+    if ( is_active_sidebar( 'right-sidebar' ) ) {
+        if ( is_active_sidebar( 'left-sidebar' ) ) {
+            echo 'col-3';
+        } else {
+            echo 'col-4';
+        }
+    }
+
+}
+
+/**
+ * Function to determine if a sidebar is active
+ * accepts arguments
+ * return: string
+ */
+function _themename_main_column_length() {
+
+    if ( is_active_sidebar( 'right-sidebar' )  && is_active_sidebar('left-sidebar') ) {
+        echo 'col-6';
+    } elseif( !is_active_sidebar( 'right-sidebar' )  && !is_active_sidebar('left-sidebar') ) {
+        echo 'col-12';
+    } else {
+        echo 'col-8';
+    }
+
+}
+
+
+
+
+

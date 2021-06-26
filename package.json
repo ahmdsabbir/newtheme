@@ -1,7 +1,6 @@
 {
   "name": "newtheme",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "gulp",
@@ -12,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/ahmdsabbir/newtheme.git"
   },
-  "author": "",
+  "author": "Sabbir",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ahmdsabbir/newtheme/issues"
@@ -36,5 +35,9 @@
     "vinyl-named": "^1.1.0",
     "webpack-stream": "^6.1.2",
     "yargs": "^17.0.1"
-  }
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "description": ""
 }

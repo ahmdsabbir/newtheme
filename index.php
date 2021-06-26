@@ -1,57 +1,89 @@
-
 <?php get_header(); ?> 
 
-    <!-- main start -->
-    <main role="main">
+<div class="wrapper" id="<?php echo _themename_get_wrapper_id(); ?>-wrapper">
 
-        <?php if(have_posts()) : ?>
-            <?php while(have_posts() ): the_post(); ?>
+        <div class="row">
 
-                <article>
-                    <header class="entry-header">
-                        <h1>
-                            <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-                                <?php the_title() ?>
-                            </a>
-                        </h1>
+        <?php if( is_active_sidebar('left-sidebar') ): ?>
 
-                        <div class="post-meta">
-                            <?php _themename_post_meta(); ?>
-                        </div><!-- post-meta end -->
-                
-                        
-                    </header><!-- .entry-header -->
+            <div class="<?php _themename_left_sidebarmain_column_length(); ?>">
 
-                    <div class="entry-content">
+                <aside role="complementary">
+                <?php dynamic_sidebar( 'left-sidebar' ); ?>
+                </aside>
 
-                        <?php the_excerpt(); ?>
+            </div><!-- .col-3 end -->
 
-                        <?php _themename_read_more_link(); ?>
-                        
+            <?php endif; ?>
 
-                    </div><!-- .entry-content -->
+            <div class="<?php _themename_main_column_length(); ?>">
 
-                    <footer class="entry-footer">
+                <main class="site-main" role="main">
                     
-                    </footer><!-- .entry-footer -->
+                    <?php if(have_posts()) : ?>
 
-                </article><!--  article- -->
+                        <?php while(have_posts() ): the_post(); ?>
 
-            <?php endwhile; ?>
+                            <article <?php post_class('mb-4'); ?>>
 
-            <?php the_posts_pagination();?>
-        <?php else: ?>
-            <p>
-                <?php esc_html_e('No posts matched your criteria', '_themename'); ?>
-            </p>
-        <?php endif; ?>
+                                <header class="entry-header">
+                                    <h1 class="entry-title">
+                                        <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+                                            <?php the_title() ?>
+                                        </a>
+                                    </h1>
 
-    </main><!-- main end-->
+                                    <div class="entry-meta">
+                                        <?php _themename_post_meta(); ?>
+                                    </div><!-- entry-meta end -->
+                            
+                                    
+                                </header><!-- .entry-header -->
 
-    <!-- sidebar start -->
-    <aside role="complementary">
-        <h3>Sidebar</h3>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi quae ipsum iusto autem laborum. Iure laborum dolorum ut facere sed fuga ipsa consequatur illum quo. Non sequi voluptate unde! Deleniti enim rerum voluptates rem amet. Eaque fuga ratione aliquid neque fugit. Debitis nobis officiis consequuntur distinctio enim fugit consequatur itaque consectetur iste quis. Aperiam deserunt hic magnam dolor possimus consectetur tempora deleniti accusantium amet illo
-    </aside><!-- sidebar end -->
+                                <div class="entry-content">
+
+                                    <?php the_excerpt(); ?>
+
+                                    <?php _themename_read_more_link(); ?>
+                                    
+
+                                </div><!-- .entry-content -->
+
+                                <footer class="entry-footer">
+                                    entry footer
+                                </footer><!-- .entry-footer -->
+
+                            </article><!--  article- -->
+
+                        <?php endwhile; ?>
+
+                        <?php the_posts_pagination();?>
+                    <?php else: ?>
+                        <p>
+                            <?php esc_html_e('No posts matched your criteria', '_themename'); ?>
+                        </p>
+                    <?php endif; ?>
+                    
+                </main>
+
+            </div><!-- .col-6 end -->
+
+            <?php if( is_active_sidebar('right-sidebar') ): ?>
+
+            <div class="<?php _themename_right_sidebarmain_column_length(); ?>">
+
+                <aside role="complementary">
+                    <?php dynamic_sidebar( 'right-sidebar' ); ?>
+                </aside>
+
+            </div><!-- .col-3 end -->
+
+            <?php endif; ?>
+
+        </div><!-- .row end -->
+
+    </div><!-- .#content end -->
+
+</div><!-- .wrapper end -->
 
 <?php get_footer(); ?>
