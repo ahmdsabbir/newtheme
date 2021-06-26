@@ -149,14 +149,10 @@ function _themename_get_wrapper_id() {
  * accepts arguments
  * return: boolean
  */
-function _themename_left_sidebarmain_column_length() {
+function _themename_left_sidebar_column_length($additional = '') {
 
     if ( is_active_sidebar( 'left-sidebar' ) ) {
-        if ( is_active_sidebar( 'right-sidebar' ) ) {
-            echo 'col-3';
-        } else {
-            echo 'col-4';
-        }
+        echo 'col-3 ' . $additional;
     }
 
 }
@@ -166,14 +162,10 @@ function _themename_left_sidebarmain_column_length() {
  * accepts arguments
  * return: string
  */
-function _themename_right_sidebarmain_column_length() {
+function _themename_right_sidebar_column_length($additional = '') {
 
     if ( is_active_sidebar( 'right-sidebar' ) ) {
-        if ( is_active_sidebar( 'left-sidebar' ) ) {
-            echo 'col-3';
-        } else {
-            echo 'col-4';
-        }
+        echo 'col-3 ' . $additional;
     }
 
 }
@@ -183,14 +175,27 @@ function _themename_right_sidebarmain_column_length() {
  * accepts arguments
  * return: string
  */
-function _themename_main_column_length() {
+function _themename_main_column_length($additional = '') {
 
     if ( is_active_sidebar( 'right-sidebar' )  && is_active_sidebar('left-sidebar') ) {
-        echo 'col-6';
+        echo 'col-6 ' . $additional;
     } elseif( !is_active_sidebar( 'right-sidebar' )  && !is_active_sidebar('left-sidebar') ) {
-        echo 'col-12';
+        echo 'col-12 ' . $additional;
     } else {
-        echo 'col-8';
+        echo 'col-9 ' . $additional;
+    }
+
+}
+
+function _themename_any_widget_active() {
+    $footer_layout = '3,3,3,3';
+	$columns = explode(',', $footer_layout);
+    $widget_active = false;
+
+    foreach($columns as $index => $column) {
+        if(is_active_sidebar('footer-sidebar-' . ($index + 1)) ) {
+            return $widget_active = true;
+        }
     }
 
 }
