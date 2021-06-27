@@ -1,0 +1,74 @@
+/**
+------------------------------------------
+    Some SImple Header Styling, You are free to use styling of yor own
+------------------------------------------
+**/
+div#header-wrapper {
+    nav {
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background: $white;
+          }
+          
+          ul li {
+            display: block;
+            position: relative;
+            float: left;
+            background: $white;
+          }
+          
+          /* This hides the dropdowns */
+          
+          
+          li ul { display: none; }
+          
+          ul li a {
+            display: block;
+            padding: 1em;
+            font-weight: bold;
+            text-decoration: none;
+            white-space: nowrap;
+            color: $black;
+          }
+          
+          ul li a:hover { background: $white; text-decoration: underline; }
+          
+          /* Display the dropdown */
+          
+          
+          li:hover > ul {
+            display: block;
+            position: absolute;
+          }
+          
+          li:hover li { float: none; }
+          
+          li:hover a { background: $white; }
+          
+          li:hover li a:hover { background: $white; text-decoration: underline; }
+          
+          .main-navigation li ul li { border-top: 0; }
+          
+          /* Displays second level dropdowns to the right of the first level dropdown */
+          
+          
+          ul ul ul {
+            left: 100%;
+            top: 0;
+          }
+          
+          /* Simple clearfix */
+          
+          
+          
+          ul:before,
+          ul:after {
+            content: " "; /* 1 */
+            display: table; /* 2 */
+          }
+          
+          ul:after { clear: both; }
+    }
+}

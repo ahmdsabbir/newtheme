@@ -26,7 +26,6 @@ get_header();
         <div class="row">
 
             <?php if( is_active_sidebar('left-sidebar') ): ?>
-
                 <div class="col-3">
 
                     <aside role="complementary">
@@ -34,7 +33,6 @@ get_header();
                     </aside>
 
                 </div><!-- .col-3 end -->
-
             <?php endif; ?>
 
             <div class="col-<?php _themename_main_column_length(); ?>">
@@ -68,7 +66,6 @@ get_header();
             </div><!-- .col-6 end -->
 
             <?php if( is_active_sidebar('right-sidebar') ): ?>
-
                 <div class="col-3">
 
                     <aside role="complementary">
@@ -76,7 +73,6 @@ get_header();
                     </aside>
 
                 </div><!-- .col-3 end -->
-
             <?php endif; ?>
 
         </div><!-- .row end -->
