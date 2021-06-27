@@ -149,26 +149,6 @@ function _themename_get_wrapper_id() {
  * accepts arguments
  * return: boolean
  */
-function _themename_left_sidebar_column_length($additional = '') {
-
-    if ( is_active_sidebar( 'left-sidebar' ) ) {
-        echo 'col-3 ' . $additional;
-    }
-
-}
-
-/**
- * Function to determine if a sidebar is active
- * accepts arguments
- * return: string
- */
-function _themename_right_sidebar_column_length($additional = '') {
-
-    if ( is_active_sidebar( 'right-sidebar' ) ) {
-        echo 'col-3 ' . $additional;
-    }
-
-}
 
 /**
  * Function to determine if a sidebar is active
@@ -178,11 +158,11 @@ function _themename_right_sidebar_column_length($additional = '') {
 function _themename_main_column_length($additional = '') {
 
     if ( is_active_sidebar( 'right-sidebar' )  && is_active_sidebar('left-sidebar') ) {
-        echo 'col-6 ' . $additional;
+        echo '6' . $additional;
     } elseif( !is_active_sidebar( 'right-sidebar' )  && !is_active_sidebar('left-sidebar') ) {
-        echo 'col-12 ' . $additional;
+        echo '12' . $additional;
     } else {
-        echo 'col-9 ' . $additional;
+        echo '9' . $additional;
     }
 
 }
@@ -200,6 +180,8 @@ function _themename_any_widget_active() {
 
 }
 
+
+ 
 
 
 

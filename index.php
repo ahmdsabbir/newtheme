@@ -27,7 +27,7 @@ get_header();
 
             <?php if( is_active_sidebar('left-sidebar') ): ?>
 
-                <div class="<?php _themename_left_sidebar_column_length(); ?>">
+                <div class="col-3">
 
                     <aside role="complementary">
                     <?php dynamic_sidebar( 'left-sidebar' ); ?>
@@ -37,7 +37,7 @@ get_header();
 
             <?php endif; ?>
 
-            <div class="<?php _themename_main_column_length(); ?>">
+            <div class="col-<?php _themename_main_column_length(); ?>">
 
                 <main class="site-main" role="main">
                     
@@ -69,7 +69,7 @@ get_header();
 
             <?php if( is_active_sidebar('right-sidebar') ): ?>
 
-                <div class="<?php _themename_right_sidebar_column_length(); ?>">
+                <div class="col-3">
 
                     <aside role="complementary">
                         <?php dynamic_sidebar( 'right-sidebar' ); ?>

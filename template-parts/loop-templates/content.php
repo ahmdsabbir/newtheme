@@ -1,4 +1,4 @@
-<article <?php post_class('mb-4'); ?>>
+<article <?php post_class(); ?>>
 
     <header class="entry-header">
 
