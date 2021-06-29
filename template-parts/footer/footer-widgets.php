@@ -1,7 +1,8 @@
 <div class="row">
 
 <?php
-$footer_layout = '3,3,3,3,';
+$footer_layout = sanitize_text_field(get_theme_mod( '_themename_footer_layout', '3,3,3,3' ));
+$footer_layout = preg_replace('/\s+/', '', $footer_layout);
 $columns = explode(',', $footer_layout);
 ?>
 

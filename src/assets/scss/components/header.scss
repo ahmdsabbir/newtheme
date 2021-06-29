@@ -27,13 +27,12 @@ div#header-wrapper {
           ul li a {
             display: block;
             padding: 1em;
-            font-weight: bold;
             text-decoration: none;
             white-space: nowrap;
             color: $black;
           }
           
-          ul li a:hover { background: $white; text-decoration: underline; }
+          ul li a:hover { background: $white; color: $orange; }
           
           /* Display the dropdown */
           
@@ -47,7 +46,7 @@ div#header-wrapper {
           
           li:hover a { background: $white; }
           
-          li:hover li a:hover { background: $white; text-decoration: underline; }
+          li:hover li a:hover { background: $white; text-decoration: none; }
           
           .main-navigation li ul li { border-top: 0; }
           

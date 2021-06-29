@@ -1,3 +1,7 @@
 @import '../../../node_modules/bootstrap/scss/bootstrap.scss';
 @import './components/variables';
 @import './components/header';
+
+$fa-font-path: '../../../node_modules/@fortawesome/font-awesome-free/webfonts';
+@import '../../../node_modules/@fortawesome/fontawesome-free/scss/regular';
+@import '../../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome'

@@ -11,6 +11,23 @@ function _themename_register_menus() {
 add_action( 'init', '_themename_register_menus' );
 
 
+function _themename_dropdown_icon($title, $item, $args, $depth) {
+    if($args->theme_location == 'main-menu') {
+        if(in_array('menu-item-has-children', $item->classes)) {
+            if( $depth == 0 ) {
+                $title .= ' &dArr; ';
+            } else {
+                $title .= ' &rArr; ';
+            }
+        }
+    }
+    return $title;
+}
+
+add_filter( 'nav_menu_item_title', '_themename_dropdown_icon', 10, 4 );
+
+
+
 function _themename_aria_hasdropdown ($atts, $item, $args) {
     if($args->theme_location == 'main-menu') {
         if(in_array('menu-item-has-children', $item->classes)) {

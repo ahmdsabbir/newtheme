@@ -168,7 +168,8 @@ function _themename_main_column_length($additional = '') {
 }
 
 function _themename_any_widget_active() {
-    $footer_layout = '3,3,3,3';
+    $footer_layout = sanitize_text_field(get_theme_mod( '_themename_footer_layout', '3,3,3,3' ));
+    $footer_layout = preg_replace('/\s+/', '', $footer_layout);
 	$columns = explode(',', $footer_layout);
     $widget_active = false;
 
