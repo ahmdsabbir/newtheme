@@ -4,30 +4,27 @@
  * 
  * @package: _themename
  */
+namespace _themename\Lib;
 
-function _themename_assets() {
+use _themename\Lib\Classes\Enqueue;
 
-    /**
-     * ----------CSS
-     */
-    wp_enqueue_style('_themename-stylesheet', get_template_directory_uri() . '/dist/assets/css/bundle.css', array(), 'all');
-
-    /**
-     * ---------JS
-     */
-    wp_enqueue_script( 'jquery');
-    wp_enqueue_script('_themename-scripts', get_template_directory_uri() . '/dist/assets/js/bundle.js', array(), 1.1, true);
-    
-
-}
-add_action('wp_enqueue_scripts', '_themename_assets');
+$enqueue = new Enqueue;
 
 
-function _themename_admin_assets() {
 
-    wp_enqueue_style('_themename-admin-stylesheet', get_template_directory_uri() . '/dist/assets/css/admin.css', array(), 'all');
+/**
+ * Load CSS
+ */
 
-    wp_enqueue_script('_themename-admin-scripts', get_template_directory_uri() . '/dist/assets/js/admin.js', array(), true);
+$enqueue->css('_themename-stylesheet', '/dist/assets/css/bundle.css');
+$enqueue->admin_css('_themename-admin-stylesheet', '/dist/assets/css/admin.css');
 
-}
-add_action('admin_enqueue_scripts', '_themename_admin_assets');
+
+/**
+ * Load JS
+ */
+
+$enqueue->core_script('jquery');
+$enqueue->js('_themename-scripts', '/dist/assets/js/bundle.js', array(), 1.1, true);
+$enqueue->admin_js('_themename-scripts', '/dist/assets/js/admin.js', array(), 1.1, true);
+
