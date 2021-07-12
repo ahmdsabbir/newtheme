@@ -3,11 +3,12 @@ $site_info = get_theme_mod( '_themename_site_info', '' );
 ?>
 
 <?php if($site_info) : ?>
+
 <div class="row">
 
         <div class="col-12 text-center">
 
-        <p>
+        <p id="footer-info">
             <?php 
             $allowed = [
                 'a' => [

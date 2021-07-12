@@ -1,6 +1,6 @@
 <?php
 /**
- * The main template file
+ * The Single post template file
  *
  * This is the most generic template file in a WordPress theme
  * and one of the two required files for a theme (the other being style.css).
@@ -8,13 +8,15 @@
  * E.g., it puts together the home page when no home.php file exists.
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  * 
- * _themename_get_wrapper_id() in /inc/helpers
+ * _themename_get_wrapper_id() in /lib/helpers
  *
  * @package _themename
  */
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
+
+$layout = get_post_meta(get_the_ID(), '__themename_post_layout', true);
 
 get_header(); 
 ?> 
@@ -25,7 +27,7 @@ get_header();
 
         <div class="row">
 
-            <?php if( is_active_sidebar('left-sidebar') ): ?>
+            <?php if( is_active_sidebar('left-sidebar') && $layout == 'yes' ): ?>
 
                 <div class="col-3">
                     <?php get_sidebar('left'); ?>
@@ -48,7 +50,7 @@ get_header();
                             * If you want to override this in a child theme, then include a file
                             * called content-___.php (where ___ is the Post Format name) and that will be used instead.
                             */
-                            get_template_part( '/template-parts/loop-templates/content' );
+                            get_template_part( '/template-parts/loop-templates/content', 'single' );
 
                         endwhile;
                     
@@ -63,7 +65,8 @@ get_header();
 
             </div><!-- .col-6 end -->
 
-            <?php if( is_active_sidebar('right-sidebar') ): ?>
+
+            <?php if( is_active_sidebar('right-sidebar') && $layout == 'yes' ): ?>
 
                 <div class="col-3">
                     <?php get_sidebar('right'); ?>

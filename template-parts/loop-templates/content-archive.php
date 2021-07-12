@@ -24,13 +24,16 @@
 
         <?php the_excerpt(); ?>
 
+        <?php  ?>
+        
+
     </div><!-- .entry-content -->
 
     <footer class="entry-footer">
     <?php
     _themename_read_more_link();
-    _themename_entry_footer();
-     ?>
+    _themename_entry_footer(); 
+    ?>
     </footer><!-- .entry-footer -->
 
 </article><!--  article- -->

@@ -1,6 +1,6 @@
     <div class="wrapper" id="footer-wrapper">
 
-      <div class="container">
+      <div class="container" id="footer" role="site-footer">
 
       <?php 
 
@@ -14,7 +14,7 @@
         get_template_part( '/template-parts/footer/footer', 'widgets' );
       endif; 
 
-      get_template_part( '/template-parts/footer/footer', 'info' )
+      get_template_part( '/template-parts/footer/footer', 'info' );
 
       ?>
 

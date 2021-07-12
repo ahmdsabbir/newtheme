@@ -33,6 +33,7 @@ const paths = {
     src: [
       'src/assets/js/bundle.js',
       'src/assets/js/admin.js',
+      'src/assets/js/customize-preview.js',
     ],
     dest: 'dist/assets/js'
   },

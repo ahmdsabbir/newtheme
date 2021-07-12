@@ -1,6 +1,6 @@
 <?php
 /**
- * The main template file
+ * The Archive template file
  *
  * This is the most generic template file in a WordPress theme
  * and one of the two required files for a theme (the other being style.css).
@@ -8,7 +8,7 @@
  * E.g., it puts together the home page when no home.php file exists.
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  * 
- * _themename_get_wrapper_id() in /inc/helpers
+ * _themename_get_wrapper_id() in /lib/helpers
  *
  * @package _themename
  */
@@ -48,7 +48,7 @@ get_header();
                             * If you want to override this in a child theme, then include a file
                             * called content-___.php (where ___ is the Post Format name) and that will be used instead.
                             */
-                            get_template_part( '/template-parts/loop-templates/content' );
+                            get_template_part( '/template-parts/loop-templates/content', 'archive' );
 
                         endwhile;
                     

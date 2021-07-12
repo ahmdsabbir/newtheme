@@ -2,15 +2,39 @@
 
 function _themename__customize_register( $wp_customize ) {
 
-    // No panels added!
-    
-    // Create our sections
+    $wp_customize->get_setting('blogname')->transport = 'postMessage';
+
+    $wp_customize->selective_refresh->add_partial('blogname', array(
+        'selector' => '.navbar-brand',
+        'container_incusive' => false,
+        'render_callback' => function() {
+            bloginfo('name');
+        }
+    ));
+
+    $wp_customize->selective_refresh->add_partial('_themename_footer_partial', array(
+        'settings' => array('_themename_footer_layout'),
+        'selector' => '#footer',
+        'container_incusive' => false,
+        'render_callback' => function() {
+
+            if(_themename_any_widget_active()) :
+                get_template_part( '/template-parts/footer/footer', 'widgets' );
+            endif; 
+        
+            get_template_part( '/template-parts/footer/footer', 'info' );
+
+        }
+    ));
     
     $wp_customize->add_section( '_themename_footer_options' , array(
-        'title'             => __('Footer Options', '_themename'),
+        'title'             => esc_html__('Footer Options', '_themename'),
         'priority'          => 161,
         'description'       => esc_html__('You can change footer options from here', '_themename'),
     ) );
+
+
+
             
     // Footer Site info
     
@@ -18,8 +42,9 @@ function _themename__customize_register( $wp_customize ) {
         'default'       => '',
         'type'          => 'theme_mod',
         'sanitize_callback' => '_themename_sanitize_site_info',
-        'transport'     => 'refresh',
+        'transport'     => 'postMessage',
     ) );
+
     $wp_customize->add_control( '_themename_site_info', array(
         'label'      => esc_html__('Site Info', '_themename'),
         'description'=> __('Choose Footer Copyright Text', '_themename'),
@@ -35,10 +60,10 @@ function _themename__customize_register( $wp_customize ) {
         'type'          => 'theme_mod',
         'sanitize_callback' => 'sanitize_text_field',
         'validate_callback' => '_themename_validate_footer_layout',
-        'transport'     => 'refresh',
+        'transport'     => 'postMessage',
     ) );
     $wp_customize->add_control( '_themename_footer_layout', array(
-        'label'      => esc_html__('Site Info', '_themename'),
+        'label'      => esc_html__('Footer Layout', '_themename'),
         'description'=> __('Choose Footer Grids', '_themename'),
         'section'    => '_themename_footer_options',
         'settings'   => '_themename_footer_layout',
@@ -61,9 +86,9 @@ function _themename__customize_register( $wp_customize ) {
     }
 
 
-    function _themename_validate_footer_layout($validity, $value) {
-        if(!preg_match('/^([1-9]|1[012])(,[1-9]|1[012]))*$/', $value)) {
-            $validity->add('invalid_footer_layout', esc_html__( 'Footer Layout is invalid', '_themename' ));
+    function _themename_validate_footer_layout( $validity, $value) {
+        if(!preg_match('/^([1-9]|1[012])(,([1-9]|1[012]))*$/', $value)) {
+            $validity->add('invalid_footer_layout', esc_html__( 'Footer layout is invalid', '_themename' ));
         }
         return $validity;
     }
