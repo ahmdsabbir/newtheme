@@ -50,11 +50,28 @@ get_header();
                             * If you want to override this in a child theme, then include a file
                             * called content-___.php (where ___ is the Post Format name) and that will be used instead.
                             */
-                            get_template_part( '/template-parts/loop-templates/content', 'single' );
+                            get_template_part( '/template-parts/loop-templates/content-single' );
+
+                            /**
+                             * Get Author info for this post
+                             */
+                            if( get_theme_mod( '_themename_display_author_info', true) ):
+                                get_template_part( '/template-parts/single/author' );
+                            endif;
+
+                            /**
+                             * Get post previous and next post navigation
+                             */
+
+                            get_template_part( '/template-parts/single/post-navigation' );
+
+                            
+                            if( comments_open() || get_comments_number()) {
+                                comments_template();
+                            }
+        
 
                         endwhile;
-                    
-                        the_posts_pagination();
                     
                     else:
                         get_template_part( '/template-parts/loop-templates/content', 'none' );

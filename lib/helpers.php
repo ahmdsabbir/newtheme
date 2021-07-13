@@ -102,8 +102,8 @@ function _themename_categories_post_list() {
 //Change the default excerpt length in WordPress (default is 55 words)
 function _themename_change_excerpt_length( $length ) {
     return 24;
-  }
-  add_filter( 'excerpt_length', '_themename_change_excerpt_length', 9999);
+}
+add_filter( 'excerpt_length', '_themename_change_excerpt_length', 9999);
 
 
 
@@ -182,11 +182,10 @@ function _themename_main_column_length($additional = '') {
                 echo '9' . $additional;
             }
         }
-    }
-
-    
+    }   
 
 }
+
 
 function _themename_any_widget_active() {
     $footer_layout = sanitize_text_field(get_theme_mod( '_themename_footer_layout', '3,3,3,3' ));
@@ -201,8 +200,6 @@ function _themename_any_widget_active() {
     }
 
 }
-
-
 
 
 function _themename_entry_footer() {
