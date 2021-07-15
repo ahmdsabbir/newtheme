@@ -28,13 +28,12 @@ defined( 'ABSPATH' ) || exit;
             <?php endif; ?>
             <div class="col-<?php _themename_main_column_length(); ?>">
                 <div>
-                    <?php
-                    the_archive_title('<h1>', '</h1>');
-                    the_archive_description('<p>', '</p>');
-                    ?>
+                    <h1>
+                        <?php printf(esc_html__( 'Search Result for: %s', '_themename' ), get_search_query( )); ?>
+                    </h1>
                 </div>
                 <main class="site-main" role="main">
-                    <?php get_template_part( 'loop', 'archive' ); ?> 
+                    <?php get_template_part( 'loop', 'search' ); ?> 
                 </main>
             </div><!-- .col-6 end -->
             <?php if( is_active_sidebar('right-sidebar') ): ?>

@@ -11,10 +11,16 @@
   <body <?php body_class(); ?>>
 
   <?php wp_body_open(); ?>
-  
+  <pre>
+    <?php var_dump(wp_get_theme());wp_die(  );?>
+  </pre>
 
   <div class="wrapper" id="header-wrapper">
 
     <?php get_template_part( '/template-parts/header/nav', 'bootstrap' ); ?>
 
   </div><!-- #header-wrapper end -->
+
+  <?php _themename_breadcrumb( 'ol', 'breadcrumb', 'breadcrumb', 'active', true );
+  
+  ?>

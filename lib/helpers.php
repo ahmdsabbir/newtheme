@@ -44,7 +44,7 @@ function _themename_read_more_link($btn_class='') {
     /** translators: %s Post Title */
     printf(
         wp_kses(
-            __('Read More <span class=u-screen-reader-text">About %s</span>'),
+            __('Read More <span class="screen-reader-text">About %s</span>'),
             [
                 'span' => [
                     'class' => []

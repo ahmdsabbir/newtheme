@@ -1,9 +1,6 @@
 <?php
 /**
- * The Page template file
- * _themename_get_wrapper_id() in /lib/helpers
- *
- * @package _themename
+ * Template Name: Left Sidebar Page
  */
 
 // Exit if accessed directly.
@@ -11,7 +8,7 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <?php get_header(); ?> 
 
-<div class="wrapper" id="<?php echo _themename_get_wrapper_id(); ?>-wrapper">
+<div class="wrapper" id="page-wrapper">
     <div class="container">
         <div class="row">
             <?php if( is_active_sidebar('left-sidebar') ): ?>
@@ -19,16 +16,11 @@ defined( 'ABSPATH' ) || exit;
                     <?php get_sidebar('left'); ?>
                 </div><!-- .col-3 end -->
             <?php endif; ?>
-            <div class="col-<?php _themename_main_column_length(); ?>">
+            <div class="col-9">
                 <main class="site-main" role="main">  
                     <?php get_template_part( 'loop', 'page' ); ?> 
                 </main>
-            </div><!-- .col-6 end -->
-            <?php if( is_active_sidebar('right-sidebar') ): ?>
-                <div class="col-3">
-                    <?php get_sidebar('right'); ?>
-                </div><!-- .col-3 end -->
-            <?php endif; ?>
+            </div><!-- .col-9 end -->
         </div><!-- .row end -->
     </div><!-- .container end -->
 </div><!-- .wrapper end -->
