@@ -164,11 +164,11 @@ function _themename_main_column_length($additional = '') {
 
     if ( !is_single() ) { //if not single.php only check if both sidebars/one of the sidebar is active
         if ( is_active_sidebar( 'right-sidebar' )  && is_active_sidebar('left-sidebar') ) {// if both sidebar active
-            echo '6' . $additional;
+            echo '6 ' . $additional;
         } elseif( !is_active_sidebar( 'right-sidebar' )  && !is_active_sidebar('left-sidebar') ) { //if no sidebar active
-            echo '12' . $additional;
+            echo '12 ' . $additional;
         } else { //if only one of the sidebar active
-            echo '9' . $additional;
+            echo '9 ' . $additional;
         }
     } elseif( is_single() ) { //if single.php check if Sidebar is not shown in post_meta_box make the main container 12 column
         if($layout == 'no') {

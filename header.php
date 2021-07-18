@@ -11,9 +11,6 @@
   <body <?php body_class(); ?>>
 
   <?php wp_body_open(); ?>
-  <pre>
-    <?php var_dump(wp_get_theme());wp_die(  );?>
-  </pre>
 
   <div class="wrapper" id="header-wrapper">
 
