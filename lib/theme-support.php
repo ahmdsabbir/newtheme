@@ -18,13 +18,13 @@ function _themename_theme_support() {
        'flex-width' => true
    ) );
    add_theme_support('post-formats', array(
-       'aside',
-     'image',
-     'video',
-     'quote',
-     'link',
-     'gallery',
-     'audio',
+    'aside',
+    'image',
+    'video',
+    'quote',
+    'link',
+    'gallery',
+    'audio',
    ));
    add_theme_support( 'align-wide' );
    add_image_size('_themename-blog-image', 1200, 0);

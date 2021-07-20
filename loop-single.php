@@ -7,7 +7,8 @@
  */
 if(have_posts()) :                   
     while(have_posts() ): the_post();
-        get_template_part( '/template-parts/loop-templates/content-single' );
+        get_template_part( '/template-parts/post/content', get_post_format( ) );
+        
         /**
          * Get Author info for this post if it's enabled from the customizer
          */
@@ -21,10 +22,10 @@ if(have_posts()) :
         /**
          * Get comments for this post if enabled in the backend
          */
-        if( comments_open() || get_comments_number()) {
+        if( comments_open() || get_comments_number()) :
             comments_template();
-        }
+        endif;
     endwhile;
 else:
-    get_template_part( '/template-parts/loop-templates/content', 'none' );
+    get_template_part( '/template-parts/post/content', 'none' );
 endif; 

@@ -99,14 +99,6 @@ function _themename_categories_post_list() {
 
 }
 
-//Change the default excerpt length in WordPress (default is 55 words)
-function _themename_change_excerpt_length( $length ) {
-    return 24;
-}
-add_filter( 'excerpt_length', '_themename_change_excerpt_length', 9999);
-
-
-
 //Enable SVG upload
 // function _themename_enable_svg_upload( $mimes ) {
 //     //Only allow SVG upload by admins
@@ -142,13 +134,6 @@ function _themename_get_wrapper_id() {
 
     return $wrapper_id;
 }
-
-
-/**
- * Function to determine if a sidebar is active
- * accepts arguments
- * return: boolean
- */
 
 /**
  * Function to determine if a sidebar is active
