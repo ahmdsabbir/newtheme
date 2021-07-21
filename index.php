@@ -23,7 +23,7 @@ defined( 'ABSPATH' ) || exit;
             <?php endif; ?>
             <div class="col-<?php _themename_main_column_length(); ?>">
                 <main class="site-main" role="main">        
-                    <?php get_template_part( 'loop', 'index' ); ?>      
+                    <?php get_template_part( 'loop'); ?>      
                 </main>
             </div><!-- .col-6 end -->
             <?php if( is_active_sidebar('right-sidebar') ): ?>
