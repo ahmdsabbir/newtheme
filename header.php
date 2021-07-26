@@ -1,3 +1,10 @@
+<?php
+/**
+ * Header
+ * 
+ * @package _themename
+ */
+?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
   <head>
@@ -18,6 +25,8 @@
 
   </div><!-- #header-wrapper end -->
 
-  <?php _themename_breadcrumb( 'ol', 'breadcrumb', 'breadcrumb', 'active', true );
-  
+  <?php
+  if( get_theme_mod( '_themename_display_breadcrumb', true) ) :
+    get_template_part( '/template-parts/components/breadcrumb');
+  endif;
   ?>

@@ -7,18 +7,37 @@ function _themename__customize_register( $wp_customize ) {
 
     $wp_customize->selective_refresh->add_partial('blogname', array(
         'selector' => '.navbar-brand',
-        'container_incusive' => false,
+        'container_inclusive' => false,
         'render_callback' => function() {
             bloginfo('name');
         }
     ));
+
+    /** #################### Global ###################### */
+    $wp_customize->add_section('_themename_general_theme_options', array(
+        'title' => esc_html__( 'General Theme Options', '_themename' ),
+        'description' => esc_html__( 'You can change General Theme options from here.', '_themename' )
+    ));
+
+    $wp_customize->add_setting('_themename_display_breadcrumb', array(
+        'default' => true,
+        'transport' => 'refresh',
+        'sanitize_callback' => '_themename_sanitize_checkbox'
+    ));
+
+    $wp_customize->add_control('_themename_display_breadcrumb', array(
+        'type' => 'checkbox',
+        'label' => esc_html__( 'Show Breadcrumb', '_themename' ),
+        'section' => '_themename_general_theme_options'
+    ));
+    
 
     /**##################### footer ##################### */
 
     $wp_customize->selective_refresh->add_partial('_themename_footer_partial', array(
         'settings' => array('_themename_footer_layout'),
         'selector' => '#footer',
-        'container_incusive' => false,
+        'container_inclusive' => false,
         'render_callback' => function() {
 
             if(_themename_any_widget_active()) :
@@ -89,6 +108,18 @@ function _themename__customize_register( $wp_customize ) {
         'section' => '_themename_single_blog_options'
     ));
 
+    //Related Posts
+    $wp_customize->add_setting('_themename_display_related_posts', array(
+        'default' => true,
+        'transport' => 'refresh',
+    ));
+
+    $wp_customize->add_control('_themename_display_related_posts', array(
+        'type' => 'checkbox',
+        'label' => esc_html__( 'Show Related Posts', '_themename' ),
+        'section' => '_themename_single_blog_options'
+    ));
+
     function _themename_sanitize_checkbox( $checked ) {
         return (isset($checked) && $checked === true) ? true : false;
     }
@@ -122,3 +153,4 @@ function _themename_validate_footer_layout( $validity, $value) {
     }
     return $validity;
 }
+

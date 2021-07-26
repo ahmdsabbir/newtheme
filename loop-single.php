@@ -20,6 +20,10 @@ if(have_posts()) :
          */
         get_template_part( '/template-parts/single/post-navigation' );
         /**
+         * Get Related Posts
+         */
+        get_template_part( '/template-parts/components/related-posts' );
+        /**
          * Get comments for this post if enabled in the backend
          */
         if( comments_open() || get_comments_number()) :

@@ -29,7 +29,7 @@
                 wp_list_comments( array(
                     'short_ping' => false,
                     'avatar_size' => 50,
-                    'reply_text' => 'hello',
+                    'reply_text' => 'Reply',
                     'callback' => '_themename_comment_callback'
                 ) );
             ?>

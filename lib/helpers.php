@@ -7,55 +7,6 @@
  */
 
 
- /**
-  * echos post meta of a post
-  */
-function _themename_post_meta() {
-    
-    echo '<span>';
-    /** translators: %s Post Date */
-    printf(
-        esc_html__('Posted on %s', '_themename'),
-        '<a href="' .  esc_url(get_permalink()) . '"><time datetime="' . esc_attr(get_the_date('c')) . '">' . esc_html(get_the_date()) . '</time></a>'
-    );
-
-    printf(
-        esc_html__(' By %s ', '_themename'),
-        '<a href="' . esc_url(get_author_posts_url(get_the_author_meta('ID'))) . '">' . esc_html(get_the_author()) . '</a>'
-    );
-    echo '</span>';
-
-}
-
-
-/**
-  * echos a Read More Link in a post
-  */
-function _themename_read_more_link($btn_class='') {
-
-    if ( $btn_class != '' ) {
-        $class = 'Class="' . $btn_class . '"';
-    } else {
-        $class= null;
-    }
-    
-    echo '<a href="' . esc_url(get_the_permalink()) . '" title="' . the_title_attribute(['echo' => false]) . '" ' . $class . '>';
-    
-    /** translators: %s Post Title */
-    printf(
-        wp_kses(
-            __('Read More <span class="screen-reader-text">About %s</span>'),
-            [
-                'span' => [
-                    'class' => []
-                ]
-            ]
-        ),
-        get_the_title()
-    );
-
-    echo '</a>';
-}
 
 
 /**
@@ -186,36 +137,124 @@ function _themename_any_widget_active() {
 
 }
 
+//Add Social Links in User Profile
+add_action( 'show_user_profile', '_themename_extra_user_profile_fields' );
+add_action( 'edit_user_profile', '_themename_extra_user_profile_fields' );
 
-function _themename_entry_footer() {
-    if(has_category()) {
-        echo '<p>';
-        /* translators: used betweeen categories */
-        $cats_list = get_the_category_list( esc_html__( ', ', '_themename' ) );
-        /* translators: %s is the categories list */
-        printf(esc_html__( 'Categories: %s', '_themename' ), $cats_list);
-        echo '</p>';
+function _themename_extra_user_profile_fields( $user ) { ?>
+    <h3><?php _e("Social Links", "_themename"); ?></h3>
+
+    <table class="form-table">
+    <tr>
+        <th><label for="twitter"><?php _e("Twitter", '_themename'); ?></label></th>
+        <td>
+            <input type="text" name="twitter" id="twitter" value="<?php echo esc_attr( get_the_author_meta( 'twitter', $user->ID ) ); ?>" class="regular-text" /><br />
+            <span class="description"><?php esc_html__("Please enter your twitter link.", '_themename'); ?></span>
+        </td>
+    </tr>
+    <tr>
+        <th><label for="facebook"><?php _e("facebook", '_themename'); ?></label></th>
+        <td>
+            <input type="text" name="facebook" id="facebook" value="<?php echo esc_attr( get_the_author_meta( 'facebook', $user->ID ) ); ?>" class="regular-text" /><br />
+            <span class="description"><?php esc_html__("Please enter your facebook link", '_themename'); ?></span>
+        </td>
+    </tr>
+    <tr>
+    <th><label for="github"><?php _e("Github"); ?></label></th>
+        <td>
+            <input type="text" name="github" id="github" value="<?php echo esc_attr( get_the_author_meta( 'github', $user->ID ) ); ?>" class="regular-text" /><br />
+            <span class="description"><?php esc_html__("Please enter your Github Link", '_themename'); ?></span>
+        </td>
+    </tr>
+    </table>
+<?php }
+
+//Save Extra User Fields
+add_action( 'personal_options_update', '_themename_save_extra_user_profile_fields' );
+add_action( 'edit_user_profile_update', '_themename_save_extra_user_profile_fields' );
+
+function _themename_save_extra_user_profile_fields( $user_id ) {
+    if ( empty( $_POST['_wpnonce'] ) || ! wp_verify_nonce( $_POST['_wpnonce'], 'update-user_' . $user_id ) ) {
+        return;
     }
-    if(has_tag()) {
-        $tags_list = get_the_tag_list( '<ul><li>', '</li><li>', '</li></ul>' );
-        printf(esc_html__( 'Tags: %s', '_themename' ), $tags_list);
+    
+    if ( !current_user_can( 'edit_user', $user_id ) ) { 
+        return false; 
     }
-
-    edit_post_link(
-        sprintf(
-            /* translators: %s: Name of current post */
-            esc_html__( 'Edit %s', '_themename' ),
-            the_title( '<span class="screen-reader-text">"', '"</span>', false )
-        ),
-        '<span class="edit-link">',
-        '</span>'
-    );
-
+    update_user_meta( $user_id, 'twitter', $_POST['twitter'] );
+    update_user_meta( $user_id, 'facebook', $_POST['facebook'] );
+    update_user_meta( $user_id, 'github', $_POST['github'] );
 }
 
+/**
+ * Related Posts
+ */
+function _themename_related_posts($count, $sort = 'rand') {
+    // Check if post has got minimum one category set
+    if (!$categories = get_the_category()) {
+        return [];
+    }
 
- 
+    // get an array with just the IDs of the categories
+    $categories = array_reduce($categories, function ($v, $w) {
+        $v[] = $w->term_id;
 
+        return $v;
+    });
 
+    // get the power set of the categories
+    $powerSet = [[]];
 
+    foreach ($categories as $id) {
+        foreach ($powerSet as $powerSetElement) {
+            if (!empty(array_merge([$id], $powerSetElement))) {
+                array_push($powerSet, array_merge([$id], $powerSetElement));
+            }
+        }
+    }
+    // remove the empty array from the power set
+    array_splice($powerSet, 0, 1);
 
+    // the posts array
+    $resultPostArray = [];
+
+    // iterator for the loop
+    $i = count($powerSet) - 1;
+
+    // init the array of posts which are already in $resultPostArray
+    // already filled with id of recent post
+    $excludePostIds = [get_the_ID()];
+
+    // start the loop and let it run until $resultPostArray has reached
+    // limit or every combinations of the category power set tried
+    while (count($resultPostArray) < $count && !empty($powerSet)) {
+        // the WP_Query
+        $query = new WP_Query([
+            'category__and' => $powerSet[$i],
+            'orderby' => $sort,
+            'post__not_in' => $excludePostIds,
+            'posts_per_page' => $count,
+        ]);
+
+        $posts = $query->get_posts();
+
+        // remove the combination from power set
+        array_splice($powerSet, $i, 1);
+
+        // update iterator
+        --$i;
+
+        // Loop the query_posts and add ones which are not already in the
+        // $resultPostArray
+        foreach ($posts as $post) {
+            if (count($resultPostArray) >= $count) {
+                break;
+            }
+
+            $resultPostArray[] = $post;
+            $excludePostIds[] = $post->ID;
+        }
+    }
+
+    return $resultPostArray;
+}

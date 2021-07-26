@@ -1,25 +1,35 @@
 <?php
-$content = apply_filters('the_content', get_the_content());
-$audios = get_media_embedded_in_content($content, array('audio', 'iframe'));
+/**
+ * Template for post-format gallery
+ * 
+ * @package _themename
+ */
+//Let's get the gallery images id first, $images contains ids of the gallery-images
+$blocks =  parse_blocks(get_the_content());
+$gallery = false;
+foreach ($blocks as $block) {
+    if($block['blockName'] === 'core/gallery') {
+        $gallery = $block;
+        break;
+    }
+}
 ?>
 <article <?php post_class(); ?>>
     <header class="entry-header">
         <?php
-        if( has_post_thumbnail() && (empty($audios) || is_single( )) ) : //if in video post format there is no video show thumbnail and in single.php show thumbnail
+        if( has_post_thumbnail() && ( !$gallery || is_single( )) ) : //if in video post format there is no gallery show thumbnail and in single.php show thumbnail
             the_post_thumbnail( 'medium');
         endif; ?>
 
-        <?php if (!is_single( ) && !empty($audios)) : //if not in single page(in archive) and there is a video in the content, then show the first video?>
-            <div class="audio">
-                <?php echo $audios[0]; ?>
-            </div><!-- audio -->
+        <?php if ( !is_single( ) && $gallery ) : //if not in single page(in archive) and there is a gallery in the content, then show the first gallery ?>
+            <div class="gallery">
+                <?php echo $gallery['innerHTML']; ?>
+            </div><!-- #gallery -->
         <?php endif; ?>
 
         <?php if(is_single()) : ?>
             <h1 class="entry-title">
-                <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-                    <?php the_title() ?>
-                </a>
+                <?php the_title() ?>
             </h1>
         <?php else: ?>
             <h2 class="entry-title">
@@ -42,6 +52,6 @@ $audios = get_media_embedded_in_content($content, array('audio', 'iframe'));
         ?>
     </div><!-- .entry-content -->
     <footer class="entry-footer">
-        <?php _themename_entry_footer(); ?>
+        <?php _themename_entry_footer();?>
     </footer><!-- .entry-footer -->
 </article><!--  article- -->
