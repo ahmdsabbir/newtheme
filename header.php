@@ -4,6 +4,8 @@
  * 
  * @package _themename
  */
+
+ $show_breadcrumb = get_theme_mod( '_themename_display_breadcrumb', true);
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -26,7 +28,7 @@
   </div><!-- #header-wrapper end -->
 
   <?php
-  if( get_theme_mod( '_themename_display_breadcrumb', true) ) :
+  if( $show_breadcrumb && !is_home() ) :
     get_template_part( '/template-parts/components/breadcrumb');
   endif;
   ?>

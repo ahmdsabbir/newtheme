@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
 //Get sidebar layout from post_meta for this single post
 $layout = get_post_meta(get_the_ID(), '__themename_post_layout', true);
 get_header();
-?> 
+?>
 
 <div class="wrapper" id="<?php echo _themename_get_wrapper_id(); ?>-wrapper">
     <div class="container">

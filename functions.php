@@ -21,3 +21,4 @@ require_once _themename_DIR_PATH . '/lib/navigation.php';
 require_once _themename_DIR_PATH . '/lib/metaboxes.php';
 require_once _themename_DIR_PATH . '/lib/comments-callback.php';
 require_once _themename_DIR_PATH . '/lib/breadcrumb.php';
+
