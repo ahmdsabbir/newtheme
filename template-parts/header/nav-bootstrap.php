@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light" role="navigation" aria-label="<?php echo esc_html_e( 'Main Menu', '_themename' ); ?>"">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" role="navigation" aria-label="<?php echo esc_html_e( 'Main Menu', '_themename' ); ?>">
 
     <div class="container">
 

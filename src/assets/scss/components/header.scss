@@ -32,7 +32,7 @@ div#header-wrapper {
             color: $black;
           }
           
-          ul li a:hover { background: $white; color: $orange; }
+          ul li a:hover { background: $white; color: $primary; }
           
           /* Display the dropdown */
           
@@ -71,3 +71,6 @@ div#header-wrapper {
           ul:after { clear: both; }
     }
 }
+
+//following shouldn't be here
+.screen-reader-text {display: none;}

@@ -1,14 +1,8 @@
 <?php
 /**
  * The Single post template file
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
- * 
- * _themename_get_wrapper_id() in /lib/helpers
+ * _themename_get_wrapper_id() location: /lib/helpers
+ *  _themename_main_column_length() location: /lib/helpers
  *
  * @package _themename
  */
@@ -16,48 +10,35 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
+//Get sidebar layout from post_meta for this single post
 $layout = get_post_meta(get_the_ID(), '__themename_post_layout', true);
-
-get_header(); 
-?> 
+get_header();
+?>
 
 <div class="wrapper" id="<?php echo _themename_get_wrapper_id(); ?>-wrapper">
-
     <div class="container">
-
         <div class="row">
 
             <?php if( is_active_sidebar('left-sidebar') && $layout == 'yes' ): ?>
-
                 <div class="col-3">
                     <?php get_sidebar('left'); ?>
                 </div><!-- .col-3 end -->
-
             <?php endif; ?>
 
             <div class="col-<?php _themename_main_column_length(); ?>">
-
-                <main class="site-main" role="main">
-                    
-                    <?php get_template_part( 'loop', 'single' ); ?>
-                    
+                <main class="site-main" role="main">   
+                    <?php get_template_part( 'loop', 'single' ); ?>    
                 </main>
-
-            </div><!-- .col-6 end -->
-
+            </div><!-- .col-<?php _themename_main_column_length(); ?> end -->
 
             <?php if( is_active_sidebar('right-sidebar') && $layout == 'yes' ): ?>
-
                 <div class="col-3">
                     <?php get_sidebar('right'); ?>
                 </div><!-- .col-3 end -->
-
             <?php endif; ?>
 
         </div><!-- .row end -->
-
     </div><!-- .container end -->
-
 </div><!-- .wrapper end -->
 
 <?php get_footer(); ?>

@@ -2,23 +2,48 @@
 
 function _themename__customize_register( $wp_customize ) {
 
-    /**##################### General ##################### */
+    /**##################### Wordpress Core ##################### */
     $wp_customize->get_setting('blogname')->transport = 'postMessage';
 
     $wp_customize->selective_refresh->add_partial('blogname', array(
         'selector' => '.navbar-brand',
-        'container_incusive' => false,
+        'container_inclusive' => false,
         'render_callback' => function() {
             bloginfo('name');
         }
     ));
+
+    /** #################### General Theme Options ###################### */
+    $wp_customize->add_panel( '_themename_general_theme_options', array(
+        'title' => esc_html__( 'General Theme Options', '_themename' ),
+        'description' => esc_html__( 'You can change General Theme options from here.', '_themename' ),
+        'priority' => 10,
+     ) );
+    $wp_customize->add_section('_themename_breadcrumb_options', array(
+        'title' => esc_html__( 'Breadcrumb', '_themename' ),
+        'description' => esc_html__( 'You can change Breadcrumb Options from here', '_themename' ),
+        'panel' => '_themename_general_theme_options'
+    ));
+
+    $wp_customize->add_setting('_themename_display_breadcrumb', array(
+        'default' => true,
+        'transport' => 'postMessage',
+        'sanitize_callback' => '_themename_sanitize_checkbox'
+    ));
+
+    $wp_customize->add_control('_themename_display_breadcrumb', array(
+        'type' => 'checkbox',
+        'label' => esc_html__( 'Show Breadcrumb', '_themename' ),
+        'section' => '_themename_breadcrumb_options'
+    ));
+
 
     /**##################### footer ##################### */
 
     $wp_customize->selective_refresh->add_partial('_themename_footer_partial', array(
         'settings' => array('_themename_footer_layout'),
         'selector' => '#footer',
-        'container_incusive' => false,
+        'container_inclusive' => false,
         'render_callback' => function() {
 
             if(_themename_any_widget_active()) :
@@ -53,8 +78,8 @@ function _themename__customize_register( $wp_customize ) {
         'type'       => 'text',
     ) );
 
+    
     //Footer Layout
-
     $wp_customize->add_setting( '_themename_footer_layout' , array(
         'default'       => '3,3,3,3',
         'type'          => 'theme_mod',
@@ -89,21 +114,37 @@ function _themename__customize_register( $wp_customize ) {
         'section' => '_themename_single_blog_options'
     ));
 
-    function _themename_sanitize_checkbox( $checked ) {
-        return (isset($checked) && $checked === true) ? true : false;
-    }
+    //Post Navigation
+    $wp_customize->add_setting('_themename_display_post_navigation', array(
+        'default' => true,
+        'transport' => 'postMessage',
+        'sanitize_callback' => '_themename_sanitize_checkbox'
+    ));
 
-    function _themename_show_single_blog_section() {
-        global $post;
-        return is_single() && $post->post_type === 'post';
-    }
+    $wp_customize->add_control('_themename_display_post_navigation', array(
+        'type' => 'checkbox',
+        'label' => esc_html__( 'Show Post Navigation', '_themename' ),
+        'section' => '_themename_single_blog_options'
+    ));
 
-            
+    //Related Posts
+    $wp_customize->add_setting('_themename_display_related_posts', array(
+        'default' => true,
+        'transport' => 'postMessage',
+        'sanitize_callback' => '_themename_sanitize_checkbox'
+    ));
+
+    $wp_customize->add_control('_themename_display_related_posts', array(
+        'type' => 'checkbox',
+        'label' => esc_html__( 'Show Related Posts', '_themename' ),
+        'section' => '_themename_single_blog_options'
+    ));
+           
 }
 add_action( 'customize_register', '_themename__customize_register' );
 
 
-
+//Functions
 function _themename_sanitize_site_info($input) {
     $allowed = [
         'a' => [
@@ -118,7 +159,16 @@ function _themename_sanitize_site_info($input) {
 
 function _themename_validate_footer_layout( $validity, $value) {
     if(!preg_match('/^([1-9]|1[012])(,([1-9]|1[012]))*$/', $value)) {
-        $validity->add('invalid_footer_layout', esc_html__( 'Footer layout is invalid', '_themename' ));
+        $validity->add('invalid_footer_layout', esc_html__( 'Footer layout is invalid, use a 12 column grid.', '_themename' ));
     }
     return $validity;
+}
+
+function _themename_sanitize_checkbox( $checked ) {
+    return (isset($checked) && $checked === true) ? true : false;
+}
+
+function _themename_show_single_blog_section() {
+    global $post;
+    return is_single() && $post->post_type === 'post';
 }
