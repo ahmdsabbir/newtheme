@@ -2,11 +2,17 @@
 $content = apply_filters('the_content', get_the_content());
 $videos = get_media_embedded_in_content($content, array('video', 'object', 'embed', 'iframe'));
 
-if( has_post_thumbnail() && (empty($videos) || is_single( )) ) : //if in video post format there is no video show thumbnail and in single.php show thumbnail
+/**
+ * if in video post format there is no video show thumbnail and in single.php show thumbnail
+ */
+if( has_post_thumbnail() && (empty($videos) || is_single( )) ) : 
     the_post_thumbnail( 'medium');
-endif; ?>
+endif;
 
-<?php if (!is_single( ) && !empty($videos)) : //if not in single page(in archive) and there is a video in the content, then show the first video?>
+/**
+ * if not in single page(in archive) AND there is video in the content, then show the first video
+ */
+if (!is_single( ) && !empty($videos)) : ?>
     <div class="videos">
         <?php echo $videos[0]; ?>
     </div><!-- video -->

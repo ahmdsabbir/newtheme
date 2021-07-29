@@ -18,17 +18,17 @@
     
   </head>
   <body <?php body_class(); ?>>
+    <?php wp_body_open(); ?>
 
-  <?php wp_body_open(); ?>
+    <div class="wrapper" id="header-wrapper">
+      <?php get_template_part( '/template-parts/header/nav', 'bootstrap' ); ?>
+    </div><!-- #header-wrapper end -->
 
-  <div class="wrapper" id="header-wrapper">
+    
+    <?php
+    if( $show_breadcrumb && !is_home() ) :
+      get_template_part( '/template-parts/components/misc/breadcrumb');
+    endif;
+    ?>
 
-    <?php get_template_part( '/template-parts/header/nav', 'bootstrap' ); ?>
-
-  </div><!-- #header-wrapper end -->
-
-  <?php
-  if( $show_breadcrumb && !is_home() ) :
-    get_template_part( '/template-parts/components/breadcrumb');
-  endif;
-  ?>
+  

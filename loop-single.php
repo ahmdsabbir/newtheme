@@ -7,6 +7,7 @@
  */
 
 $show_author_info = get_theme_mod( '_themename_display_author_info', true);
+$show_post_navigation = get_theme_mod( '_themename_display_post_navigation', true );
 $show_related_posts = get_theme_mod( '_themename_display_related_posts', true);
 
 if(have_posts()) :                   
@@ -22,12 +23,14 @@ if(have_posts()) :
         /**
          * Get post previous and next post navigation
          */
-        get_template_part( '/template-parts/single/post-navigation' );
+        if ( $show_post_navigation ) :
+            get_template_part( '/template-parts/single/post-navigation' );
+        endif;
         /**
          * Get Related Posts for this post if it's enabled from the customizer
          */
         if($show_related_posts) :
-            get_template_part( '/template-parts/components/related-posts' );
+            get_template_part( '/template-parts/components/misc/related-posts' );
         endif;
          /**
           *  Get comments for this post if enabled 

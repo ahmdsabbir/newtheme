@@ -13,6 +13,8 @@ if(is_single()) : ?>
         </a>
     </h2>
 <?php endif; ?>
+
+
 <div class="entry-meta">
     <?php _themename_post_meta(); ?>
 </div><!-- entry-meta end -->

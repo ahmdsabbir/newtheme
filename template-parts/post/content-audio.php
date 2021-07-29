@@ -1,7 +1,3 @@
-<?php
-$content = apply_filters('the_content', get_the_content());
-$audios = get_media_embedded_in_content($content, array('audio', 'iframe'));
-?>
 <article <?php post_class(); ?>>
 
     <header class="entry-header">
