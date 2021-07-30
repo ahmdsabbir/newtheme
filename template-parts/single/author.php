@@ -10,7 +10,7 @@ $author_description = get_the_author_meta('user_description');
 $author_website = get_the_author_meta('user_url');
 ?>
 
-
+<div id="author-info">
 
     <h2 class="screen-reader-text">
         <?php esc_attr_e( 'About the Author', '_themename'); ?>
@@ -47,3 +47,4 @@ $author_website = get_the_author_meta('user_url');
     </div><!-- # author-content -->
 
 
+</div><!-- author -->
