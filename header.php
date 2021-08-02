@@ -23,7 +23,6 @@
     <div class="wrapper" id="header-wrapper">
       <?php get_template_part( '/template-parts/header/nav', 'bootstrap' ); ?>
     </div><!-- #header-wrapper end -->
-
     
     <?php
     if( $show_breadcrumb && !is_home() ) :
