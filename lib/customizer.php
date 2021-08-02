@@ -14,6 +14,7 @@ function _themename__customize_register( $wp_customize ) {
     ));
 
     /** #################### General Theme Options ###################### */
+
     $wp_customize->add_panel( '_themename_general_theme_options', array(
         'title' => esc_html__( 'General Theme Options', '_themename' ),
         'description' => esc_html__( 'You can change General Theme options from here.', '_themename' ),
@@ -27,7 +28,7 @@ function _themename__customize_register( $wp_customize ) {
 
     $wp_customize->add_setting('_themename_display_breadcrumb', array(
         'default' => true,
-        'transport' => 'postMessage',
+        'transport' => 'refresh',
         'sanitize_callback' => '_themename_sanitize_checkbox'
     ));
 
@@ -104,7 +105,7 @@ function _themename__customize_register( $wp_customize ) {
 
     $wp_customize->add_setting('_themename_display_author_info', array(
         'default' => true,
-        'transport' => 'postMessage',
+        'transport' => 'refresh',
         'sanitize_callback' => '_themename_sanitize_checkbox'
     ));
 
@@ -117,7 +118,7 @@ function _themename__customize_register( $wp_customize ) {
     //Post Navigation
     $wp_customize->add_setting('_themename_display_post_navigation', array(
         'default' => true,
-        'transport' => 'postMessage',
+        'transport' => 'refresh',
         'sanitize_callback' => '_themename_sanitize_checkbox'
     ));
 
@@ -130,7 +131,7 @@ function _themename__customize_register( $wp_customize ) {
     //Related Posts
     $wp_customize->add_setting('_themename_display_related_posts', array(
         'default' => true,
-        'transport' => 'postMessage',
+        'transport' => 'refresh',
         'sanitize_callback' => '_themename_sanitize_checkbox'
     ));
 
