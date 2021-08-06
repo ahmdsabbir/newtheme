@@ -6,9 +6,13 @@
  * 
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 $show_author_info = get_theme_mod( '_themename_display_author_info', true);
 $show_post_navigation = get_theme_mod( '_themename_display_post_navigation', true );
 $show_related_posts = get_theme_mod( '_themename_display_related_posts', true);
+$in_customizer = isset($GLOBALS['wp_customize']);
 
 if(have_posts()) :                   
     while(have_posts() ): the_post();
@@ -17,19 +21,19 @@ if(have_posts()) :
         /**
          * Get Author info for this post if it's enabled from the customizer
          */
-        if( $show_author_info ) :
+        if( $in_customizer || $show_author_info ) :
             get_template_part( '/template-parts/single/author' );
         endif;
         /**
          * Get post previous and next post navigation
          */
-        if ( $show_post_navigation ) :
+        if ( $in_customizer || $show_post_navigation ) :
             get_template_part( '/template-parts/single/post-navigation' );
         endif;
         /**
          * Get Related Posts for this post if it's enabled from the customizer
          */
-        if($show_related_posts) :
+        if( $in_customizer || $show_related_posts ) :
             get_template_part( '/template-parts/components/misc/related-posts' );
         endif;
          /**

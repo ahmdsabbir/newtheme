@@ -258,3 +258,17 @@ function _themename_related_posts($count, $sort = 'rand') {
 
     return $resultPostArray;
 }
+
+/**
+ * The function below adds .odd or .even classes in wordpress posts for easy css styling
+ */
+// function oddeven_post_class ( $classes ) {
+//     global $current_class;
+//     $classes[] = $current_class;
+//     $current_class = ($current_class == 'odd') ? 'even' : 'odd';
+//     return $classes;
+//  }
+//  add_filter ( 'post_class' , 'oddeven_post_class' );
+//  global $current_class;
+//  $current_class = 'odd';
+

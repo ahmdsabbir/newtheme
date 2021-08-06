@@ -1,3 +1,12 @@
+<?php
+/**
+ * Template for site footer
+ * 
+ * @package _themename
+ */
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+?>
     <div class="wrapper" id="footer-wrapper">
 
       <div class="container" id="footer" role="site-footer">

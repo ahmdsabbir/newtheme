@@ -15,6 +15,14 @@ function _themename_assets() {
         wp_enqueue_script( 'comment-reply' );
     }
 
+    /** 
+     * Table of contents
+     * include this if enabled from the customizer
+     */
+    wp_enqueue_script( $handle = 'post_table_of_contents', get_template_directory_uri() . '/lib/toc/js/post_table_of_contents.js', $deps = array('jquery'), time(), $in_footer = true );
+
+    wp_enqueue_style( $handle = 'post_table_of_contents', get_template_directory_uri() . '/lib/toc/css/post_table_of_contents.css', $deps = array(), time(), $media = 'all' );
+
 }
 
 add_action('wp_enqueue_scripts', '_themename_assets');

@@ -3,6 +3,9 @@
  * Comments form template
  */
 
+ // Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
  if( post_password_required( )) {
      return;
  }

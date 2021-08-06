@@ -3,9 +3,13 @@
  * Header
  * 
  * @package _themename
- */
+*/
+
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
  $show_breadcrumb = get_theme_mod( '_themename_display_breadcrumb', true);
+ $in_customizer = isset($GLOBALS['wp_customize']);
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -25,7 +29,7 @@
     </div><!-- #header-wrapper end -->
     
     <?php
-    if( $show_breadcrumb && !is_home() ) :
+    if( $in_customizer || $show_breadcrumb ) :
       get_template_part( '/template-parts/components/misc/breadcrumb');
     endif;
     ?>

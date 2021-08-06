@@ -28,7 +28,7 @@ function _themename__customize_register( $wp_customize ) {
 
     $wp_customize->add_setting('_themename_display_breadcrumb', array(
         'default' => true,
-        'transport' => 'refresh',
+        'transport' => 'postMessage',
         'sanitize_callback' => '_themename_sanitize_checkbox'
     ));
 
@@ -105,7 +105,7 @@ function _themename__customize_register( $wp_customize ) {
 
     $wp_customize->add_setting('_themename_display_author_info', array(
         'default' => true,
-        'transport' => 'refresh',
+        'transport' => 'postMessage',
         'sanitize_callback' => '_themename_sanitize_checkbox'
     ));
 
@@ -118,7 +118,7 @@ function _themename__customize_register( $wp_customize ) {
     //Post Navigation
     $wp_customize->add_setting('_themename_display_post_navigation', array(
         'default' => true,
-        'transport' => 'refresh',
+        'transport' => 'postMessage',
         'sanitize_callback' => '_themename_sanitize_checkbox'
     ));
 
@@ -131,7 +131,7 @@ function _themename__customize_register( $wp_customize ) {
     //Related Posts
     $wp_customize->add_setting('_themename_display_related_posts', array(
         'default' => true,
-        'transport' => 'refresh',
+        'transport' => 'postMessage',
         'sanitize_callback' => '_themename_sanitize_checkbox'
     ));
 
@@ -140,6 +140,13 @@ function _themename__customize_register( $wp_customize ) {
         'label' => esc_html__( 'Show Related Posts', '_themename' ),
         'section' => '_themename_single_blog_options'
     ));
+
+    /**################################ Test###################################### */
+    $wp_customize->add_panel( 'test_panel', array(
+        'title' => esc_html__( 'Sexy Theme Options', '_themename' ),
+        'description' => esc_html__( 'You can change General Theme options from here.', '_themename' ),
+        'priority' => 10,
+     ) );
            
 }
 add_action( 'customize_register', '_themename__customize_register' );

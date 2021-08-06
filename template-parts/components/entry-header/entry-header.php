@@ -16,5 +16,5 @@ if(is_single()) : ?>
 
 
 <div class="entry-meta">
-    <?php _themename_post_meta(); ?>
+    <?php get_template_part( '/template-parts/components/entry-meta/entry-meta'); ?>
 </div><!-- entry-meta end -->

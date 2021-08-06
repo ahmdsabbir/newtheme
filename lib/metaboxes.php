@@ -17,10 +17,13 @@ function _themename_post_metabox_html($post) {
     $layout = get_post_meta($post->ID, '__themename_post_layout', true);
     wp_nonce_field( '_themename_update_post_metabox', '_themename_update_post_nonce' );
     ?>
-    
     <p>
         <label for="_themename_post_layout_field"><?php esc_html_e( 'Sidebar Option', '_themename' ); ?></label>
-        <select name="_themename_post_layout_field" id="_themename_post_layout_field" class="widefat">
+        <select 
+            name="_themename_post_layout_field" 
+            id="_themename_post_layout_field" 
+            class="widefat" 
+        >
             <option <?php selected( $layout, 'yes' ); ?> value="yes"><?php esc_html_e( 'Show  Sidebar', '_themename' ); ?></option>
             <option <?php selected( $layout, 'no' ); ?> value="no"><?php esc_html_e( 'Don\'t Show Sidebar', '_themename' ); ?></option>
         </select>
