@@ -2,6 +2,7 @@
 if( has_post_thumbnail() ) : 
     the_post_thumbnail( 'medium');
 endif;
+
 if(is_single()) : ?>
     <h1 class="entry-title">
         <?php the_title() ?>
