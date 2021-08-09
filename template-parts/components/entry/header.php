@@ -17,5 +17,5 @@ if(is_single()) : ?>
 
 
 <div class="entry-meta">
-    <?php get_template_part( '/template-parts/components/entry-meta/entry-meta'); ?>
+    <?php get_template_part( '/template-parts/components/entry/meta'); ?>
 </div><!-- entry-meta end -->

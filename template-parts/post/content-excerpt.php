@@ -1,7 +1,7 @@
 <article <?php post_class(); ?>>
 
     <header class="entry-header">
-        <?php get_template_part( '/template-parts/components/entry-header/entry-header' ); ?>
+        <?php get_template_part( '/template-parts/components/entry/header' ); ?>
     </header><!-- .entry-header -->
 
     <div class="entry-content">

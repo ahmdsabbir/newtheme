@@ -6,7 +6,7 @@
  */
 
  /**
-  * ================================== Helper template tags
+  * Helper template tags
   */
 
  function _themename_published_on() {
@@ -91,8 +91,11 @@ function _themename_reading_time() {
  }
 
  /**
-  * echos post meta of a post
+  * Template Tags Functions
   */
+  /**
+   * Echoes post meta of a post
+   */
   function _themename_post_meta($separator=', ') {
     
     _themename_published_on();

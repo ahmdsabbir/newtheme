@@ -1,14 +1,18 @@
 <?php
 /**
- * All the CSS & JS scripts
+ * Enqueue all the CSS & JS scripts
  * 
  * @package: _themename
  */
-function _themename_assets() {
+
+ /**
+ * Frontend Styles and Scripts
+ */
+add_action( 'wp_enqueue_scripts', function() {
+
     wp_enqueue_style( '_themename-stylesheet', get_template_directory_uri() . '/dist/assets/css/bundle.css', array(), time(), 'all' );
 
     wp_enqueue_script( 'jquery' );
-
     wp_enqueue_script( '_themename-scripts', get_template_directory_uri() . '/dist/assets/js/bundle.js', array('jquery'), time(), true );
 
     if( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -25,23 +29,23 @@ function _themename_assets() {
         wp_enqueue_style( $handle = 'post_table_of_contents', get_template_directory_uri() . '/lib/toc/css/post_table_of_contents.css', $deps = array(), time(), $media = 'all' );
     endif;
 
-}
+} );
 
-add_action('wp_enqueue_scripts', '_themename_assets');
+/**
+ * Admin Styles and Scripts
+ */
+add_action( 'admin_enqueue_scripts', function() {
 
-
-
-function _themename_admin_assets() {
     wp_enqueue_style( '_themename-admin-stylesheet', get_template_directory_uri() . '/dist/assets/css/admin.css', array(), time(), 'all' );
-
     wp_enqueue_script( '_themename-admin-scripts', get_template_directory_uri() . '/dist/assets/js/admin.js', array(), time(), true );
-}
 
-add_action('admin_enqueue_scripts', '_themename_admin_assets');
+} );
 
-function _themename_customize_preview_js () {
+/**
+ * Customizer Styles and Scripts
+ */
+add_action( 'customize_preview_init', function() {
+
     wp_enqueue_script( '_themename-cutomize-preview', get_template_directory_uri() . '/dist/assets/js/customize-preview.js', array('customize-preview', 'jquery'), time() , true );
 
-}
-
-add_action( 'customize_preview_init', '_themename_customize_preview_js' );
+} );

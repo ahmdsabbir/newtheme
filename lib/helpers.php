@@ -7,8 +7,6 @@
  */
 
 
-
-
 /**
  * 
  * echos a list of categories and some specified posts in them
@@ -145,27 +143,27 @@ function _themename_extra_user_profile_fields( $user ) { ?>
     <h3><?php _e("Social Links", "_themename"); ?></h3>
 
     <table class="form-table">
-    <tr>
-        <th><label for="twitter"><?php _e("Twitter", '_themename'); ?></label></th>
-        <td>
-            <input type="text" name="twitter" id="twitter" value="<?php echo esc_attr( get_the_author_meta( 'twitter', $user->ID ) ); ?>" class="regular-text" /><br />
-            <span class="description"><?php esc_html__("Please enter your twitter link.", '_themename'); ?></span>
-        </td>
-    </tr>
-    <tr>
-        <th><label for="facebook"><?php _e("facebook", '_themename'); ?></label></th>
-        <td>
-            <input type="text" name="facebook" id="facebook" value="<?php echo esc_attr( get_the_author_meta( 'facebook', $user->ID ) ); ?>" class="regular-text" /><br />
-            <span class="description"><?php esc_html__("Please enter your facebook link", '_themename'); ?></span>
-        </td>
-    </tr>
-    <tr>
-    <th><label for="github"><?php _e("Github"); ?></label></th>
-        <td>
-            <input type="text" name="github" id="github" value="<?php echo esc_attr( get_the_author_meta( 'github', $user->ID ) ); ?>" class="regular-text" /><br />
-            <span class="description"><?php esc_html__("Please enter your Github Link", '_themename'); ?></span>
-        </td>
-    </tr>
+        <tr>
+            <th><label for="twitter"><?php _e("Twitter", '_themename'); ?></label></th>
+            <td>
+                <input type="text" name="twitter" id="twitter" value="<?php echo esc_attr( get_the_author_meta( 'twitter', $user->ID ) ); ?>" class="regular-text" /><br />
+                <span class="description"><?php esc_html__("Please enter your twitter link.", '_themename'); ?></span>
+            </td>
+        </tr>
+        <tr>
+            <th><label for="facebook"><?php _e("facebook", '_themename'); ?></label></th>
+            <td>
+                <input type="text" name="facebook" id="facebook" value="<?php echo esc_attr( get_the_author_meta( 'facebook', $user->ID ) ); ?>" class="regular-text" /><br />
+                <span class="description"><?php esc_html__("Please enter your facebook link", '_themename'); ?></span>
+            </td>
+        </tr>
+        <tr>
+        <th><label for="github"><?php _e("Github"); ?></label></th>
+            <td>
+                <input type="text" name="github" id="github" value="<?php echo esc_attr( get_the_author_meta( 'github', $user->ID ) ); ?>" class="regular-text" /><br />
+                <span class="description"><?php esc_html__("Please enter your Github Link", '_themename'); ?></span>
+            </td>
+        </tr>
     </table>
 <?php }
 

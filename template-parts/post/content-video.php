@@ -1,25 +1,15 @@
 <article <?php post_class(); ?>>
 
     <header class="entry-header">
-        <?php get_template_part( '/template-parts/components/entry-header/entry-header', get_post_format( ) ); ?>
+        <?php get_template_part( '/template-parts/components/entry/header', get_post_format( ) ); ?>
     </header><!-- .entry-header -->
 
     <div class="entry-content">
-        <?php 
-        if(is_single( )) :
-            the_content( );
-        else:
-            the_excerpt(); 
-        endif;    
-        ?>
+        <?php get_template_part( '/template-parts/components/entry/content', get_post_format( ) ); ?>
     </div><!-- .entry-content -->
 
     <footer class="entry-footer">
-    <?php
-    if(is_single( )):
-        _themename_entry_footer();
-    endif;
-     ?>
+        <?php get_template_part( '/template-parts/components/entry/footer', get_post_format( ) ); ?>
     </footer><!-- .entry-footer -->
     
 </article><!--  article- -->
