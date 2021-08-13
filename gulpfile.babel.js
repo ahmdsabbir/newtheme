@@ -12,6 +12,7 @@ import browserSync from 'browser-sync';
 import zip from 'gulp-zip';
 import replace from 'gulp-replace';
 import info from './package.json';
+import wpPot from "gulp-wp-pot";
 
 const server = browserSync.create();
 const PRODUCTION = yargs.argv.prod;
@@ -114,8 +115,19 @@ export const compress = () => {
   .pipe(gulp.dest(paths.package.dest));
 }
 
+export const pot = () => {
+  return gulp.src("**/*.php")
+  .pipe(
+      wpPot({
+        domain: "_themename",
+        package: info.name
+      })
+    )
+  .pipe(gulp.dest(`languages/${info.name}.pot`));
+};
+
 export const dev = gulp.series(clean, gulp.parallel(styles, scripts, images, copy), serve, watch);
 export const build = gulp.series(clean, gulp.parallel(styles, scripts, images, copy));
-export const bundle = gulp.series(build, compress);
+export const bundle = gulp.series(build, pot, compress);
 
 export default dev;

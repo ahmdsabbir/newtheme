@@ -15,8 +15,12 @@
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
-?>
-<?php get_header(); ?> 
+
+get_header();
+
+$number_of_results
+
+?> 
 
 <div class="wrapper" id="<?php echo _themename_get_wrapper_id(); ?>-wrapper">
     <div class="container">
@@ -27,11 +31,9 @@ defined( 'ABSPATH' ) || exit;
                 </div><!-- .col-3 end -->
             <?php endif; ?>
             <div class="col-<?php _themename_main_column_length(); ?>">
-                <div>
-                    <h1>
-                        <?php printf(esc_html__( 'Search Result for: %s', '_themename' ), get_search_query( )); ?>
-                    </h1>
-                </div>
+                <h1>
+                    <?php printf(esc_html__( 'Search Result for: %s', '_themename' ), get_search_query( )); ?>
+                </h1>
                 <main class="site-main" role="main">
                     <?php get_template_part( 'loop', 'search' ); ?> 
                 </main>

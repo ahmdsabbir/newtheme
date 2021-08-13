@@ -49,6 +49,15 @@ wp.customize('_themename_display_post_navigation', (value) => {
     })
 } )
 
+wp.customize('_themename_display_post_share', (value) => {
+    value.bind( (to) => {
+        if(to) {
+            $('#post-share').show();
+        } else {
+            $('#post-share').hide();
+        }
+    })
+} )
 
 
 

@@ -135,54 +135,7 @@ function _themename_any_widget_active() {
 
 }
 
-//Add Social Links in User Profile
-add_action( 'show_user_profile', '_themename_extra_user_profile_fields' );
-add_action( 'edit_user_profile', '_themename_extra_user_profile_fields' );
 
-function _themename_extra_user_profile_fields( $user ) { ?>
-    <h3><?php _e("Social Links", "_themename"); ?></h3>
-
-    <table class="form-table">
-        <tr>
-            <th><label for="twitter"><?php _e("Twitter", '_themename'); ?></label></th>
-            <td>
-                <input type="text" name="twitter" id="twitter" value="<?php echo esc_attr( get_the_author_meta( 'twitter', $user->ID ) ); ?>" class="regular-text" /><br />
-                <span class="description"><?php esc_html__("Please enter your twitter link.", '_themename'); ?></span>
-            </td>
-        </tr>
-        <tr>
-            <th><label for="facebook"><?php _e("facebook", '_themename'); ?></label></th>
-            <td>
-                <input type="text" name="facebook" id="facebook" value="<?php echo esc_attr( get_the_author_meta( 'facebook', $user->ID ) ); ?>" class="regular-text" /><br />
-                <span class="description"><?php esc_html__("Please enter your facebook link", '_themename'); ?></span>
-            </td>
-        </tr>
-        <tr>
-        <th><label for="github"><?php _e("Github"); ?></label></th>
-            <td>
-                <input type="text" name="github" id="github" value="<?php echo esc_attr( get_the_author_meta( 'github', $user->ID ) ); ?>" class="regular-text" /><br />
-                <span class="description"><?php esc_html__("Please enter your Github Link", '_themename'); ?></span>
-            </td>
-        </tr>
-    </table>
-<?php }
-
-//Save Extra User Fields
-add_action( 'personal_options_update', '_themename_save_extra_user_profile_fields' );
-add_action( 'edit_user_profile_update', '_themename_save_extra_user_profile_fields' );
-
-function _themename_save_extra_user_profile_fields( $user_id ) {
-    if ( empty( $_POST['_wpnonce'] ) || ! wp_verify_nonce( $_POST['_wpnonce'], 'update-user_' . $user_id ) ) {
-        return;
-    }
-    
-    if ( !current_user_can( 'edit_user', $user_id ) ) { 
-        return false; 
-    }
-    update_user_meta( $user_id, 'twitter', $_POST['twitter'] );
-    update_user_meta( $user_id, 'facebook', $_POST['facebook'] );
-    update_user_meta( $user_id, 'github', $_POST['github'] );
-}
 
 /**
  * Related Posts

@@ -21,6 +21,7 @@ add_action( 'after_setup_theme', function() {
     ) );
     add_theme_support('post-formats', array(
      'aside',
+     'status',
      'image',
      'video',
      'quote',
