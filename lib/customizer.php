@@ -105,6 +105,18 @@ function _themename__customize_register( $wp_customize ) {
         'active_callback' => '_themename_show_single_blog_section'
     ));
 
+    $wp_customize->add_setting('_themename_display_post_share', array(
+        'default' => true,
+        'transport' => 'postMessage',
+        'sanitize_callback' => '_themename_sanitize_checkbox'
+    ));
+
+    $wp_customize->add_control('_themename_display_post_share', array(
+        'type' => 'checkbox',
+        'label' => esc_html__( 'Enable Post Sharing', '_themename' ),
+        'section' => '_themename_single_blog_options'
+    ));
+
     $wp_customize->add_setting('_themename_display_author_info', array(
         'default' => true,
         'transport' => 'postMessage',
@@ -117,17 +129,6 @@ function _themename__customize_register( $wp_customize ) {
         'section' => '_themename_single_blog_options'
     ));
 
-    $wp_customize->add_setting('_themename_display_post_share', array(
-        'default' => true,
-        'transport' => 'postMessage',
-        'sanitize_callback' => '_themename_sanitize_checkbox'
-    ));
-
-    $wp_customize->add_control('_themename_display_post_share', array(
-        'type' => 'checkbox',
-        'label' => esc_html__( 'Enable Post Sharing', '_themename' ),
-        'section' => '_themename_single_blog_options'
-    ));
 
     //Post Navigation
     $wp_customize->add_setting('_themename_display_post_navigation', array(

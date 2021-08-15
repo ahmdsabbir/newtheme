@@ -12,4 +12,6 @@ $postUrl = 'http' . ( isset( $_SERVER['HTTPS'] ) ? 's' : '' ) . '://' . "{$_SERV
 
     <a target="_blank" href="http://pinterest.com/pin/create/bookmarklet/?url=<?php echo esc_url($postUrl); ?>" title="<?php esc_attr_e('Pin it', '_themename'); ?>">Pinterest</a>
 
+    <a target="_blank" href="https://www.linkedin.com/share?id=<?php echo esc_url($postUrl); ?>" title="<?php esc_attr_e('Pin it', '_themename'); ?>">LinkedIn</a>
+    
 </div>

@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) || exit;
       /**
        * Here each of the template-parts has <div class="row"> of it's own
        * 
-       * _themename_any_widget_active() is in /inc/helpers and returns true if any of the footer widget is active
+       * _themename_any_widget_active() is in /lib/helpers and returns true if any of the footer widget is active
        */
 
       if(_themename_any_widget_active()) :

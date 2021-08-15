@@ -33,5 +33,3 @@ defined( 'ABSPATH' ) || exit;
       get_template_part( '/template-parts/components/misc/breadcrumb');
     endif;
     ?>
-
-  

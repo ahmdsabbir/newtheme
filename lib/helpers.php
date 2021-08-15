@@ -222,4 +222,3 @@ function _themename_related_posts($count, $sort = 'rand') {
 //  add_filter ( 'post_class' , 'oddeven_post_class' );
 //  global $current_class;
 //  $current_class = 'odd';
-
