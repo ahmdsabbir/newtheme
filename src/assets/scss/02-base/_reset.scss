@@ -1,0 +1,66 @@
+/**
+ * Reset specific elements
+ * @package _themename
+ * @link: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+
+ html,
+ body,
+ p,
+ ol,
+ ul,
+ li,
+ dl,
+ dt,
+ dd,
+ blockquote,
+ figure,
+ fieldset,
+ form,
+ legend,
+ textarea,
+ pre,
+ iframe,
+ hr,
+ h1,
+ h2,
+ h3,
+ h4,
+ h5,
+ h6 {
+   padding: 0;
+   margin: 0;
+   -moz-osx-font-smoothing: grayscale;
+   -webkit-font-smoothing: antialiased;
+ }
+ 
+ /**
+  * Apply generic border-box to all elements.
+  * See:
+  * https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+  */
+ 
+ html {
+   box-sizing: border-box;
+   font-family: var(--global--font-secondary);
+   line-height: var(--global--line-height-body);
+ }
+ 
+ * {
+ 
+   &,
+   &::before,
+   &::after {
+     box-sizing: inherit;
+   }
+ }
+ 
+ body {
+   font-weight: normal;
+   text-align: left;
+ }
+ 
+ button {
+   cursor: pointer;
+ }
+ 

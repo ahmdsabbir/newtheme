@@ -1,7 +1,40 @@
-@import './components/framework';
-@import './components/variables';
-@import './components/header';
+/**
+* Bundle all styles
+==============================================================
+*/
 
-$fa-font-path: '../../../node_modules/@fortawesome/font-awesome-free/webfonts';
-@import '../../../node_modules/@fortawesome/fontawesome-free/scss/regular';
-@import '../../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome'
+@import '01-abstracts/mixins';
+@import '01-abstracts/variables';
+
+@import '02-base/normalize';
+@import '02-base/reset';
+@import '02-base/layout';
+@import '02-base/typography';
+
+body {
+    color: $black;
+}
+
+a {
+    color: $primary-dark;
+
+    &:hover {
+        color: $secondary;
+    }
+}
+
+.header {
+    background-color: $primary;
+    a {
+        color: $white;
+        &:hover {
+            color: $secondary;
+        }
+    }
+}
+
+.footer {
+    background: $contrast;
+    color: $black;
+}
+

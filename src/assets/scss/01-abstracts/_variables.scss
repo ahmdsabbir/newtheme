@@ -1,0 +1,45 @@
+/*
+* breakpoints
+==============================================
+*/
+$mobile : 546px;
+$tab    : 700px;
+$laptop : 960px;
+$desktop: 1200px;
+
+/*
+* Layouts
+==============================================
+*/
+$gap-column: 0;
+$gap-row: 0;
+
+/*
+* Colors
+* @link: https://color.adobe.com/create/color-wheel
+==============================================
+*/
+$primary    : #3ed78e;
+$secondary  : #8294E8;
+$contrast   : #EBBA84;
+$black      : #4a4a4a;
+$white      : #fdfeff;
+
+$primary-dark: darken($primary, 10%);
+$secondary-dark: darken($secondary, 10%);
+
+
+/*
+* Fonts
+==============================================
+*/
+$web-font-url: 'https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,400;0,600;0,800;1,200;1,400;1,600;1,800&display=swap';
+
+@import url($web-font-url);
+
+$font-stack : 'Nunito Sans', sans-serif;
+
+$font-base  : 14px;
+$font-small : $font-base * .9;
+$font-large : $font-base * 1.1;
+$font-xl    : $font-base * 1.2;

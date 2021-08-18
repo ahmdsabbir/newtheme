@@ -24,12 +24,14 @@ defined( 'ABSPATH' ) || exit;
   <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
 
-    <div class="wrapper" id="header-wrapper">
-      <?php get_template_part( '/template-parts/header/nav', 'bootstrap' ); ?>
-    </div><!-- #header-wrapper end -->
-    
-    <?php
-    if( $in_customizer || $show_breadcrumb ) :
-      get_template_part( '/template-parts/components/misc/breadcrumb');
-    endif;
-    ?>
+    <div class="wrapper <?php _themename_wrapper_class(); ?>" id="<?php echo _themename_wrapper_id(); ?>-wrapper">
+
+      <div id="header-wrapper" class="header">
+        <?php get_template_part( '/template-parts/header/nav', 'bootstrap' ); ?>
+      </div><!-- #header-wrapper end -->
+      
+      <?php
+      if( $in_customizer || $show_breadcrumb ) :
+        get_template_part( '/template-parts/components/misc/breadcrumb');
+      endif;
+      ?>
