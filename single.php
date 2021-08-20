@@ -31,6 +31,4 @@ get_header();
     </div><!-- .sidebar-right end -->
 <?php endif; ?>
 
-
-
 <?php get_footer(); ?>
