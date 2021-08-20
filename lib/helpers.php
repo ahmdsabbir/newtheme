@@ -7,8 +7,6 @@
  */
 
 
-
-
 /**
  * 
  * echos a list of categories and some specified posts in them
@@ -67,7 +65,7 @@ function _themename_categories_post_list() {
  * Function to get the wrapper ID of the div
  * return: string
  */
-function _themename_get_wrapper_id() {
+function _themename_wrapper_id() {
 
     $wrapper_id = '';
 
@@ -94,28 +92,38 @@ function _themename_get_wrapper_id() {
  * 
  *  
  */
-function _themename_main_column_length($additional = '') {
+function _themename_wrapper_class ($additional = '') {
 
     $layout = get_post_meta(get_the_ID(), '__themename_post_layout', true);
 
     if ( !is_single() ) { //if not single.php only check if both sidebars/one of the sidebar is active
         if ( is_active_sidebar( 'right-sidebar' )  && is_active_sidebar('left-sidebar') ) {// if both sidebar active
-            echo '6 ' . $additional;
+            echo 'with-both-sidebar ' . $additional;
         } elseif( !is_active_sidebar( 'right-sidebar' )  && !is_active_sidebar('left-sidebar') ) { //if no sidebar active
-            echo '12 ' . $additional;
+            echo 'with-no-sidebar ' . $additional;
         } else { //if only one of the sidebar active
-            echo '9 ' . $additional;
+            if ( is_active_sidebar( 'left-sidebar' ) ) {
+                echo 'with-left-sidebar ' . $additional;
+            }
+            if ( is_active_sidebar( 'right-sidebar' ) ) {
+                echo 'with-right-sidebar ' . $additional;
+            }
         }
-    } elseif( is_single() ) { //if single.php check if Sidebar is not shown in post_meta_box make the main container 12 column
-        if($layout == 'no') {
-            echo '12' . $additional;
-        } elseif($layout == 'yes') { //if sidebar is shown in post_meta_box
+    } elseif ( is_single() ) { //if single.php check if Sidebar is not shown in post_meta_box make the main container 12 column
+        if ( $layout == 'no' ) {
+            echo 'with-no-sidebar ' . $additional;
+        } elseif ( $layout == 'yes' ) { //if sidebar is shown in post_meta_box
             if ( is_active_sidebar( 'right-sidebar' )  && is_active_sidebar('left-sidebar') ) {
-                echo '6' . $additional;
+                echo 'with-both-sidebar ' . $additional;
             } elseif( !is_active_sidebar( 'right-sidebar' )  && !is_active_sidebar('left-sidebar') ) {
-                echo '12' . $additional;
+                echo 'with-no-sidebar ' . $additional;
             } else {
-                echo '9' . $additional;
+                if ( is_active_sidebar( 'left-sidebar' ) ) {
+                    echo 'with-left-sidebar ' . $additional;
+                }
+                if ( is_active_sidebar( 'right-sidebar' ) ) {
+                    echo 'with-right-sidebar ' . $additional;
+                }
             }
         }
     }   
@@ -137,54 +145,7 @@ function _themename_any_widget_active() {
 
 }
 
-//Add Social Links in User Profile
-add_action( 'show_user_profile', '_themename_extra_user_profile_fields' );
-add_action( 'edit_user_profile', '_themename_extra_user_profile_fields' );
 
-function _themename_extra_user_profile_fields( $user ) { ?>
-    <h3><?php _e("Social Links", "_themename"); ?></h3>
-
-    <table class="form-table">
-    <tr>
-        <th><label for="twitter"><?php _e("Twitter", '_themename'); ?></label></th>
-        <td>
-            <input type="text" name="twitter" id="twitter" value="<?php echo esc_attr( get_the_author_meta( 'twitter', $user->ID ) ); ?>" class="regular-text" /><br />
-            <span class="description"><?php esc_html__("Please enter your twitter link.", '_themename'); ?></span>
-        </td>
-    </tr>
-    <tr>
-        <th><label for="facebook"><?php _e("facebook", '_themename'); ?></label></th>
-        <td>
-            <input type="text" name="facebook" id="facebook" value="<?php echo esc_attr( get_the_author_meta( 'facebook', $user->ID ) ); ?>" class="regular-text" /><br />
-            <span class="description"><?php esc_html__("Please enter your facebook link", '_themename'); ?></span>
-        </td>
-    </tr>
-    <tr>
-    <th><label for="github"><?php _e("Github"); ?></label></th>
-        <td>
-            <input type="text" name="github" id="github" value="<?php echo esc_attr( get_the_author_meta( 'github', $user->ID ) ); ?>" class="regular-text" /><br />
-            <span class="description"><?php esc_html__("Please enter your Github Link", '_themename'); ?></span>
-        </td>
-    </tr>
-    </table>
-<?php }
-
-//Save Extra User Fields
-add_action( 'personal_options_update', '_themename_save_extra_user_profile_fields' );
-add_action( 'edit_user_profile_update', '_themename_save_extra_user_profile_fields' );
-
-function _themename_save_extra_user_profile_fields( $user_id ) {
-    if ( empty( $_POST['_wpnonce'] ) || ! wp_verify_nonce( $_POST['_wpnonce'], 'update-user_' . $user_id ) ) {
-        return;
-    }
-    
-    if ( !current_user_can( 'edit_user', $user_id ) ) { 
-        return false; 
-    }
-    update_user_meta( $user_id, 'twitter', $_POST['twitter'] );
-    update_user_meta( $user_id, 'facebook', $_POST['facebook'] );
-    update_user_meta( $user_id, 'github', $_POST['github'] );
-}
 
 /**
  * Related Posts
@@ -258,3 +219,16 @@ function _themename_related_posts($count, $sort = 'rand') {
 
     return $resultPostArray;
 }
+
+/**
+ * The function below adds .odd or .even classes in wordpress posts for easy css styling
+ */
+// function oddeven_post_class ( $classes ) {
+//     global $current_class;
+//     $classes[] = $current_class;
+//     $current_class = ($current_class == 'odd') ? 'even' : 'odd';
+//     return $classes;
+//  }
+//  add_filter ( 'post_class' , 'oddeven_post_class' );
+//  global $current_class;
+//  $current_class = 'odd';

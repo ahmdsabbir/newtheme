@@ -14,11 +14,13 @@ function _themename__customize_register( $wp_customize ) {
     ));
 
     /** #################### General Theme Options ###################### */
+
     $wp_customize->add_panel( '_themename_general_theme_options', array(
         'title' => esc_html__( 'General Theme Options', '_themename' ),
         'description' => esc_html__( 'You can change General Theme options from here.', '_themename' ),
         'priority' => 10,
      ) );
+     
     $wp_customize->add_section('_themename_breadcrumb_options', array(
         'title' => esc_html__( 'Breadcrumb', '_themename' ),
         'description' => esc_html__( 'You can change Breadcrumb Options from here', '_themename' ),
@@ -96,10 +98,23 @@ function _themename__customize_register( $wp_customize ) {
     ) );
 
     /** ############################ Single #################################### */
+
     $wp_customize->add_section('_themename_single_blog_options', array(
         'title' => esc_html__( 'Single Blog Options', '_themename' ),
         'description' => esc_html__( 'You can change single blog options from here.', '_themename' ),
         'active_callback' => '_themename_show_single_blog_section'
+    ));
+
+    $wp_customize->add_setting('_themename_display_post_share', array(
+        'default' => true,
+        'transport' => 'postMessage',
+        'sanitize_callback' => '_themename_sanitize_checkbox'
+    ));
+
+    $wp_customize->add_control('_themename_display_post_share', array(
+        'type' => 'checkbox',
+        'label' => esc_html__( 'Enable Post Sharing', '_themename' ),
+        'section' => '_themename_single_blog_options'
     ));
 
     $wp_customize->add_setting('_themename_display_author_info', array(
@@ -113,6 +128,7 @@ function _themename__customize_register( $wp_customize ) {
         'label' => esc_html__( 'Show Author Info', '_themename' ),
         'section' => '_themename_single_blog_options'
     ));
+
 
     //Post Navigation
     $wp_customize->add_setting('_themename_display_post_navigation', array(
@@ -139,6 +155,20 @@ function _themename__customize_register( $wp_customize ) {
         'label' => esc_html__( 'Show Related Posts', '_themename' ),
         'section' => '_themename_single_blog_options'
     ));
+
+    $wp_customize->add_setting('_themename_enable_toc', array(
+        'default' => false,
+        'transport' => 'refresh',
+        'sanitize_callback' => '_themename_sanitize_checkbox'
+    ));
+
+    $wp_customize->add_control('_themename_enable_toc', array(
+        'type' => 'checkbox',
+        'label' => esc_html__( 'Enable Table of Content', '_themename' ),
+        'section' => '_themename_single_blog_options'
+    ));
+
+   
            
 }
 add_action( 'customize_register', '_themename__customize_register' );

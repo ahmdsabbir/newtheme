@@ -4,10 +4,13 @@
  * This is for theme settings
  */
 
-//-----------------Set Content Width
+/**
+ * Set Content Width
+ */
 if(!isset($content_width)) $content_width=1116;
 
-function _themename_content_width() {
+add_action( 'template_redirect', function() {
+
     $layout = get_post_meta(get_the_ID(), '__themename_post_layout', true);
 
     if ( !is_single() ) { //if not single.php only check if both sidebars/one of the sidebar is active
@@ -31,11 +34,13 @@ function _themename_content_width() {
             }
         }
     }
-}
-add_action( 'template_redirect', '_themename_content_width' );
+
+} );
 
 
-//----------------- Remove jQuery migrate
+/**
+ * Remove jQuery migrate
+*/ 
 
 add_action('wp_default_scripts', function() {
     if ( !is_admin() && !empty( $scripts->registered['jquery'] ) ) {

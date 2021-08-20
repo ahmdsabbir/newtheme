@@ -1,0 +1,32 @@
+#ptoc {
+  border: 1px solid #ddd;
+  width:50%;
+  padding:12px;
+  margin-bottom: 24px;
+  background: rgb(221, 233, 236);
+}
+#ptoc ul {
+  margin:0;
+}
+.back-to-top {
+  font-size: 16px;
+  font-weight:normal;
+}
+#ptoc .ptoc-h1 {
+  margin-left:1em;
+}
+#ptoc .ptoc-h2 {
+  margin-left:2em;
+}
+#ptoc .ptoc-h3 {
+  margin-left:3em;
+}
+#ptoc .ptoc-h4 {
+  margin-left:4em;
+}
+#ptoc .ptoc-h5 {
+  margin-left:5em;
+}
+#ptoc .ptoc-h6 {
+  margin-left:6em;
+}

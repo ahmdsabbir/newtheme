@@ -2,6 +2,7 @@
 if( has_post_thumbnail() ) : 
     the_post_thumbnail( 'medium');
 endif;
+
 if(is_single()) : ?>
     <h1 class="entry-title">
         <?php the_title() ?>
@@ -16,5 +17,5 @@ if(is_single()) : ?>
 
 
 <div class="entry-meta">
-    <?php _themename_post_meta(); ?>
+    <?php get_template_part( '/template-parts/components/entry/meta'); ?>
 </div><!-- entry-meta end -->

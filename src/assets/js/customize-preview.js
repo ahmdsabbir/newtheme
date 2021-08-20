@@ -18,15 +18,6 @@ wp.customize( '_themename_display_author_info', (value) => {
     } )
 })
 
-wp.customize('_themename_display_breadcrumb', (value) => {
-    value.bind( (to) => {
-        if(to) {
-            $('#breadcrumb-wrapper').show();
-        } else {
-            $('#breadcrumb-wrapper').hide();
-        }
-    })
-} )
 
 wp.customize('_themename_display_breadcrumb', (value) => {
     value.bind( (to) => {
@@ -54,6 +45,16 @@ wp.customize('_themename_display_post_navigation', (value) => {
             $('.post-navigation').show();
         } else {
             $('.post-navigation').hide();
+        }
+    })
+} )
+
+wp.customize('_themename_display_post_share', (value) => {
+    value.bind( (to) => {
+        if(to) {
+            $('#post-share').show();
+        } else {
+            $('#post-share').hide();
         }
     })
 } )

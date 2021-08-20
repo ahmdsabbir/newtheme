@@ -44,5 +44,5 @@ if ( !is_single( ) && $gallery ) :?>
 <?php endif; ?>
 
 <div class="entry-meta">
-    <?php _themename_post_meta(); ?>
+    <?php get_template_part( '/template-parts/components/entry/meta'); ?>
 </div><!-- entry-meta end -->

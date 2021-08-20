@@ -3,9 +3,13 @@
  * Header
  * 
  * @package _themename
- */
+*/
+
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
  $show_breadcrumb = get_theme_mod( '_themename_display_breadcrumb', true);
+ $in_customizer = isset($GLOBALS['wp_customize']);
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -20,15 +24,14 @@
   <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
 
-    <div class="wrapper" id="header-wrapper">
-      <?php get_template_part( '/template-parts/header/nav', 'bootstrap' ); ?>
-    </div><!-- #header-wrapper end -->
+    <div class="wrapper <?php _themename_wrapper_class(); ?>" id="<?php echo _themename_wrapper_id(); ?>-wrapper">
 
-    
-    <?php
-    if( $show_breadcrumb && !is_home() ) :
-      get_template_part( '/template-parts/components/misc/breadcrumb');
-    endif;
-    ?>
-
-  
+      <div id="header-wrapper" class="header">
+        <?php get_template_part( '/template-parts/header/nav', 'bootstrap' ); ?>
+      </div><!-- #header-wrapper end -->
+      
+      <?php
+      if( $in_customizer || $show_breadcrumb ) :
+        get_template_part( '/template-parts/components/misc/breadcrumb');
+      endif;
+      ?>

@@ -11,29 +11,22 @@ defined( 'ABSPATH' ) || exit;
 
 <?php get_header(); ?> 
 
-<div class="wrapper" id="<?php echo _themename_get_wrapper_id(); ?>-wrapper">
-    <div class="container">
-        <div class="row">
-            <?php if( is_active_sidebar('left-sidebar') ): ?>
-                <div class="col-3">
-                    <?php get_sidebar('left'); ?>
-                </div><!-- .col-3 end -->
-            <?php endif; ?>
-            <div class="col-<?php _themename_main_column_length(); ?>">
-                <div>
-                    <?php get_template_part( '/template-parts/archives/author'); ?>
-                </div>
-                <main class="site-main" role="main">
-                    <?php get_template_part( 'loop', 'archive' ); ?> 
-                </main>
-            </div><!-- .col-6 end -->
-            <?php if( is_active_sidebar('right-sidebar') ): ?>
-                <div class="col-3">
-                    <?php get_sidebar('right'); ?>
-                </div><!-- .col-3 end -->
-            <?php endif; ?>
-        </div><!-- .row end -->
-    </div><!-- .container end -->
-</div><!-- .wrapper end -->
+<div class="main">
+    <?php get_template_part( '/template-parts/archives/author'); ?>
+    <?php get_template_part( 'loop', 'archive' ); ?> 
+</div><!-- .main end -->
+
+<?php if( is_active_sidebar('left-sidebar') ): ?>
+    <div class="sidebar-left">
+        <?php get_sidebar('left'); ?>
+    </div><!-- .sidebar-left end -->
+<?php endif; ?>
+
+
+<?php if( is_active_sidebar('right-sidebar') ): ?>
+    <div class="sidebar-right">
+        <?php get_sidebar('right'); ?>
+    </div><!-- .sidebar-right end -->
+<?php endif; ?>
 
 <?php get_footer(); ?>
