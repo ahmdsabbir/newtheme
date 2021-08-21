@@ -2,15 +2,13 @@
 * breakpoints
 ==============================================
 */
-$mobile : 546px;
-$tab    : 700px;
-$laptop : 960px;
-$desktop: 1200px;
+$mobile         : 0px; //We are mobile first, so it starts from 0
+$tab            : 546px;
+$laptop         : 768px;
+$desktop        : 960px;
+$large-screen   : 1200px;
 
-/*
-* Layouts
-==============================================
-*/
+
 $gap-column: 0;
 $gap-row: 0;
 
@@ -19,8 +17,8 @@ $gap-row: 0;
 * @link: https://color.adobe.com/create/color-wheel
 ==============================================
 */
-$primary    : #3ed78e;
-$secondary  : #8294E8;
+$primary    : #16cca1;
+$secondary  : #3ed78e;
 $contrast   : #EBBA84;
 $black      : #4a4a4a;
 $white      : #fdfeff;
@@ -33,13 +31,20 @@ $secondary-dark: darken($secondary, 10%);
 * Fonts
 ==============================================
 */
-$web-font-url: 'https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,400;0,600;0,800;1,200;1,400;1,600;1,800&display=swap';
+
+// at some point of time I need to import it locally
+$web-font-url: 'https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,400;0,600;0,800;1,200;1,400;1,600;1,800&display=swap'; 
 
 @import url($web-font-url);
 
-$font-stack : 'Nunito Sans', sans-serif;
+//Set rem
+html {
+    font-size: 62.5%;
+}
 
-$font-base  : 14px;
-$font-small : $font-base * .9;
-$font-large : $font-base * 1.1;
-$font-xl    : $font-base * 1.2;
+$font-family : 'Nunito Sans', sans-serif;
+
+$font-size  : 1rem;
+$font-small : $font-size * .9;
+$font-large : $font-size * 1.1;
+$font-xl    : $font-size * 1.2;

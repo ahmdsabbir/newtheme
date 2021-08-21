@@ -24,7 +24,7 @@
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: auto 1fr auto auto auto;
-    gap: $gap-row $gap-column;
+    //gap: $gap-row $gap-column;
     grid-template-areas: 
         "header"
         "main"
@@ -34,7 +34,7 @@
     ;
 }
 
-@media (min-width: $mobile) {
+@media (min-width: $laptop) {
 
     .with-both-sidebar {
         grid-template-columns: minmax(140px, 15vw) 1fr minmax(140px, 15vw);
