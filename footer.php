@@ -7,7 +7,7 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 ?>
-      <div id="footer-wrapper" class="sm-12 md-12 lg-12 sm-order-5 md-order-5 lg-order-5">
+      <div id="footer-wrapper" class="sm-12 md-12 lg-12 md-order-5 lg-order-5">
 
         <div id="footer" role="site-footer">
 

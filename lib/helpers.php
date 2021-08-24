@@ -96,10 +96,16 @@ function _themename_main_column_class ($additional = '') {
 
     $layout = get_post_meta(get_the_ID(), '__themename_post_layout', true);
 
-    //Class names... don't forget to put a space at the end
-    $for_both_sidebar   = 'sm-12 md-6 lg-6 ';
-    $for_one_sidebar    = 'sm-12 md-9 lg-9 ';
-    $for_no_sidebar     = 'sm-12 md-12 lg-12 ';
+    if ( $additional != '' ) {  //put an extra space after class names if there is additional classes
+        $for_both_sidebar   = 'sm-12 md-8 lg-8 ';
+        $for_one_sidebar    = 'sm-12 md-9 lg-9 ';
+        $for_no_sidebar     = 'sm-12 md-12 lg-12 ';
+    } else { //else don't put extra space
+        $for_both_sidebar   = 'sm-12 md-8 lg-8';
+        $for_one_sidebar    = 'sm-12 md-9 lg-9';
+        $for_no_sidebar     = 'sm-12 md-12 lg-12';
+    }
+    
 
     if ( !is_single() ) { //if not single.php only check if both sidebars/one of the sidebar is active
         if ( is_active_sidebar( 'right-sidebar' )  && is_active_sidebar('left-sidebar') ) {// if both sidebar active
