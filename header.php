@@ -24,9 +24,9 @@ defined( 'ABSPATH' ) || exit;
   <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
 
-    <div class="wrapper <?php _themename_wrapper_class(); ?>" id="<?php echo _themename_wrapper_id(); ?>-wrapper">
+    <div class="container" id="<?php echo _themename_wrapper_id(); ?>-wrapper">
 
-      <div id="header-wrapper" class="header">
+      <div id="header-wrapper" class="sm-12 md-12 lg-12 sm-order-1 md-order-1 lg-order-1">
         <?php get_template_part( '/template-parts/header/nav', 'bootstrap' ); ?>
       </div><!-- #header-wrapper end -->
       

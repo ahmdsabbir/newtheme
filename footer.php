@@ -7,9 +7,9 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 ?>
-      <div id="footer-wrapper" class="footer">
+      <div id="footer-wrapper" class="sm-12 md-12 lg-12 sm-order-5 md-order-5 lg-order-5">
 
-        <div class="container" id="footer" role="site-footer">
+        <div id="footer" role="site-footer">
 
         <?php 
 
