@@ -96,14 +96,14 @@ function _themename_main_column_class ($additional = '') {
 
     $layout = get_post_meta(get_the_ID(), '__themename_post_layout', true);
 
+    $for_both_sidebar   = 'sm-12 md-8 lg-8';
+    $for_one_sidebar    = 'sm-12 md-9 lg-9';
+    $for_no_sidebar     = 'sm-12 md-12 lg-12';
+
     if ( $additional != '' ) {  //put an extra space after class names if there is additional classes
-        $for_both_sidebar   = 'sm-12 md-8 lg-8 ';
-        $for_one_sidebar    = 'sm-12 md-9 lg-9 ';
-        $for_no_sidebar     = 'sm-12 md-12 lg-12 ';
-    } else { //else don't put extra space
-        $for_both_sidebar   = 'sm-12 md-8 lg-8';
-        $for_one_sidebar    = 'sm-12 md-9 lg-9';
-        $for_no_sidebar     = 'sm-12 md-12 lg-12';
+        $for_both_sidebar   = $for_both_sidebar . ' ';
+        $for_one_sidebar    = $for_one_sidebar . ' ';
+        $for_no_sidebar     = $for_no_sidebar . ' ';
     }
     
 
