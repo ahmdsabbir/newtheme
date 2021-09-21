@@ -1,28 +1,29 @@
 /**
-* mixins
+* Mixins
+*
+* @package Minima-WP
 */
 
 
 // Center block
 @mixin center-block {
-	display: block;
-	margin-left: auto;
+	display     : block;
+	margin-left : auto;
 	margin-right: auto;
 }
 
 
 //centering element
 @mixin absolute-center{
-    display: grid;
-    place-items: center;
+    display     : grid;
+    place-items : center;
 }
 
 // flex card style
-
 @mixin flex-card {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display         : flex;
+    flex-wrap       : wrap;
+    justify-content : center;
 }
 
 @mixin flex-card-child {
@@ -31,25 +32,135 @@
 
 // grid card
 @mixin card {
-    display: grid;
-    grid-template-columns: repeat(autofit, minmax(25rem, 1fr));
-    justify-content: space-between;
-    padding: 2rem;
+    display                 : grid;
+    grid-template-columns   : repeat(autofit, minmax(25rem, 1fr));
+    justify-content         : space-between;
+    padding                 : 2rem;
 }
 
 @mixin card-align {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 1rem;
+    display         : flex;
+    flex-direction  : column;
+    justify-content : space-between;
+    padding         : 1rem;
 }
-
-
 
 // clamp card for more responsiveness
 @mixin clamp-card {
-    width: clamp(23ch, 50%, 46ch);
-    display: flex;
-    flex-direction: colulmn;
-    padding: 1rem;
+    width           : clamp(23ch, 50%, 46ch);
+    display         : flex;
+    flex-direction  : colulmn;
+    padding         : 1rem;
 }
+
+
+@mixin rounded($radius: 0.5em) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+  }
+
+/*
+############################################
+        Button Related Mixins
+############################################
+*/
+@mixin btn-reset() {
+    display         : inline-block;
+    text-align      : center;
+    line-height: var(--base-lh-input);
+	color: var(--base-clr-input-text);
+	cursor: pointer;
+	font-weight: var(--button--font-weight);
+	font-family: var(--base-ff-input);
+	font-size: var(--base-fs-input);
+	background-color: var(--base-clr-bg-input );
+	text-decoration: var(--base-td-input);
+	padding: var(--base-p-input);
+
+    @include border($color: var(--core-clr-gray));
+    @include border-radius(0);
+}
+
+@mixin btn($type: 'default') {
+    @include btn-reset();
+    @if $type == "rounded" {
+        @include rounded(5rem);
+        padding: var(--base-p-input);
+    }
+    @else if $type == 'fluid' {
+        display: block;
+        max-width: 100%;
+    }
+}
+
+/**
+* transition
+*/
+@mixin transition($for: all, $time-in: 100ms, $type: ease-in-out, $time-out: 0s) {
+    transition: $for $time-in $type $time-out;
+    -moz-transition: $for $time-in $type $time-out;
+    -webkit-transition: $for $time-in $type $time-out;
+    -o-transition: $for $time-in $type $time-out;
+}
+
+/**
+* box-shadow
+*/
+@mixin box-shadow($top: 0px, $left: 0px, $blur: 1px, $spread: 8px, $color: var(--core-clr-black), $inset: false) {
+    @if $inset {
+      -webkit-box-shadow:inset $top $left $blur $color;
+      -moz-box-shadow:inset $top $left $blur $color;
+      box-shadow:inset $top $left $blur $color;
+    } @else {
+      -webkit-box-shadow: $top $left $blur $color;
+      -moz-box-shadow: $top $left $blur $color;
+      box-shadow: $top $left $blur $color;
+    }
+  }
+
+
+/*
+############################################
+        Border Radius Related Mixins
+############################################
+*/
+
+@mixin border($size: 1px, $style:solid, $color: var(--core-clr-black)) {
+    border: $size $style $color;
+}
+
+@mixin border-radius($radius: 2px) {
+    border-radius: $radius;
+}
+
+@mixin border-radius-detailed($tl:null, $tr:null, $br:null, $bl:null, ) {
+    border-top-left-radius: $tl;
+    border-top-right-radius: $tr;
+    border-bottom-right-radius: $br;
+    border-bottom-left-radius: $bl;
+}
+
+
+/*
+############################################
+        Misfits
+############################################
+*/
+
+/*
+*  hide or show an element, useful for fade in/out animations
+*/
+
+@mixin fade($type) {
+    @if $type== "hide" {
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 1s, opacity 1s;
+    } @else if $type== "show" {
+      visibility: visible;
+      opacity: 1;
+      transition: visibility 1s, opacity 1s;
+    }
+  }
+  

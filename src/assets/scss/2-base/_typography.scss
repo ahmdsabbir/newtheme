@@ -1,32 +1,36 @@
 /**
-* Barebone(without utility classes) typography styles
+* Barebone base style for typography
+*
+* @package Minima-WP
 */
+
 p {
-    font-family     : $font-family-para;
-    font-size       : $font-size-para;
-    margin-top      : $margin-top-para;
-    margin-bottom   : $margin-bottom-para;
-    line-height     : $lineheight-para;
+    font-family     : var(--base-ff-para);
+    font-size       : var(--base-fs-para);
+    font-weight     : var(--base-fw-para);
+    margin-top      : var(--base-mt-para);
+    margin-bottom   : var(--base-mb-para);
+    line-height     : var(--base-lh-para);
     word-break      : break-all;
     word-break      : break-word;
     hyphens         : auto;
-    color           : $color-para;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: $font-family-heading;
-    font-style: $font-style-heading;
-    font-weight: $font-weight-heading;
-    color: $color-heading;
-    line-height: $lineheight-heading;
-    margin-bottom: $margin-bottom-heading;
-    
+    font-family     : var(--base-ff-heading);
+    font-style      : var(--base-fst-heading);
+    font-weight     : var(--base-fw-heading);
+    color           : var(--base-clr-heading);
+    line-height     : var(--base-lh-heading);
+    margin-top      : var(--base-mt-heading);
+    margin-bottom   : var(--base-mb-heading);
     word-break: break-word;
 }
 
-h1 {font-size: $font-size-h1;}
-h2 {font-size: $font-size-h2;}
-h3 {font-size: $font-size-h3;}
-h4 {font-size: $font-size-h4;}
-h5 {font-size: $font-size-h5;}
-h6 {font-size: $font-size-h6;}
+h1 {font-size: var(--base-fs-h1);}
+h2 {font-size: var(--base-fs-h2);}
+h3 {font-size: var(--base-fs-h3);}
+h4 {font-size: var(--base-fs-h4);}
+h5 {font-size: var(--base-fs-h5);}
+h6 {font-size: var(--base-fs-h6);}
+

@@ -1,0 +1,188 @@
+/**
+* Variables
+*
+* @package Minima-WP
+*/
+
+/*
+############################################
+        Font Related Variables
+        ----------------------
+        fs  = font-size
+        fst = font-style
+        ff  = font-family
+        fw  = font-weight
+############################################
+*/
+
+// font-size
+
+
+$ff-heading     : inherit;
+$ff-para        : inherit;
+$ff-btn         : inherit;
+
+// font-style
+$fst-heading      : normal;
+$fs-breadcrumb    : normal;
+//font-weight
+
+$fw-base       : 400; 
+$fw-heading    : bolder;
+$fw-btn        : normal;
+$fw-breadcrumb  : normal;
+
+$fs-h1  : 2rem;
+$fs-h2  : 1.8rem;
+$fs-h3  : 1.6rem;
+$fs-h4  : 1.4rem;
+$fs-h5  : 1.2rem;
+$fs-h6  : 1rem;
+
+$fs-para: inherit;
+$fs-btn : 1rem;
+$fs-pre : 1em;
+
+$fs-input-base : 1rem;
+
+//text
+$tt-link: none;
+$td-link: underlined;
+
+
+
+/*
+############################################
+        Border Related Variables
+        ------------------------
+        br = border-radious
+############################################
+*/
+$br-btn: 0;
+
+/*
+############################################
+        Layout Related Variables
+############################################
+*/
+/*
+* Breakpoints
+*
+* We are mobile first, So the breakpoint starts at 0
+*/
+$sm : 0px;
+$md : 768px;
+$lg: 960px;
+$xl: 1200px;
+
+/*
+############################################
+        spacing Related Variables
+        -------------------------
+        g  = gap
+        p  = padding
+        m  = margin
+        mt = margin-top
+        mb = margin-bottom
+############################################
+*/
+
+//Gaps
+$g-row: 1rem;
+$g-column: 1rem;
+
+//Padding
+$p-xs   : .5rem;
+$p-sm   : .75rem;
+$p-md   : 1rem;
+$p-lg   : 1.5rem;
+$p-xl   : 2rem;
+
+$p-base         : 0;
+$p-container    : $p-base;
+$p-btn          : 1rem;
+
+//Margin
+$m-xs   : .5rem;
+$m-sm   : .75rem;
+$m-md   : 1rem;
+$m-lg   : 1.5rem;
+$m-xl   : 2rem;
+
+$mt-para        : 0;
+$mt-heading     : 0;
+
+$mb-para        : 1.6rem;
+$mb-heading     : 1rem;
+
+$m-btn          : 0;
+
+/*
+############################################
+        Color Related Variables
+        -----------------------
+        clr = color
+############################################
+*/
+
+
+$primary    : #11A683;
+$secondary  : #3ed78e;
+$contrast   : #EBBA84;
+$black      : #050505;
+$white      : #fdfeff;
+$gray       : #9ca3af;
+
+$background : #f7f8f8;
+
+$clr-body       : $white;
+$clr-heading    : $black;
+$clr-btn        : $black;
+$clr-shadow     : lighten($black, 30%);
+$clr-bg-breadcrumb: $background;
+
+$clr-link-base          : $primary;
+$clr-link-hover         : $secondary;
+$clr-link-active        : $black;
+$clr-link-visited       : $contrast;
+
+$clr-bg-input-btn       : $white;
+
+/*
+############################################
+        width-height Related Variables
+        -----------------------------
+        h = height
+        w = width
+############################################
+*/
+$w-breadcrumb : 100%;
+$h-breadcrumb : 5rem;
+
+/*
+############################################
+        Line-height Related Variables
+        -----------------------------
+        lh = line height
+############################################
+*/
+$lh : 1.6; //universal  line height
+
+// for custom desing lineheight
+$lh-para        : 1.3;
+$lh-heading     : 1.2;
+$lh-btn         : 1.5;
+
+/*
+############################################
+        Misfit Variables
+        ----------------------
+        br = border-radius
+############################################
+*/
+// buttons
+$br-btn : 1px;
+
+$br-sm  : .25rem;
+$br-md  : .5rem;
+$br-lg  : 1rem;

@@ -92,13 +92,13 @@ function _themename_wrapper_id() {
  * 
  *  
  */
-function _themename_main_column_class ($additional = '') {
+function _themename_main_column_class ($both, $one, $no, $additional = '') {
 
     $layout = get_post_meta(get_the_ID(), '__themename_post_layout', true);
 
-    $for_both_sidebar   = 'sm-12 md-8 lg-8';
-    $for_one_sidebar    = 'sm-12 md-9 lg-9';
-    $for_no_sidebar     = 'sm-12 md-12 lg-12';
+    $for_both_sidebar   = $both;
+    $for_one_sidebar    = $one;
+    $for_no_sidebar     = $no;
 
     if ( $additional != '' ) {  //put an extra space after class names if there is additional classes
         $for_both_sidebar   = $for_both_sidebar . ' ';

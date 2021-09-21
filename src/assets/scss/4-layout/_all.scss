@@ -1,6 +1,12 @@
+/**
+* Bundle all layout styles
+*
+* @package Minima-WP
+*/
 
-@import "common";
+@import "grid";
 @import "header";
 @import "footer";
 @import "sidebars";
-@import "grid";
+
+

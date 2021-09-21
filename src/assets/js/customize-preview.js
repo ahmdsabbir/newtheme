@@ -22,9 +22,9 @@ wp.customize( '_themename_display_author_info', (value) => {
 wp.customize('_themename_display_breadcrumb', (value) => {
     value.bind( (to) => {
         if(to) {
-            $('#breadcrumb-wrapper').show();
+            $('#breadcrumb').show();
         } else {
-            $('#breadcrumb-wrapper').hide();
+            $('#breadcrumb').hide();
         }
     })
 } )

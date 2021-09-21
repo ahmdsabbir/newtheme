@@ -1,0 +1,20 @@
+.container {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(var(--grid-columns, 12), minmax(0, 1fr));
+    grid-template-rows: repeat(var(--grid-rows, 1), minmax(0, 1fr));
+    
+    & > * {
+        grid-column: span var(--grid-columns, 12);
+        grid-row: span var(--grid-rows, 1);
+    }
+  }
+  
+  @for $i from 1 through 12 {
+    .grid-col-#{$i} {
+        --grid-columns : #{$i};
+    }
+    .grid-row-#{$i} {
+        --grid-rows : #{$i};
+    }
+  }

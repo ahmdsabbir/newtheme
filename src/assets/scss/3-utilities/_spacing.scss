@@ -1,0 +1,26 @@
+/*
+* margin
+*/
+@each $sizes, $value in $m-sizes {
+
+    .m-#{$sizes} { margin: #{$value}; }
+
+    .m-t-#{$sizes} { margin-top: #{$value}; }
+
+    .m-b-#{$sizes} { margin-bottom: #{$value}; }
+
+    .m-l-#{$sizes} { margin-left: #{$value}; }
+
+    .m-r-#{$sizes} { margin-right: #{$value}; }
+
+    .p-#{$sizes} { padding: #{$value}; }
+
+    .p-t-#{$sizes} { padding-top: #{$value}; }
+
+    .p-b-#{$sizes} { padding-bottom: #{$value}; }
+
+    .p-l-#{$sizes} { padding-left: #{$value}; }
+
+    .p-r-#{$sizes} { padding-right: #{$value}; }
+        
+}

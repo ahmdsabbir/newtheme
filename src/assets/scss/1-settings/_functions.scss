@@ -1,3 +1,32 @@
 /**
-* functions
+* Functions
+*
+* @package Minima-WP
 */
+
+/*
+############################################
+        Button Related Functions
+############################################
+*/
+
+
+@function set-text-color($color) {
+
+    @if (lightness($color) > 50) {
+        @return var(--clr-btn-text-dark);
+    } @else {
+        @return var(--clr-btn-text-light);
+    }
+
+}
+
+@function btn-hover-bg($color) {
+
+    @if (lightness($color) > 50) {
+        @return darken($color, 13%);
+    } @else {
+        @return lighten($color, 13%);
+    }
+
+}

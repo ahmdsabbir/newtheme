@@ -1,9 +1,15 @@
 /**
-* import all base
+* Bundle all utilities
+*
+* @package Minima-WP
 */
 
-@import 'wp-core';
-@import 'typography';
+
+// @import 'wp-core';
+// @import 'typography';
 @import 'links';
-@import 'forms';
-@import 'media';
+// @import 'forms';
+// @import 'media';
+@import 'helpers';
+// @import 'spacing';
+// @import 'misc';

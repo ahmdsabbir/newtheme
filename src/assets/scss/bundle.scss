@@ -7,31 +7,5 @@
 @import '2-base/all';
 @import '3-utilities/all';
 @import '4-layout/all';
-
-body {
-    color: $black;
-}
-
-a {
-    color: $primary;
-
-    &:hover {
-        color: $secondary;
-    }
-}
-
-.header {
-    background-color: $primary;
-    a {
-        color: $white;
-        &:hover {
-            color: $secondary;
-        }
-    }
-}
-
-.footer {
-    background: $contrast;
-    color: $black;
-}
+@import '5-components/all';
 

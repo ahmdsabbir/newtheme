@@ -1,30 +1,43 @@
 /**
-* normalizer for browser compatibility
+* Browser Reset
 *
-* @package WP-Minima
-*
+* Inspired By necoas/normalizer
 * @link https://github.com/necolas/normalize.css/blob/master/normalize.css
+*
+* @package Minima-WP
 */
+
 
 /**
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 
+*::before,
+*::after {
+    padding   : 0;
+    margin    : 0;
+    box-sizing: inherit;
+}
+
  html {
-    line-height: 1.15; /* 1 */
-    -webkit-text-size-adjust: 100%; /* 2 */
-    text-rendering: optimizeLegibility;
-    box-sizing: border-box;
+    line-height             : var(--core-lineheight); /* 1 */
+    text-size-adjust        : 100%; /* 2 */
+    text-rendering          : optimizeLegibility;  
+    -moz-osx-font-smoothing : grayscale; /* only workds on mack os */
+    -webkit-font-smoothing  : antialiased;  /* only workds on mack os */
+    box-sizing              : border-box;
   }
-  
-  /* Sections
-     ========================================================================== */
+
+/*
+############################################
+        Text level semantics
+############################################
+*/
   
   /**
    * Remove the margin in all browsers.
    */
-  
    html,
    body,
    p,
@@ -50,9 +63,14 @@
    h5,
    h6 {
      padding: 0;
-     margin: 0;
-     -moz-osx-font-smoothing: grayscale;
-     -webkit-font-smoothing: antialiased;
+     margin : 0;
+   }
+/* font style for whole site */
+   body {
+     font-size  : var(--core-fs);
+     font-family: var(--core-ff);
+     font-weight: var(--core-fw-regular);
+     box-sizing : border-box;
    }
   /**
    * Render the `main` element consistently in IE.
@@ -62,9 +80,11 @@
     display: block;
   }
 
-
-  /* Grouping content
-     ========================================================================== */
+/*
+############################################
+        Grouping content
+############################################
+*/
   
   /**
    * 1. Add the correct box sizing in Firefox.
@@ -73,8 +93,8 @@
   
   hr {
     box-sizing: content-box; /* 1 */
-    height: 0; /* 1 */
-    overflow: visible; /* 2 */
+    height    : 0; /* 1 */
+    overflow  : visible; /* 2 */
   }
   
   /**
@@ -83,17 +103,13 @@
    */
   
   pre {
-    font-family: monospace, monospace; /* 1 */
-    font-size: 1em; /* 2 */
+    font-family : monospace, monospace; /* 1 */
+    font-size   : var(--core-fs); /* 2 */
   }
-  
-  /* Text-level semantics
-     ========================================================================== */
   
   /**
    * Remove the gray background on active links in IE 10.
    */
-  
   a {
     background-color: transparent;
   }
@@ -104,9 +120,9 @@
    */
   
   abbr[title] {
-    border-bottom: none; /* 1 */
-    text-decoration: underline; /* 2 */
-    text-decoration: underline dotted; /* 2 */
+    border-bottom   : none; /* 1 */
+    text-decoration : underline; /* 2 */
+    text-decoration : underline dotted; /* 2 */
   }
   
   /**
@@ -126,8 +142,8 @@
   code,
   kbd,
   samp {
-    font-family: monospace, monospace; /* 1 */
-    font-size: 1em; /* 2 */
+    font-family : monospace, monospace; /* 1 */
+    font-size   : 1em; /* 2 */
   }
   
   /**
@@ -145,9 +161,9 @@
   
   sub,
   sup {
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
+    font-size     : 75%;
+    line-height   : 0;
+    position      : relative;
     vertical-align: baseline;
   }
   
@@ -159,8 +175,12 @@
     top: -0.5em;
   }
   
-  /* Embedded content
-     ========================================================================== */
+ 
+/*
+############################################
+        Embedded content
+############################################
+*/   
   
   /**
    * Remove the border on images inside links in IE 10.
@@ -169,9 +189,12 @@
   img {
     border-style: none;
   }
-  
-  /* Forms
-     ========================================================================== */
+ 
+/*
+############################################
+        Forms
+############################################
+*/
   
   /**
    * 1. Change the font styles in all browsers.
@@ -183,10 +206,10 @@
   optgroup,
   select,
   textarea {
-    font-family: inherit; /* 1 */
-    font-size: 100%; /* 1 */
-    line-height: 1.15; /* 1 */
-    margin: 0; /* 2 */
+    font-family : inherit; /* 1 */
+    font-size   : 100%; /* 1 */
+    line-height : 1.15; /* 1 */
+    margin      : 0; /* 2 */
   }
   
   /**
@@ -237,10 +260,10 @@
    */
   
   button:-moz-focusring,
-  [type="button"]:-moz-focusring,
-  [type="reset"]:-moz-focusring,
-  [type="submit"]:-moz-focusring {
-    outline: 1px dotted ButtonText;
+  [type="button"] :-moz-focusring,
+  [type="reset"]  :-moz-focusring,
+  [type="submit"] :-moz-focusring {
+    outline       : 1px dotted ButtonText;
   }
   
   /**
@@ -259,12 +282,12 @@
    */
   
   legend {
-    box-sizing: border-box; /* 1 */
-    color: inherit; /* 2 */
-    display: table; /* 1 */
-    max-width: 100%; /* 1 */
-    padding: 0; /* 3 */
-    white-space: normal; /* 1 */
+    box-sizing  : border-box; /* 1 */
+    color       : inherit; /* 2 */
+    display     : table; /* 1 */
+    max-width   : 100%; /* 1 */
+    padding     : 0; /* 3 */
+    white-space : normal; /* 1 */
   }
   
   /**
@@ -291,7 +314,7 @@
   [type="checkbox"],
   [type="radio"] {
     box-sizing: border-box; /* 1 */
-    padding: 0; /* 2 */
+    padding   : 0; /* 2 */
   }
   
   /**
@@ -310,7 +333,7 @@
   
   [type="search"] {
     -webkit-appearance: textfield; /* 1 */
-    outline-offset: -2px; /* 2 */
+    outline-offset    : -2px; /* 2 */
   }
   
   /**
@@ -328,11 +351,14 @@
   
   ::-webkit-file-upload-button {
     -webkit-appearance: button; /* 1 */
-    font: inherit; /* 2 */
+    font              : inherit; /* 2 */
   }
   
-  /* Interactive
-     ========================================================================== */
+/*
+############################################
+        Interactive
+############################################
+*/
   
   /*
    * Add the correct display in Edge, IE 10+, and Firefox.
@@ -349,9 +375,12 @@
   summary {
     display: list-item;
   }
-  
-  /* Misc
-     ========================================================================== */
+
+/*
+############################################
+        Misc
+############################################
+*/
   
   /**
    * Add the correct display in IE 10+.

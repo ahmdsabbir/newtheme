@@ -1,0 +1,38 @@
+/**
+* utility Style for links
+*
+* @package Minima-WP
+*/
+
+.btn {
+    @include btn;
+    @include transition;
+}
+.btn-fluid {
+    @include btn('fluid');
+    @include transition;
+}
+.btn-rounded {
+    @include btn('rounded');
+    @include transition;
+}
+
+@each $color-name, $value in $theme-colors {
+    .btn-#{$color-name} {
+        background-color: $value;
+        color           : set-text-color($value);
+        @include border($color: $value);
+        
+        &:hover {
+            @include box-shadow;
+            background-color: btn-hover-bg($value);
+            color           : set-text-color($value); 
+        }
+
+        &:visited {
+            color           : set-text-color($value); 
+        }
+
+        
+    }
+}

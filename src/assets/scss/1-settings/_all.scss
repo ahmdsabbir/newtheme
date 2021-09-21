@@ -1,9 +1,12 @@
 /**
-* import all settings
+* Bundle all settings
+*
+* @package Minima-WP
 */
 
+@import '../0-vendor/icons/style.css';
+@import 'variables';
 @import 'normalize';
 @import 'mixins';
 @import 'functions';
-@import 'variables';
 @import 'animations';

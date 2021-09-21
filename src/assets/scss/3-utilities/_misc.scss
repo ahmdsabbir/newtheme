@@ -1,0 +1,11 @@
+/*
+* Adds backgrounds to elements based on theme-color
+* and sets text color according to background color lightness
+*/
+
+@each $color-name, $value in $theme-colors {
+    .bg-#{$color-name} {
+        background-color: $value;
+        color           : set-text-color($value); 
+    }
+}

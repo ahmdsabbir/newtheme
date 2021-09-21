@@ -56,7 +56,7 @@ add_action( 'customize_preview_init', function() {
 
     if ( !get_theme_mod( '_themename_display_breadcrumb', true ) ) :
         add_action( 'wp_head', function() {
-            echo '<style>#breadcrumb-wrapper{display:none;}</style>';
+            echo '<style>#breadcrumb{display:none;}</style>';
         }  );
     endif;
 

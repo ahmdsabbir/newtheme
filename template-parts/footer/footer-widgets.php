@@ -11,7 +11,7 @@ $columns = explode(',', $footer_layout);
 
     foreach($columns as $index => $column) : ?>
 
-        <div class="sm-12 md-<?php echo $column ?> lg-<?php echo $column ?>">
+        <div class="sm-col-span-12 md-col-span-<?php echo $column ?> lg-col-span-<?php echo $column ?>">
         <?php
         if( is_active_sidebar( 'footer-sidebar-' . ($index + 1) ) ) {
             dynamic_sidebar('footer-sidebar-' . ($index + 1));
