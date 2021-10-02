@@ -1,11 +1,13 @@
-/**
-* Bundle all styles
-==============================================================
-*/
-
-@import '1-settings/all';
-@import '2-base/all';
-@import '3-utilities/all';
-@import '4-layout/all';
-@import '5-components/all';
-
+@import 'base/functions';
+@import 'base/vars';
+@import 'base/mixin';
+@import 'base/root';
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/link';
+@import 'base/forms';
+@import 'base/nav';
+@import 'base/table';
+@import 'base/buttons';
+@import 'base/media';
+@import 'base/grid';
