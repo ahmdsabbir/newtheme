@@ -1,13 +1,3 @@
-.brand{
-    h2{
-      --heading-mt: calc(1 * var(--margin-base));
-      --heading-mb: calc(1 * var(--margin-base));
-      color: var(--navbar-brand-clr, var(--clr-white));
-    }
-    img {
-      --img-width: 12rem;
-    }
-}
 .navbar{
   background-color: var(--navbar-bg-clr, var(--clr-white));
   min-height: var(--navbar-height, 6rem);
@@ -17,6 +7,17 @@
   grid-template-columns: 1fr 5fr;
 
   
+}
+
+.navbar .brand{
+  h2{
+    --heading-mt: calc(1 * var(--margin-base));
+    --heading-mb: calc(1 * var(--margin-base));
+    color: var(--navbar-brand-clr, var(--clr-white));
+  }
+  img {
+    --img-width: 12rem;
+  }
 }
 
 .navbar .nav {
@@ -29,7 +30,7 @@
 }
 
 .navbar .nav   li {
-
+  position: relative;
   &.current-menu-item a {
     color: var(--clr-primary);
   }
@@ -57,26 +58,32 @@
 
 }
 
-li.menu-item-has-children {
-  position: relative;
-  &:hover > ul.sub-menu{
-    visibility: visible;
-    opacity: 1;
-  }
+li.menu-item-has-children ul {
+  position: absolute;
+  top: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: none;
+  background-color: var(--clr-white);
 }
 
-li.menu-item-has-children > ul.sub-menu  {
-  position: absolute;
-  visibility: hidden;
-  opacity: 0;
-  z-index: 99999;
-  list-style:   none;
-  background-color: var(--clr-primary);
- 
+.nav li.menu-item-has-children ul li a {
+  text-align: left;
+  display: block;
+  white-space: nowrap;
+}
+
+.nav li.menu-item-has-children ul.sub-menu li ul {
+  left: 100%;
+  top: 0;
+}
+
+.nav li.menu-item-has-children:hover>ul.sub-menu {
+  display: block;
 }
 
 // menu bar
-
 .menu-toggle {
     display: none;
     padding: 1em;

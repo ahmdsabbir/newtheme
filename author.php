@@ -7,14 +7,14 @@
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
-$both_sidebar = 'sm-col-span-12 md-col-start-3 md-col-end-11';
-$no_sidebar   = 'sm-col-span-12 md-col-span-12';
-$one_sidebar  = 'sm-col-span-12 md-col-start-2 md-col-end-9';
+$both_sidebar = 'sm-col-span-12 md-col-span-8 md-order-4';
+$one_sidebar  = 'sm-col-span-12 md-col-start-2 md-col-end-10 md-order-4';
+$no_sidebar   = 'sm-col-span-12 md-col-start-3 md-col-end-11 md-order-4';
 ?>
 
 <?php get_header(); ?> 
 
-<div class="<?php _themename_main_column_class($both_sidebar, $no_sidebar, $one_sidebar, 'md-order-3'); ?>">
+<div class="<?php _themename_main_column_class($both_sidebar,$one_sidebar,  $no_sidebar); ?>">
     <?php get_template_part( '/template-parts/archives/author'); ?>
     <?php get_template_part( 'loop', 'archive' ); ?> 
 </div><!-- .main end -->

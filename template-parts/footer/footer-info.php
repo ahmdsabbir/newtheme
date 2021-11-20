@@ -4,10 +4,10 @@ $site_info = get_theme_mod( '_themename_site_info', '' );
 
 <?php if($site_info) : ?>
 
-    <div class="container">
-            <div class="sm-col-span-12 md-col-span-12 bg-primary">
+    <div class="grid">
+            <div class="sm-col-span-12 md-col-span-12">
 
-            <p id="footer-info" class="text-centered text-uppercase">
+            <p id="footer-info" class="">
                 <?php 
                 $allowed = [
                     'a' => [

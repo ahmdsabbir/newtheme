@@ -12,32 +12,32 @@ h6 {
 }
 
 h1 {
-  --heading-fs: calc(2.5 * var(--fs-base));
-  --heading-lh: 1.2;
+--heading-fs: calc(2.5 * var(--fs-base));
+--heading-lh: 1.2;
 }
 h2 {
-    --heading-fs: calc(2.25 * var(--fs-base));
-    --heading-lh: 1.25;
+  --heading-fs: calc(2.25 * var(--fs-base));
+  --heading-lh: 1.25;
 }
 h3 {
-    --heading-fs: calc(2 * var(--fs-base));
-    --heading-lh: 1.3;
+  --heading-fs: calc(2 * var(--fs-base));
+  --heading-lh: 1.3;
 }
 h4 {
-    --heading-fs: calc(1.75 * var(--fs-base));
-    --heading-lh: 1.35;
+  --heading-fs: calc(1.75 * var(--fs-base));
+  --heading-lh: 1.35;
 }
 h5 {
-    --heading-fs: calc(1.5 * var(--fs-base));
-    --heading-lh: 1.4;
+  --heading-fs: calc(1.5 * var(--fs-base));
+  --heading-lh: 1.4;
 }
 h6 {
-    --heading-fs: calc(1 * var(--fs-base));
-    --heading-lh: 1.4;
+  --heading-fs: calc(1 * var(--fs-base));
+  --heading-lh: 1.4;
 }
 
 p {
-    margin-block: 0 margin(1);
+  margin-block: 0 margin(1);
 }
 
 blockquote {

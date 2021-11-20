@@ -5,18 +5,18 @@ $footer_layout = preg_replace('/\s+/', '', $footer_layout);
 $columns = explode(',', $footer_layout);
 ?>
 
-<div class="container">
+<div class="grid">
 
     <?php 
 
     foreach($columns as $index => $column) : ?>
 
-        <div class="sm-col-span-12 md-col-span-<?php echo $column ?> lg-col-span-<?php echo $column ?>">
-        <?php
-        if( is_active_sidebar( 'footer-sidebar-' . ($index + 1) ) ) {
-            dynamic_sidebar('footer-sidebar-' . ($index + 1));
-        }
-        ?>
+        <div class="sm-col-span-12 md-col-span-<?php echo $column ?>">
+            <?php
+            if( is_active_sidebar( 'footer-sidebar-' . ($index + 1) ) ) {
+                dynamic_sidebar('footer-sidebar-' . ($index + 1));
+            }
+            ?>
         </div>
 
     <?php endforeach; ?>

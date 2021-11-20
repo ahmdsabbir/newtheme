@@ -20,6 +20,23 @@ function _themename__customize_register( $wp_customize ) {
         'description' => esc_html__( 'You can change General Theme options from here.', '_themename' ),
         'priority' => 10,
      ) );
+
+     $wp_customize->add_section('_themename_color_options', array(
+        'title' => esc_html__( 'Colors', '_themename' ),
+        'description' => esc_html__( 'You can change Breadcrumb Options from here', '_themename' ),
+        'panel' => '_themename_general_theme_options'
+    ));
+
+     $wp_customize->add_setting('_themename_primary_color', array(
+        'default' => '#13B140',
+        'transport' => 'postMessage',
+        'sanitize_callback' => 'sanitize_hex_color'
+    ));
+
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, '_themename_primary_color', array(
+        'label' => __( 'Primary Color', '_themename' ),
+        'section' => '_themename_color_options',
+    )));
      
     $wp_customize->add_section('_themename_breadcrumb_options', array(
         'title' => esc_html__( 'Breadcrumb', '_themename' ),
