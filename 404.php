@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
 <?php get_header(); ?> 
 
   
-<div class="col-12">
+<div class="sm-col-span-12 md-col-span-12 md-order-2">
     <main class="site-main" role="main">
         <strong>
             <?php echo esc_html__( 'Looks like you just got lost, silly!', '_themename' ); ?>

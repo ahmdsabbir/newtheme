@@ -1,0 +1,14 @@
+a {
+    color: var(--clr-link, var(--clr-primary));
+    text-decoration: var(--td-link, none);
+
+    @include transition;
+    
+    &:hover, &:active {
+        --clr-link: var(--clr-secondary);
+        --td-link: underline;
+    }
+    &:focus {
+        outline: var(--clr-link) solid .1rem;
+    }
+}

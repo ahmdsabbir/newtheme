@@ -1,5 +1,5 @@
-<div id="breadcrumb-wrapper">
-    <nav aria-label="breadcrumb">
-        <?php _themename_breadcrumb( 'ol', 'breadcrumb', 'breadcrumb', 'active', true ); ?>
+<div id="breadcrumb" class="breadcrumb">
+    <nav aria-label="You are here" role="navigation">
+        <?php _themename_breadcrumb(); ?>
     </nav>
 </div><!-- #breadcrumb -->

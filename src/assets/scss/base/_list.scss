@@ -1,0 +1,23 @@
+dl, ol, ul {
+  list-style: none;
+  margin-top: 0;
+  padding-left: 0;
+
+    dl, ol, ul {
+        font-size: calc(.9 * var(--fs));
+        margin: 
+          margin(1.5) 
+          0 
+          margin(1.5) 
+          margin(3)
+        ;
+    }
+}
+
+ol {
+  list-style: decimal inside;
+}
+
+ul {
+  list-style: circle inside;
+}

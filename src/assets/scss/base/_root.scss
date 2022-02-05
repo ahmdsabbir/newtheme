@@ -1,0 +1,24 @@
+:root {
+    
+    @each $clr-name, $clr-value in $theme-colors {
+        --clr-#{$clr-name} : #{$clr-value};
+    }
+    --ff-base: #{$body-font};
+    --ff-mono: #{$mono-font};
+
+    --fs-html: 62.5%;
+    --fs-base: 1.6rem;
+
+    --spacing-base: 1rem;
+    --margin-base: calc(1.6 * var(--spacing-base));
+    --padding-base: calc(1.6 * var(--spacing-base));
+
+    --grid-gap: var(--spacing-base);
+    --lh-base: 1.5;
+
+    @each $name, $value in $font-weights {
+        --fw-#{$name}: #{$value};
+    }
+
+}
+

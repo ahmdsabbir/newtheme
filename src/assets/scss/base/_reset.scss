@@ -1,0 +1,23 @@
+*,
+*:after,
+*:before {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: var(--fs-html); //defines rem, in this case it's 1rem = 10px
+}
+
+body {
+    background-color: var(--body-bg-clr, var(--clr-white));
+    color: var(--clr-black);
+    font-family: var(--ff-base);
+    font-size: var(--fs-base);
+    font-weight: var(--fw-normal);
+    letter-spacing: .01em;
+    line-height: var(--lh-base);
+}
+ 

@@ -1,40 +1,16 @@
-/**
-* Bundle all styles
-==============================================================
-*/
+@import 'base/functions';
+@import 'base/vars';
+@import 'base/mixin';
+@import 'base/root';
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/link';
+@import 'base/forms';
+@import 'base/nav';
+@import 'base/table';
+@import 'base/buttons';
+@import 'base/media';
+@import 'base/grid';
 
-@import '01-abstracts/mixins';
-@import '01-abstracts/variables';
-
-@import '02-base/normalize';
-@import '02-base/reset';
-@import '02-base/layout';
-@import '02-base/typography';
-
-body {
-    color: $black;
-}
-
-a {
-    color: $primary-dark;
-
-    &:hover {
-        color: $secondary;
-    }
-}
-
-.header {
-    background-color: $primary;
-    a {
-        color: $white;
-        &:hover {
-            color: $secondary;
-        }
-    }
-}
-
-.footer {
-    background: $contrast;
-    color: $black;
-}
-
+@import 'base/util-modal';
+@import 'base/util-tooltip';
