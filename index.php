@@ -20,7 +20,7 @@ $no_sidebar   = 'sm-col-span-12 md-col-start-3 md-col-end-11 md-order-4';
 </div><!-- .main end -->
 
 <?php if( is_active_sidebar('left-sidebar') ): ?>
-    <div class="sm-col-span-12 md-col-span-2 md-order-3 sticky">
+    <div class="sm-col-span-12 md-col-span-2 md-order-3">
         <?php get_sidebar('left'); ?>
     </div><!-- .sidebar-left end -->
 <?php endif; ?>

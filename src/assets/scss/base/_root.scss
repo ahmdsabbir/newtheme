@@ -3,6 +3,7 @@
     @each $clr-name, $clr-value in $theme-colors {
         --clr-#{$clr-name} : #{$clr-value};
     }
+
     --ff-base: #{$body-font};
     --ff-mono: #{$mono-font};
 

@@ -4,7 +4,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight:    var(--fw-bold);
+  font-weight:    var(--fw-light);
   font-size:      var(--heading-fs, var(--fs-base));
   line-height:    var(--heading-lh, var(--lh-base));
   letter-spacing: var(--heading-ls, -.1rem);
