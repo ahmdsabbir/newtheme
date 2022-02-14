@@ -1,40 +1,11 @@
-/**
-* Bundle all styles
-==============================================================
+/*
+* Bundle all together
+*Package: _themename
 */
-
-@import '01-abstracts/mixins';
-@import '01-abstracts/variables';
-
-@import '02-base/normalize';
-@import '02-base/reset';
-@import '02-base/layout';
-@import '02-base/typography';
-
-body {
-    color: $black;
-}
-
-a {
-    color: $primary-dark;
-
-    &:hover {
-        color: $secondary;
-    }
-}
-
-.header {
-    background-color: $primary;
-    a {
-        color: $white;
-        &:hover {
-            color: $secondary;
-        }
-    }
-}
-
-.footer {
-    background: $contrast;
-    color: $black;
-}
-
+@import "base/vfm";
+@import "base/root";
+@import "base/reset";
+@import "base/typography";
+@import "base/link";
+@import "base/forms";
+@import "base/grid";

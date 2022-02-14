@@ -28,12 +28,12 @@ function _themename_comment_callback( $comment, $args, $depth) {
             }
             ?>
             <?php
-                comment_reply_link( array_merge($args, array(
-                    'depth' => $depth,
-                    'add_below' => 'div-comment',
-                    'before' => '<div class="comment-reply-link">',
-                    'after' => '</div>'
-                )));
+            comment_reply_link( array_merge($args, array(
+                'depth' => $depth,
+                'add_below' => 'div-comment',
+                'before' => '<div class="comment-reply-link">',
+                'after' => '</div>'
+            )));
             ?>
         </article>
     <?php

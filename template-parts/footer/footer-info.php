@@ -4,10 +4,10 @@ $site_info = get_theme_mod( '_themename_site_info', '' );
 
 <?php if($site_info) : ?>
 
-    <div class="row">
-            <div class="col-12 text-center">
+    <div class="grid">
+            <div class="sm-col-span-12 md-col-span-12">
 
-            <p id="footer-info">
+            <p id="footer-info" class="">
                 <?php 
                 $allowed = [
                     'a' => [
@@ -20,7 +20,7 @@ $site_info = get_theme_mod( '_themename_site_info', '' );
                 ?>
             </p>
 
-            </div><!-- .col-12 end -->
+        </div><!-- .col-12 end -->
     </div><!-- .row end -->
 
 <?php endif; ?>

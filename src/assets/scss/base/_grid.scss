@@ -1,0 +1,69 @@
+.container {
+  max-width: 100%;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(var(--grid-columns, 12), minmax(0, 1fr));
+  grid-template-rows: repeat(var(--grid-rows, 1), minmax(0, 1fr));
+
+  & > * {
+    grid-column: span var(--grid-columns, 12);
+    grid-row: span var(--grid-rows, 1);
+  }
+}
+
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    --grid-columns: #{$i};
+  }
+  .row-#{$i} {
+    --grid-rows: #{$i};
+  }
+}
+
+@each $breakpoint in map-keys($breakpoints) {
+  $breakpoint-width: map-get($breakpoints, $breakpoint);
+
+  @media (min-width: $breakpoint-width) {
+    @for $i from 1 through 13 {
+      @if $i < 13 {
+        .#{$breakpoint}-col-span-#{$i} {
+          grid-column: auto / span $i;
+        }
+      }
+
+      @if $i < 13 {
+        .#{$breakpoint}-col-start-#{$i} {
+          grid-column-start: #{$i};
+        }
+      }
+
+      @if $i > 1 {
+        .#{$breakpoint}-col-end-#{$i} {
+          grid-column-end: #{$i};
+        }
+      }
+
+      @if $i < 13 {
+        .#{$breakpoint}-row-span-#{$i} {
+          grid-row: auto / span $i;
+        }
+      }
+
+      @if $i < 13 {
+        .#{$breakpoint}-row-start-#{$i} {
+          grid-row-start: #{$i};
+        }
+      }
+
+      @if $i > 1 {
+        .#{$breakpoint}-row-end-#{$i} {
+          grid-row-end: #{$i};
+        }
+      }
+
+      .#{$breakpoint}-order-#{$i} {
+        order: #{$i};
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+a {
+  color: var(--clr-primary);
+  text-decoration: dotted;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:focus {
+    color: var(--clr-secondary);
+  }
+}

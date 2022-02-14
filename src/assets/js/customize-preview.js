@@ -1,5 +1,18 @@
 import $ from 'jquery';
 
+//postMessage refresh for Colors
+wp.customize( '_themename_primary_color', (value) => {
+    value.bind( (to) => {
+        $('#_themename-stylesheet-inline-css').html(
+        	`
+			    :root {
+                    --clr-primary: ${to};
+                }
+        	`);
+    } )
+})
+
+
 
 // postMessage refresh for footer_info
 wp.customize( '_themename_site_info', (value) => {
@@ -22,9 +35,9 @@ wp.customize( '_themename_display_author_info', (value) => {
 wp.customize('_themename_display_breadcrumb', (value) => {
     value.bind( (to) => {
         if(to) {
-            $('#breadcrumb-wrapper').show();
+            $('#breadcrumb').show();
         } else {
-            $('#breadcrumb-wrapper').hide();
+            $('#breadcrumb').hide();
         }
     })
 } )

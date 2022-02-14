@@ -92,38 +92,39 @@ function _themename_wrapper_id() {
  * 
  *  
  */
-function _themename_wrapper_class ($additional = '') {
+function _themename_main_column_class ($both, $one, $no, $additional = '') {
 
     $layout = get_post_meta(get_the_ID(), '__themename_post_layout', true);
 
+    $for_both_sidebar   = $both;
+    $for_one_sidebar    = $one;
+    $for_no_sidebar     = $no;
+
+    if ( $additional != '' ) {  //put an extra space after class names if there is additional classes
+        $for_both_sidebar   = $for_both_sidebar . ' ';
+        $for_one_sidebar    = $for_one_sidebar . ' ';
+        $for_no_sidebar     = $for_no_sidebar . ' ';
+    }
+    
+
     if ( !is_single() ) { //if not single.php only check if both sidebars/one of the sidebar is active
         if ( is_active_sidebar( 'right-sidebar' )  && is_active_sidebar('left-sidebar') ) {// if both sidebar active
-            echo 'with-both-sidebar ' . $additional;
+            echo $for_both_sidebar . $additional;
         } elseif( !is_active_sidebar( 'right-sidebar' )  && !is_active_sidebar('left-sidebar') ) { //if no sidebar active
-            echo 'with-no-sidebar ' . $additional;
+            echo $for_no_sidebar . $additional;
         } else { //if only one of the sidebar active
-            if ( is_active_sidebar( 'left-sidebar' ) ) {
-                echo 'with-left-sidebar ' . $additional;
-            }
-            if ( is_active_sidebar( 'right-sidebar' ) ) {
-                echo 'with-right-sidebar ' . $additional;
-            }
+            echo $for_one_sidebar . $additional;
         }
     } elseif ( is_single() ) { //if single.php check if Sidebar is not shown in post_meta_box make the main container 12 column
         if ( $layout == 'no' ) {
-            echo 'with-no-sidebar ' . $additional;
+            echo $for_no_sidebar . $additional;
         } elseif ( $layout == 'yes' ) { //if sidebar is shown in post_meta_box
             if ( is_active_sidebar( 'right-sidebar' )  && is_active_sidebar('left-sidebar') ) {
-                echo 'with-both-sidebar ' . $additional;
+                echo $for_both_sidebar . $additional;
             } elseif( !is_active_sidebar( 'right-sidebar' )  && !is_active_sidebar('left-sidebar') ) {
-                echo 'with-no-sidebar ' . $additional;
+                echo $for_no_sidebar . $additional;
             } else {
-                if ( is_active_sidebar( 'left-sidebar' ) ) {
-                    echo 'with-left-sidebar ' . $additional;
-                }
-                if ( is_active_sidebar( 'right-sidebar' ) ) {
-                    echo 'with-right-sidebar ' . $additional;
-                }
+                echo $for_one_sidebar . $additional;
             }
         }
     }   

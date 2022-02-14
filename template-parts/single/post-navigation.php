@@ -9,11 +9,11 @@ $next = get_next_post();
 
 <?php if( $prev || $next ) : ?>
 
-    <nav class="post-navigation" role="navigation">
+    <nav class="post-navigation container" role="navigation">
 
         <h2 class="screen-reader-text"><?php esc_attr_e( 'Post Navigation', '_themename' ); ?></h2>
         <?php if( $prev ) : ?>
-            <div class="previous-post">
+            <div class="previous-post sm-col-span-12 md-col-span-6">
                 <?php if(has_post_thumbnail( $prev->ID )) : ?>
                     <div class="post-navigation-thumbnail">
                         <?php echo get_the_post_thumbnail( $prev->ID, 'thumbnail' ); ?>
@@ -33,7 +33,7 @@ $next = get_next_post();
         <?php endif; ?>
 
         <?php if($next) : ?>
-            <div class="next-post">
+            <div class="next-post sm-col-span-12 md-col-span-6">
                 <?php if(has_post_thumbnail( $next->ID )) : ?>
                     <div class="post-navigation-thumbnail">
                         <?php echo get_the_post_thumbnail( $next->ID, 'thumbnail' ); ?>

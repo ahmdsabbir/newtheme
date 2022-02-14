@@ -6,227 +6,112 @@
  */
 
 
-function _themename_breadcrumb ( $list_style = 'ol', $list_id = 'breadcrumb', $list_class = 'breadcrumb', $active_class = 'active', $echo = false ) {
-    // Get text domain for translations
-    $theme = wp_get_theme();
-    
+function _themename_breadcrumb()
+{
+    $showOnHome = 1; // 1 - show breadcrumbs on the homepage, 0 - don't show
+    $delimiter = ''; // delimiter between crumbs, leaving the option empty, because we'll show it via css, still here just in case
+    $home = 'Home'; // text for the 'Home' link
+    $showCurrent = 1; // 1 - show current post/page title in breadcrumbs, 0 - don't show
+    $before = '<span class="current">'; // tag before the current crumb
+    $after = '</span>'; // tag after the current crumb
 
-    // Open list
-    $breadcrumb = '<' . $list_style . ' id="' . $list_id . '" class="' . $list_class . '">';
-
-    // Front page
-    if ( is_front_page() ) {
-        $breadcrumb .= '<li class="' . $active_class . '">' . get_bloginfo( 'name' ). '</li>';
+    global $post;
+    $homeLink = get_bloginfo('url');
+    if (is_home() || is_front_page()) {
+        if ($showOnHome == 1) {
+            echo '<a href="' . $homeLink . '">' . $home . '</a>';
+        }
     } else {
-        $breadcrumb .= '<li><a href="' . home_url() . '">' . get_bloginfo( 'name' ) . '</a></li>';
-    }
-
-    // Blog archive
-    if ( 'page' == get_option( 'show_on_front' ) && get_option( 'page_for_posts' ) ) {
-        $blog_page_id = get_option( 'page_for_posts' );
-
-        if ( is_home() ) {
-            $breadcrumb .= '<li class="' . $active_class . '">' . get_the_title( $blog_page_id )  . '</li>';
-        } else if ( is_category() || is_tag() || is_author() || is_date() || is_singular( 'post' ) ) {
-            $breadcrumb .= '<li><a href="' . get_permalink( $blog_page_id ) . '">' . get_the_title( $blog_page_id )  . '</a></li>';
-        }
-    }
-
-    // Category, tag, author and date archives
-    if ( is_archive() && ! is_tax() && ! is_post_type_archive() ) {
-        $breadcrumb .= '<li class="' . $active_class . '">';
-
-        // Title of archive
-        if ( is_category() ) {
-            $breadcrumb .= single_cat_title( '', false );
-        } else if ( is_tag() ) {
-            $breadcrumb .= single_tag_title( '', false );
-        } else if ( is_author() ) {
-            $breadcrumb .= get_the_author();
-        } else if ( is_date() ) {
-            if ( is_day() ) {
-                $breadcrumb .= get_the_time( 'F j, Y' );
-            } else if ( is_month() ) {
-                $breadcrumb .= get_the_time( 'F, Y' );
-            } else if ( is_year() ) {
-                $breadcrumb .= get_the_time( 'Y' );
+        echo '<a href="' . $homeLink . '">' . $home . '</a> ' . $delimiter . ' ';
+        if (is_category()) {
+            $thisCat = get_category(get_query_var('cat'), false);
+            if ($thisCat->parent != 0) {
+                echo get_category_parents($thisCat->parent, true, ' ' . $delimiter . ' ');
             }
-        }
-
-        $breadcrumb .= '</li>';
-    }
-
-    // Posts
-    if ( is_singular( 'post' ) ) {
-
-        // Post categories
-        $post_cats = get_the_category();
-
-        if ( $post_cats[0] ) {
-            $breadcrumb .= '<li><a href="' . get_category_link( $post_cats[0]->term_id ) . '">' . $post_cats[0]->name . '</a></li>';
-        }
-
-        // Post title
-        $breadcrumb .= '<li class="' . $active_class . '">' . get_the_title() . '</li>';
-    }
-
-    // Pages
-    if ( is_page() && ! is_front_page() ) {
-        $post = get_post( get_the_ID() );
-
-        // Page parents
-        if ( $post->post_parent ) {
+            echo $before . 'Archive by category "' . single_cat_title('', false) . '"' . $after;
+        } elseif (is_search()) {
+            echo $before . 'Search results for "' . get_search_query() . '"' . $after;
+        } elseif (is_day()) {
+            echo '<a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a> ' . $delimiter . ' ';
+            echo '<a href="' . get_month_link(get_the_time('Y'), get_the_time('m')) . '">' . get_the_time('F') . '</a> ' . $delimiter . ' ';
+            echo $before . get_the_time('d') . $after;
+        } elseif (is_month()) {
+            echo '<a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a> ' . $delimiter . ' ';
+            echo $before . get_the_time('F') . $after;
+        } elseif (is_year()) {
+            echo $before . get_the_time('Y') . $after;
+        } elseif (is_single() && !is_attachment()) {
+            if (get_post_type() != 'post') {
+                $post_type = get_post_type_object(get_post_type());
+                $slug = $post_type->rewrite;
+                echo '<a href="' . $homeLink . '/' . $slug['slug'] . '/">' . $post_type->labels->singular_name . '</a>';
+                if ($showCurrent == 1) {
+                    echo ' ' . $delimiter . ' ' . $before . get_the_title() . $after;
+                }
+            } else {
+                $cat = get_the_category();
+                $cat = $cat[0];
+                $cats = get_category_parents($cat, true, ' ' . $delimiter . ' ');
+                if ($showCurrent == 0) {
+                    $cats = preg_replace("#^(.+)\s$delimiter\s$#", "$1", $cats);
+                }
+                echo $cats;
+                if ($showCurrent == 1) {
+                    echo $before . get_the_title() . $after;
+                }
+            }
+        } elseif (!is_single() && !is_page() && get_post_type() != 'post' && !is_404()) {
+            $post_type = get_post_type_object(get_post_type());
+            echo $before . $post_type->labels->singular_name . $after;
+        } elseif (is_attachment()) {
+            $parent = get_post($post->post_parent);
+            $cat = get_the_category($parent->ID);
+            $cat = $cat[0];
+            echo get_category_parents($cat, true, ' ' . $delimiter . ' ');
+            echo '<a href="' . get_permalink($parent) . '">' . $parent->post_title . '</a>';
+            if ($showCurrent == 1) {
+                echo ' ' . $delimiter . ' ' . $before . get_the_title() . $after;
+            }
+        } elseif (is_page() && !$post->post_parent) {
+            if ($showCurrent == 1) {
+                echo $before . get_the_title() . $after;
+            }
+        } elseif (is_page() && $post->post_parent) {
             $parent_id  = $post->post_parent;
-            $crumbs = array();
-
-            while ( $parent_id ) {
-                $page = get_page( $parent_id );
-                $crumbs[] = '<a href="' . get_permalink( $page->ID ) . '">' . get_the_title( $page->ID ) . '</a>';
+            $breadcrumbs = array();
+            while ($parent_id) {
+                $page = get_page($parent_id);
+                $breadcrumbs[] = '<a href="' . get_permalink($page->ID) . '">' . get_the_title($page->ID) . '</a>';
                 $parent_id  = $page->post_parent;
             }
-
-            $crumbs = array_reverse( $crumbs );
-
-            foreach ( $crumbs as $crumb ) {
-                $breadcrumb .= '<li>' . $crumb . '</li>';
-            }
-        }
-
-        // Page title
-        $breadcrumb .=  '<li class="' . $active_class . '">' . get_the_title() . '</li>';
-    }
-
-    // Attachments
-    if ( is_attachment() ) {
-        // Attachment parent
-        $post = get_post( get_the_ID() );
-
-        if ( $post->post_parent ) {
-            $breadcrumb .= '<li><a href="' . get_permalink( $post->post_parent ) . '">' . get_the_title( $post->post_parent ) . '</a></li>';
-        }
-
-        // Attachment title
-        $breadcrumb .= '<li class="' . $active_class . '">' . get_the_title() . '</li>';
-    }
-
-    // Search
-    if ( is_search() ) {
-        $breadcrumb .= '<li class="' . $active_class . '">' . __( 'Search', '_themename' ) . '</li>';
-    }
-
-    // 404
-    if ( is_404() ) {
-        $breadcrumb .= '<li class="' . $active_class . '">' . __( '404', '_themename' ) . '</li>';
-    }
-
-    // Custom Post Type Archive
-    if ( is_post_type_archive() ) {
-        $breadcrumb .= '<li class="' . $active_class . '">' . post_type_archive_title( '', false ) . '</li>';
-    }
-
-    // Custom Taxonomies
-    if ( is_tax() ) {
-        // Get the post types the taxonomy is attached to
-        $current_term = get_queried_object();
-
-        $attached_to = array();
-        $post_types = get_post_types();
-
-        foreach ( $post_types as $post_type ) {
-            $taxonomies = get_object_taxonomies( $post_type );
-
-            if ( in_array( $current_term->taxonomy, $taxonomies ) ) {
-                $attached_to[] = $post_type;
-            }
-        }
-
-        // Post type archive link
-        $output = false;
-
-        foreach ( $attached_to as $post_type ) {
-            $cpt_obj = get_post_type_object( $post_type );
-
-            if ( ! $output && get_post_type_archive_link( $cpt_obj->name ) ) {
-                $breadcrumb .= '<li><a href="' . get_post_type_archive_link( $cpt_obj->name ) . '">' . $cpt_obj->labels->name . '</a></li>';
-                $output = true;
-            }
-        }
-
-        // Term title
-        $breadcrumb .= '<li class="' . $active_class . '">' . single_term_title( '', false ) . '</li>';
-    }
-
-    // Custom Post Types
-    if ( is_single() && get_post_type() != 'post' && get_post_type() != 'attachment' ) {
-        $cpt_obj = get_post_type_object( get_post_type() );
-
-        // Is cpt hierarchical like pages or posts?
-        if ( is_post_type_hierarchical( $cpt_obj->name ) ) {
-            // Like pages
-
-            // Cpt archive
-            if ( get_post_type_archive_link( $cpt_obj->name ) ) {
-                $breadcrumb .= '<li><a href="' . get_post_type_archive_link( $cpt_obj->name ) . '">' . $cpt_obj->labels->name . '</a></li>';
-            }
-
-            // Cpt parents
-            $post = get_post( get_the_ID() );
-
-            if ( $post->post_parent ) {
-                $parent_id  = $post->post_parent;
-                $crumbs = array();
-
-                while ( $parent_id ) {
-                    $page = get_page( $parent_id );
-                    $crumbs[] = '<a href="' . get_permalink( $page->ID ) . '">' . get_the_title( $page->ID ) . '</a>';
-                    $parent_id  = $page->post_parent;
-                }
-
-                $crumbs = array_reverse( $crumbs );
-
-                foreach ( $crumbs as $crumb ) {
-                    $breadcrumb .= '<li>' . $crumb . '</li>';
+            $breadcrumbs = array_reverse($breadcrumbs);
+            for ($i = 0; $i < count($breadcrumbs); $i++) {
+                echo $breadcrumbs[$i];
+                if ($i != count($breadcrumbs)-1) {
+                    echo ' ' . $delimiter . ' ';
                 }
             }
-        } else {
-            // Like posts
-
-            // Cpt archive
-            if ( get_post_type_archive_link( $cpt_obj->name ) ) {
-                $breadcrumb .= '<li><a href="' . get_post_type_archive_link( $cpt_obj->name ) . '">' . $cpt_obj->labels->name . '</a></li>';
+            if ($showCurrent == 1) {
+                echo ' ' . $delimiter . ' ' . $before . get_the_title() . $after;
             }
-
-            // Get cpt taxonomies
-            $cpt_taxes = get_object_taxonomies( $cpt_obj->name );
-
-            if ( $cpt_taxes && is_taxonomy_hierarchical( $cpt_taxes[0] ) ) {
-                // Other taxes attached to the cpt could be hierachical, so need to look into that.
-                $cpt_terms = get_the_terms( get_the_ID(), $cpt_taxes[0] );
-
-                if ( is_array( $cpt_terms ) ) {
-                    $output = false;
-
-                    foreach( $cpt_terms as $cpt_term ) {
-                        if ( ! $output ) {
-                            $breadcrumb .= '<li><a href="' . get_term_link( $cpt_term->name, $cpt_taxes[0] ) . '">' . $cpt_term->name . '</a></li>';
-                            $output = true;
-                        }
-                    }
-                }
+        } elseif (is_tag()) {
+            echo $before . 'Tag: "' . single_tag_title('', false) . '"' . $after;
+        } elseif (is_author()) {
+            global $author;
+            $userdata = get_userdata($author);
+            echo $before . 'Author ' . $userdata->display_name . $after;
+        } elseif (is_404()) {
+            echo $before . 'Error 404' . $after;
+        }
+        if (get_query_var('paged')) {
+            if (is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author()) {
+                echo ' (';
+            }
+            echo __('Page') . ' ' . get_query_var('paged');
+            if (is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author()) {
+                echo ')';
             }
         }
-
-        // Cpt title
-        $breadcrumb .= '<li class="' . $active_class . '">' . get_the_title() . '</li>';
-    }
-
-    // Close list
-    $breadcrumb .= '</' . $list_style . '>';
-
-    // Ouput
-    if ( $echo ) {
-        echo $breadcrumb;
-    } else {
-        return $breadcrumb;
+        echo '';
     }
 }
