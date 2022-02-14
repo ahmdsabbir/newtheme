@@ -1,121 +1,69 @@
-.grid {
-    max-width: var(--container-width, 100%);
-    display: grid;
-    gap: var(--grid-gap);
-    grid-template-columns: repeat(var(--grid-columns, 12), minmax(0, 1fr));
-    grid-template-rows: repeat(var(--grid-rows, 1), minmax(0, 1fr));
-    
-    & > * {
-        grid-column: span var(--grid-columns, 12);
-        grid-row: span var(--grid-rows, 1);
-    }
+.container {
+  max-width: 100%;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(var(--grid-columns, 12), minmax(0, 1fr));
+  grid-template-rows: repeat(var(--grid-rows, 1), minmax(0, 1fr));
+
+  & > * {
+    grid-column: span var(--grid-columns, 12);
+    grid-row: span var(--grid-rows, 1);
+  }
 }
 
-  
 @for $i from 1 through 12 {
-    .grid-col-#{$i} {
-        --grid-columns : #{$i};
-    }
-    .grid-row-#{$i} {
-        --grid-rows : #{$i};
-    }
+  .col-#{$i} {
+    --grid-columns: #{$i};
+  }
+  .row-#{$i} {
+    --grid-rows: #{$i};
+  }
 }
 
 @each $breakpoint in map-keys($breakpoints) {
-    $breakpoint-width: map-get($breakpoints, $breakpoint);
-    
-    @media (min-width: $breakpoint-width) {
-  
-        .#{$breakpoint}-col-auto { grid-column: auto; }
-        .#{$breakpoint}-col-start-auto { grid-column-start: auto; }
-        .#{$breakpoint}-col-end-auto { grid-column-end: auto; }
-  
-        .#{$breakpoint}-row-auto { grid-row: auto; }
-  
-        @for $i from 1 through 13 {
-            
-            @if $i < 13 {
-                .#{$breakpoint}-col-span-#{$i} { grid-column: auto / span $i; }
-            }
-            
-            @if $i < 13 {
-                .#{$breakpoint}-col-start-#{$i} { grid-column-start: #{$i}; }
-            }
-            
-            @if $i > 1 {
-                .#{$breakpoint}-col-end-#{$i} { grid-column-end: #{$i}; }
-            }
-  
-            @if $i < 13 {
-                .#{$breakpoint}-row-span-#{$i} { grid-row: auto / span $i; }
-            }
-            
-            @if $i < 13 {
-                .#{$breakpoint}-row-start-#{$i} { grid-row-start: #{$i}; }
-            }
-            
-            @if $i > 1 {
-                .#{$breakpoint}-row-end-#{$i} { grid-row-end: #{$i}; }
-            }
+  $breakpoint-width: map-get($breakpoints, $breakpoint);
 
-            .#{$breakpoint}-order-#{$i} {order: #{$i};}
-            
+  @media (min-width: $breakpoint-width) {
+    @for $i from 1 through 13 {
+      @if $i < 13 {
+        .#{$breakpoint}-col-span-#{$i} {
+          grid-column: auto / span $i;
         }
-  
+      }
+
+      @if $i < 13 {
+        .#{$breakpoint}-col-start-#{$i} {
+          grid-column-start: #{$i};
+        }
+      }
+
+      @if $i > 1 {
+        .#{$breakpoint}-col-end-#{$i} {
+          grid-column-end: #{$i};
+        }
+      }
+
+      @if $i < 13 {
+        .#{$breakpoint}-row-span-#{$i} {
+          grid-row: auto / span $i;
+        }
+      }
+
+      @if $i < 13 {
+        .#{$breakpoint}-row-start-#{$i} {
+          grid-row-start: #{$i};
+        }
+      }
+
+      @if $i > 1 {
+        .#{$breakpoint}-row-end-#{$i} {
+          grid-row-end: #{$i};
+        }
+      }
+
+      .#{$breakpoint}-order-#{$i} {
+        order: #{$i};
+      }
     }
+  }
 }
-
-.grid-flow-col	        {grid-auto-flow: column;}
-.grid-flow-row	        {grid-auto-flow: row;}
-.grid-flow-row-dense	{grid-auto-flow: row dense;}
-.grid-flow-col-dense	{grid-auto-flow: column dense;}
-
-.justify-start	    {justify-content: flex-start;}
-.justify-end	    {justify-content: flex-end;}
-.justify-center	    {justify-content: center;}
-.justify-between	{justify-content: space-between;}
-.justify-around	    {justify-content: space-around;}
-.justify-evenly	    {justify-content: space-evenly;}
-
-.justify-items-start	{justify-items: start;}
-.justify-items-end	    {justify-items: end;}
-.justify-items-center	{justify-items: center;}
-.justify-items-stretch	{justify-items: stretch;}
-
-.justify-self-auto	    {justify-self: auto;}
-.justify-self-start	    {justify-self: start;}
-.justify-self-end	    {justify-self: end;}
-.justify-self-center	{justify-self: center;}
-.justify-self-stretch	{justify-self: stretch;}
-
-.content-center	    {align-content: center;}
-.content-start	    {align-content: flex-start;}
-.content-end	    {align-content: flex-end;}
-.content-between	{align-content: space-between;}
-.content-around	    {align-content: space-around;}
-.content-evenly	    {align-content: space-evenly;}
-
-.self-auto	    {align-self: auto;}
-.self-start	    {align-self: flex-start;}
-.self-end	    {align-self: flex-end;}
-.self-center	{align-self: center;}
-.self-stretch	{align-self: stretch;}
-
-.place-content-center	{place-content: center;}
-.place-content-start	{place-content: start;}
-.place-content-end	    {place-content: end;}
-.place-content-between	{place-content: space-between;}
-.place-content-around	{place-content: space-around;}
-.place-content-evenly	{place-content: space-evenly;}
-.place-content-stretch	{place-content: stretch;}
-
-.place-items-start	    {place-items: start;}
-.place-items-end	    {place-items: end;}
-.place-items-center	    {place-items: center;}
-.place-items-stretch	{place-items: stretch;}
-
-.place-self-auto	    {place-self: auto;}
-.place-self-start	    {place-self: start;}
-.place-self-end	        {place-self: end;}
-.place-self-center	    {place-self: center;}
-.place-self-stretch	    {place-self: stretch;}

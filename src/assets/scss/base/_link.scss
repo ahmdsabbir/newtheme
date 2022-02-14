@@ -1,14 +1,12 @@
 a {
-    color: var(--clr-link, var(--clr-primary));
-    text-decoration: var(--td-link, none);
+  color: var(--clr-primary);
+  text-decoration: dotted;
 
-    @include transition;
-    
-    &:hover, &:active {
-        --clr-link: var(--clr-secondary);
-        --td-link: underline;
-    }
-    &:focus {
-        outline: var(--clr-link) solid .1rem;
-    }
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:focus {
+    color: var(--clr-secondary);
+  }
 }

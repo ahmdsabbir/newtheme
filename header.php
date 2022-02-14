@@ -23,7 +23,7 @@ defined( 'ABSPATH' ) || exit;
   <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
 
-    <div class="grid" id="<?php echo _themename_wrapper_id(); ?>-wrapper">
+    <div class="container" id="<?php echo _themename_wrapper_id(); ?>-wrapper">
 
       <div id="header-wrapper" class="sm-col-span-12 md-col-span-12 md-order-1">
 
@@ -36,5 +36,13 @@ defined( 'ABSPATH' ) || exit;
         ?>
 
       </div><!-- #header-wrapper end -->
-      
+
+
+      <form action="/action_page.php">
+  <label for="fname">First name:</label>
+  <input type="text" id="fname" name="fname"><br><br>
+  <label for="lname">Last name:</label>
+  <input type="text" id="lname" name="lname"><br><br>
+  <input type="submit" value="Submit">
+</form>
       
