@@ -19,10 +19,9 @@ select {
   -webkit-appearance: none;
   border: 0.1rem solid var(--clr-black);
   box-sizing: inherit;
-  padding: 0.8rem;
-<<<<<<< HEAD
-  display: block;
   width: 100%;
+  padding: 0.8rem;
+  display: block;
 }
 textarea {
   min-height: 9.5rem;
@@ -32,21 +31,8 @@ input[type="checkbox"],
 input[type="radio"] {
   display: inline;
 }
+
 input[type="submit"],
 input[type="button"] {
   cursor: pointer;
 }
-
-=======
-  display: inline-block;
-  cursor: text;
-}
-textarea {
-  min-height: 9.5rem;
-}
-
-input[type="checkbox"],
-input[type="radio"] {
-  display: inline;
-}
->>>>>>> 4d3422fa73349ebb27793cd2d0e318e8f1fb9905

@@ -23,5 +23,3 @@ require_once _themename_DIR_PATH . '/lib/metaboxes/post-metaboxes.php';
 require_once _themename_DIR_PATH . '/lib/metaboxes/page-metaboxes.php';
 require_once _themename_DIR_PATH . '/lib/comments-callback.php';
 require_once _themename_DIR_PATH . '/lib/breadcrumb.php';
-require_once _themename_DIR_PATH . '/todo/index.asset.php';
-

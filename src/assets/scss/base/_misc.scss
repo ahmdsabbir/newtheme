@@ -1,0 +1,22 @@
+code {
+  padding: 0.2rem 0.5rem;
+  margin: 0 0.2rem;
+  font-size: 1.5rem;
+  white-space: nowrap;
+  background: var(--clr-black);
+  color: var(--clr-white);
+}
+pre > code {
+  word-wrap: break-word;
+  display: block;
+  padding: 1rem 1.5rem;
+  white-space: pre;
+  overflow: auto;
+}
+
+hr {
+  margin-top: 3rem;
+  margin-bottom: 3.5rem;
+  border-width: 0;
+  border-top: 1px solid var(--clr-gray);
+}

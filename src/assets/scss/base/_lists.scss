@@ -5,19 +5,12 @@ ul {
   margin-top: 0;
   padding-left: 0;
 
-<<<<<<< HEAD
   dl,
   ol,
-  ul {
+  ul,
+  dd {
     font-size: 1.4rem;
     margin-left: 2rem;
-=======
-  li > dl,
-  li > ol,
-  &: > ul {
-    font-size: 1.4rem;
-    margin-left: 1rem;
->>>>>>> 4d3422fa73349ebb27793cd2d0e318e8f1fb9905
   }
 }
 
@@ -26,13 +19,13 @@ ol {
 }
 
 ul {
-<<<<<<< HEAD
   list-style: disc inside;
 }
 
 address {
   margin-left: 2rem;
-=======
-  list-style: circle inside;
->>>>>>> 4d3422fa73349ebb27793cd2d0e318e8f1fb9905
+}
+
+dl > dt {
+  font-weight: bold;
 }
