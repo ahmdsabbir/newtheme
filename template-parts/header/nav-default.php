@@ -2,7 +2,7 @@
   
   <div class="navbar">
   
-    <div class="brand">
+    <div class="logo">
       <?php if(has_custom_logo()) : ?>
         <?php the_custom_logo(); ?>
       <?php else: ?>
@@ -11,20 +11,21 @@
       </h2>
       <?php  endif; ?>
     </div>
-    
-    <?php
-      
+
+    <div class="hamburger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+
+      <?php  
       wp_nav_menu(array(
           'theme_location' => 'main-menu',
           'container' => '',
-          'menu_class' => 'nav',
+          'menu_class' => 'nav-links',
           'menu_id'   => 'nav',
       ));
       ?>
-    
-    <div id="menu" class="menu-toggle">
-      <div class="hamburger"></div>
-    </div>
   
   </div>
 
