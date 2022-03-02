@@ -24,16 +24,6 @@ get_header();
     <?php get_template_part( 'loop', 'single' ); ?>    
 </div><!-- .main end -->
 
-<?php if( is_active_sidebar('left-sidebar') && $layout == 'yes' ): ?>
-    <div class="sm-col-span-12 md-col-start-1 md-col-end-3 md-order-2">
-        <?php get_sidebar('left'); ?>
-    </div><!-- .sidebar-left end -->
-<?php endif; ?>
-
-<?php if( is_active_sidebar('right-sidebar') && $layout == 'yes' ): ?>
-    <div class="sm-col-span-12 md-col-start-11 md-col-end-13 md-order-4">
-        <?php get_sidebar('right'); ?>
-    </div><!-- .sidebar-right end -->
-<?php endif; ?>
+<?php get_template_part( 'template-parts/page/sidebars'); ?>
 
 <?php get_footer(); ?>

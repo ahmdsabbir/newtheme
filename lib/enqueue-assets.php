@@ -40,6 +40,8 @@ add_action( 'wp_enqueue_scripts', function() {
 add_action( 'admin_enqueue_scripts', function() {
 
     wp_enqueue_style( '_themename-admin-stylesheet', get_template_directory_uri() . '/dist/assets/css/admin.css', array(), time(), 'all' );
+    include( get_template_directory(  ) . '/lib/inline-css.php' );
+    wp_add_inline_style( '_themename-admin-stylesheet', $inline_styles );
     wp_enqueue_script( '_themename-admin-scripts', get_template_directory_uri() . '/dist/assets/js/admin.js', array(), time(), true );
 
 } );
