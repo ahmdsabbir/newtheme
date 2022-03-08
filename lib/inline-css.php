@@ -5,4 +5,7 @@ $inline_styles = "
     :root {
         --clr-primary: {$primary_color};
     }
+    .has-clr-secondary-background-color {
+        background-color: var(--clr-secondary);
+    }
 ";
