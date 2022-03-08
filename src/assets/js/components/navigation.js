@@ -19,25 +19,13 @@ navToggle.addEventListener('click', function(e) {
   e.stopPropagation();
 });
 
-
-
 // Dropdown toogle on mobile
-const dropdown = document.querySelector('.menu-item-has-children a');
+const dropdown = document.querySelectorAll('.menu-item-has-children a');
 
-dropdown.addEventListener('click', function(e) {
-  this.nextElementSibling.classList.toggle('show');   
-  this.parentNode.classList.toggle('active');
-  e.stopPropagation();
-  e.preventDefault();
-});
-
-
-// Second level dropdown toggle on mobile
-const deepDropdown = document.querySelector('.menu-item-has-children > .menu-item-has-children a');
-
-deepDropdown.addEventListener('click', function(e) {
-  this.nextElementSibling.classList.toggle('show');   
-  this.parentNode.classList.toggle('active');
-  e.stopPropagation();
-  e.preventDefault();
+dropdown.forEach((btn) => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    console.log(btn);
+     btn.nextElementSibling.classList.toggle('show');  
+  })
 });

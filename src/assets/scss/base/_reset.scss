@@ -8,7 +8,8 @@
 
 html {
   box-sizing: border-box;
-  font-size: clamp(100%, calc(1rem + 2vw), 16px); //sets rem, here 1rem = 10px
+  font-size:  clamp(12px,calc(.8rem + .25vw),20px); //sets rem, here 1rem = 10px
+  // clamp(12px,.8rem + .25vw,20px)
 }
 
 body {
@@ -16,7 +17,5 @@ body {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
     Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 1.6rem;
-  letter-spacing: 0.01rem;
   line-height: 1.6;
 }

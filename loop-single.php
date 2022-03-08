@@ -22,6 +22,8 @@ $in_customizer = isset($GLOBALS['wp_customize']);
         while(have_posts() ): the_post();
             get_template_part( '/template-parts/post/content', get_post_format( ) );
             
+
+            
             /**
              * Social Sharing Buttons
              */
