@@ -5,7 +5,7 @@ $footer_layout = preg_replace('/\s+/', '', $footer_layout);
 $columns = explode(',', $footer_layout);
 ?>
 
-<div class="grid">
+<div class="container">
 
     <?php 
 
