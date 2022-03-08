@@ -8,11 +8,11 @@
 
 html {
   box-sizing: border-box;
-  font-size: 62.5%; //sets rem, here 1rem = 10px
+  font-size: clamp(100%, calc(1rem + 2vw), 16px); //sets rem, here 1rem = 10px
 }
 
 body {
-  color: var(--clr-black, rgb(19, 32, 34));
+  color: var(--clr-black);
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
     Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";

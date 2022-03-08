@@ -1,9 +1,43 @@
-import $ from 'jquery';
+// Prevent showing animation on window resize
+let resizeTimer;
+window.addEventListener("resize", () => {
+  document.body.classList.add("resize-animation-stopper");
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    document.body.classList.remove("resize-animation-stopper");
+  }, 400);
+});  
 
-document.getElementById("menu").addEventListener("click", (eve)=>{
-   let element = document.getElementById("menu");
- let nav = document.getElementById("nav");
- element.classList.toggle("open");
- nav.classList.toggle("mobile-nav");
-     eve.preventDefault();
- })
+
+// Menu toogle on mobile
+const navToggle = document.querySelector('.nav-toggle');
+const menuToggle = document.querySelector('.menu-toggle');
+
+navToggle.addEventListener('click', function(e) {
+  this.classList.toggle('open');   
+  menuToggle.classList.toggle('active');
+  e.stopPropagation();
+});
+
+
+
+// Dropdown toogle on mobile
+const dropdown = document.querySelector('.menu-item-has-children a');
+
+dropdown.addEventListener('click', function(e) {
+  this.nextElementSibling.classList.toggle('show');   
+  this.parentNode.classList.toggle('active');
+  e.stopPropagation();
+  e.preventDefault();
+});
+
+
+// Second level dropdown toggle on mobile
+const deepDropdown = document.querySelector('.menu-item-has-children > .menu-item-has-children a');
+
+deepDropdown.addEventListener('click', function(e) {
+  this.nextElementSibling.classList.toggle('show');   
+  this.parentNode.classList.toggle('active');
+  e.stopPropagation();
+  e.preventDefault();
+});

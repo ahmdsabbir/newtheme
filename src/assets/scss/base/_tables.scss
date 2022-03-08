@@ -1,0 +1,19 @@
+table {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  empty-cells: show;
+}
+th,
+td {
+  padding: 1.2rem 1.5rem;
+  text-align: left;
+  border-bottom: 0.1rem solid var(--clr-gray);
+}
+th:first-child,
+td:first-child {
+  padding-left: 0;
+}
+th:last-child,
+td:last-child {
+  padding-right: 0;
+}

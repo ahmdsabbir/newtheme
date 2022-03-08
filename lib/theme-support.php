@@ -33,3 +33,32 @@ add_action( 'after_setup_theme', function() {
     add_image_size('_themename-blog-image', 1200, 0);
 
 } );
+
+
+add_theme_support( 'editor-color-palette', array(
+	array(
+		'name'  => __( 'Primary Color', '_themename' ),
+		'slug'  => 'clr-primary',
+		'color'	=> 'var(--clr-primary)',
+	),
+	array(
+		'name'  => __( 'Secondary Color', '_themename' ),
+		'slug'  => 'clr-secondary',
+		'color' => 'var(--clr-secondary)',
+	),
+    array(
+		'name'  => __( 'Black Color', '_themename' ),
+		'slug'  => 'clr-black',
+		'color' => 'var(--clr-black)',
+	),
+    array(
+		'name'  => __( 'Gray Color', '_themename' ),
+		'slug'  => 'clr-gray',
+		'color' => 'var(--clr-gray)',
+	),
+    array(
+		'name'  => __( 'White Color', '_themename' ),
+		'slug'  => 'clr-white',
+		'color' => 'var(--clr-white)',
+	),
+) );

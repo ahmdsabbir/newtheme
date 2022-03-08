@@ -13,13 +13,15 @@ input[type="url"],
 input[type="week"],
 input:not([type]),
 textarea,
+input[type="submit"],
+input[type="button"],
 select {
   -webkit-appearance: none;
   border: 0.1rem solid var(--clr-black);
   box-sizing: inherit;
+  width: 100%;
   padding: 0.8rem;
-  display: inline-block;
-  cursor: text;
+  display: block;
 }
 textarea {
   min-height: 9.5rem;
@@ -28,4 +30,9 @@ textarea {
 input[type="checkbox"],
 input[type="radio"] {
   display: inline;
+}
+
+input[type="submit"],
+input[type="button"] {
+  cursor: pointer;
 }
