@@ -4,15 +4,15 @@ ul {
   list-style: none;
   margin-top: 0;
   padding-left: 0;
-
+}
   dl,
   ol,
   ul,
   dd {
-    font-size: 1.4rem;
+    // font-size: 1.4rem;
     margin-left: 2rem;
   }
-}
+
 
 ol {
   list-style: decimal inside;

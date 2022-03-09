@@ -15,10 +15,10 @@ pre > code {
 }
 
 blockquote {
-  margin-inline: 2rem 2rem;
+  margin-inline: 0.5rem;
   margin-block: 0 1rem;
   color: var(--clr-gray);
-  padding: 1rem 2rem;
+  padding: 1.5rem;
   border-width: 0.3rem;
   border-right: 0;
   border-style: solid;
@@ -33,7 +33,15 @@ blockquote {
     margin-bottom: 0;
   }
   p {
-    margin: 0;
+    margin: 0 0 .5rem;;
+  }
+  cite{
+    position: absolute;
+    display: block;
+    text-align: right;
+  }
+  cite::before {
+    content:'- ';
   }
 }
 

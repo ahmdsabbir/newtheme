@@ -14,18 +14,17 @@ const navToggle = document.querySelector('.nav-toggle');
 const menuToggle = document.querySelector('.menu-toggle');
 
 navToggle.addEventListener('click', function(e) {
-  this.classList.toggle('open');   
+  this.classList.toggle('open');
   menuToggle.classList.toggle('active');
   e.stopPropagation();
 });
 
 // Dropdown toogle on mobile
-const dropdown = document.querySelectorAll('.menu-item-has-children a');
+const dropdown = document.querySelectorAll('.menu-item-has-children > a');
 
-dropdown.forEach((btn) => {
-  btn.addEventListener('click', (e) => {
-    e.preventDefault();
-    console.log(btn);
-     btn.nextElementSibling.classList.toggle('show');  
+ dropdown.forEach((btn) => {
+   btn.addEventListener('click', (e) => {
+     e.preventDefault();
+    btn.classList.toggle('show');
   })
 });
