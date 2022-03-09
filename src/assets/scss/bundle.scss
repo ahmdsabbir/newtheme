@@ -1,18 +1,14 @@
 /*
 * Bundle all together
-*Package: _themename
+* @Package: _themename
+* ===================================================
 */
-@import "base/vfm";
-@import "base/root";
-@import "base/reset";
-@import "base/typography";
-@import "base/link";
-@import "base/lists";
-@import "base/misc";
-@import "base/tables";
-@import "base/forms";
-@import "base/grid";
 
-@import "mobile";
-@import "tablet";
-@import "desktop";
+/**
+We have no 'mobile' import because we are mobile first,
+/base covers mobile styles
+*/
+
+@import "1-base";
+@import "2-tablet";
+@import "3-desktop";

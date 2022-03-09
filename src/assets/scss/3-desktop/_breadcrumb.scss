@@ -1,4 +1,3 @@
-
 @media (min-width: 800px) {
   .breadcrumb {
     background-color: var(--clr-white);
@@ -6,12 +5,12 @@
     display: grid;
     align-items: center;
     justify-content: center;
-  
+
     a {
       display: inline-block;
       text-decoration: none;
       color: var(--clr-secondary);
-  
+
       &::after {
         content: "/";
         display: inline-block;
@@ -22,9 +21,8 @@
       }
     }
     span.current {
-      color: var(--clr-back);
+      color: var(--clr-black);
       cursor: not-allowed;
     }
   }
-  
 }
