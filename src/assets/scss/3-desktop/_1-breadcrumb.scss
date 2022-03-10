@@ -1,4 +1,4 @@
-@media (min-width: 800px) {
+@media (min-width: map-get($breakpoints, "md")) {
   .breadcrumb {
     background-color: var(--clr-white);
     height: 8rem;

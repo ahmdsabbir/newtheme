@@ -2,14 +2,18 @@
 Pagination
 */
 
+nav.pagination {
+  text-align: center;
+}
+
 nav.pagination > .nav-links {
   display: inline-block;
 
   a,
   span:not(.dots) {
-    background-color: var(--clr-gray);
-    color: var(--clr-white);
-    padding: 0.8rem 1.6rem;
+    border: 0.1rem solid var(--clr-gray);
+    color: var(--clr-gray);
+    padding: 0.5rem 1rem;
     text-decoration: none;
     border-radius: 0.3rem;
   }
@@ -17,6 +21,7 @@ nav.pagination > .nav-links {
   span.current {
     background-color: var(--clr-primary);
     color: var(--clr-white);
+    cursor: not-allowed;
   }
 
   a:hover {
