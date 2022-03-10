@@ -1,3 +1,26 @@
 /**
 Pagination
 */
+
+nav.pagination > .nav-links {
+  display: inline-block;
+
+  a,
+  span:not(.dots) {
+    background-color: var(--clr-gray);
+    color: var(--clr-white);
+    padding: 0.8rem 1.6rem;
+    text-decoration: none;
+    border-radius: 0.3rem;
+  }
+
+  span.current {
+    background-color: var(--clr-primary);
+    color: var(--clr-white);
+  }
+
+  a:hover {
+    background-color: var(--clr-secondary);
+    color: var(--clr-white);
+  }
+}
