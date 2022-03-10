@@ -1,3 +1,10 @@
 img {
     max-width: 100%;
 }
+
+.videos {
+    width: 500px !important;
+    iframe {
+        width: 100% !important;
+    }
+}

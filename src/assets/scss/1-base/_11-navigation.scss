@@ -19,6 +19,8 @@
   font-size: 1.6rem;
   font-weight: 700;
   color: var(--clr-primary);
+  display: flex;
+  align-items: center;justify-self: center;
 }
 
 .nav__menu {
@@ -41,7 +43,6 @@
 
 .nav__menu li a {
   display: block;
-  font-size: 1.6rem;
   color: var(--clr-black);
   text-decoration: none;
 }
@@ -98,14 +99,13 @@
   transition: all 0.4s;
 }
 
-.nav__menu .menu-item-has-children ul.show {
+.nav__menu .menu-item-has-children a.show  + ul{
   max-height: 20rem;
   transition: all 0.4s;
 }
 
 .nav__menu .menu-item-has-children li a {
   display: block;
-  font-size: 1.6rem;
   text-transform: capitalize;
   color: clr(--clr-black);
   text-decoration: none;
@@ -179,7 +179,6 @@
   }
 
   .nav__menu li a {
-    font-size: 1.6rem;
     color: var(--clr-black);
     text-decoration: none;
   }

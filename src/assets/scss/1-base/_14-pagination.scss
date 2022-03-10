@@ -7,15 +7,16 @@ nav.pagination {
 }
 
 nav.pagination > .nav-links {
-  display: inline-block;
-
+  
   a,
   span:not(.dots) {
+    display: inline-block;
     border: 0.1rem solid var(--clr-gray);
     color: var(--clr-gray);
     padding: 0.5rem 1rem;
     text-decoration: none;
     border-radius: 0.3rem;
+    margin: 0.1rem;
   }
 
   span.current {
