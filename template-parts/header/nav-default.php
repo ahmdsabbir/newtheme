@@ -1,8 +1,8 @@
-<div class="nav__container">
+<div class="navbar">
 
-  <div class="nav__mobile">
+  <div class="mobile">
 
-    <div class="nav__logo">
+    <div class="logo">
       <?php if(has_custom_logo()) : ?>
         <?php the_custom_logo(); ?>
       <?php else: ?>
@@ -12,7 +12,7 @@
       <?php  endif; ?>
     </div><!-- logo -->
 
-    <div class="nav__btn">
+    <div class="nav-btn">
       <a aria-label="Mobile menu" class="nav-toggle fade"><span></span><span class="mrg"></span><span class="mrg"></span></a>
     </div>
 
@@ -23,7 +23,7 @@
     wp_nav_menu(array(
         'theme_location' => 'main-menu',
         'container' => '',
-        'menu_class' => 'nav__menu',
+        'menu_class' => 'menu',
         'menu_id'   => 'nav',
     ));
     ?><!-- ul:nav-list -->

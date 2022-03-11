@@ -1,15 +1,15 @@
-.nav__container {
+.navbar {
   width: 100%;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
 }
 
-.nav__mobile .nav__btn {
+.mobile .nav-btn {
   display: block;
 }
 
-.nav__mobile {
+.mobile {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,10 +20,11 @@
   font-weight: 700;
   color: var(--clr-primary);
   display: flex;
-  align-items: center;justify-self: center;
+  align-items: center;
+  justify-self: center;
 }
 
-.nav__menu {
+.menu {
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -34,20 +35,20 @@
   transition: all 0.5s;
 }
 
-.nav__menu li {
+.menu li {
   list-style: none;
   position: relative;
   white-space: nowrap;
   padding: 1rem 0 0 0;
 }
 
-.nav__menu li a {
+.menu li a {
   display: block;
   color: var(--clr-black);
   text-decoration: none;
 }
 
-.nav__menu li a:hover {
+.menu li a:hover {
   color: var(--clr-primary);
 }
 
@@ -89,7 +90,7 @@
 
 /* menu-item-has-children */
 
-.nav__menu .menu-item-has-children ul {
+.menu .menu-item-has-children ul {
   display: flex;
   flex-direction: column;
   position: static;
@@ -99,19 +100,19 @@
   transition: all 0.4s;
 }
 
-.nav__menu .menu-item-has-children a.show  + ul{
+.menu .menu-item-has-children a.show + ul {
   max-height: 20rem;
   transition: all 0.4s;
 }
 
-.nav__menu .menu-item-has-children li a {
+.menu .menu-item-has-children li a {
   display: block;
   text-transform: capitalize;
   color: clr(--clr-black);
   text-decoration: none;
 }
 
-.nav__menu li a:hover {
+.menu li a:hover {
   color: var(--clr-secondary);
 }
 
@@ -138,7 +139,7 @@
     overflow: visible;
   }
 
-  .nav__container {
+  .navbar {
     width: 100%;
     max-width: 100rem;
     margin: auto;
@@ -149,13 +150,13 @@
     padding: 40px;
   }
 
-  .nav__mobile {
+  .mobile {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
-  .nav__mobile .nav__btn {
+  .mobile .nav-btn {
     display: none;
   }
 
@@ -164,35 +165,35 @@
     max-width: 5.4rem;
   }
 
-  .nav__menu {
+  .menu {
     display: flex;
     flex-direction: row;
     max-height: 100%;
     overflow: visible;
   }
 
-  .nav__menu li {
+  .menu li {
     list-style: none;
     position: relative;
     white-space: nowrap;
     padding: 1rem;
   }
 
-  .nav__menu li a {
+  .menu li a {
     color: var(--clr-black);
     text-decoration: none;
   }
 
-  .nav__menu li a:hover {
+  .menu li a:hover {
     color: var(--clr-primary);
   }
 
   /* menu-item-has-children */
-  .nav__menu .menu-item-has-children {
+  .menu .menu-item-has-children {
     position: relative;
   }
 
-  .nav__menu .menu-item-has-children ul {
+  .menu .menu-item-has-children ul {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -205,7 +206,7 @@
     transition: all 0.4s ease;
   }
 
-  .nav__menu .menu-item-has-children:hover > ul {
+  .menu .menu-item-has-children:hover > ul {
     top: 100%;
     left: 0;
     opacity: 1;
@@ -214,30 +215,30 @@
     padding: 0 1rem;
   }
 
-  .nav__menu .menu-item-has-children ul li {
+  .menu .menu-item-has-children ul li {
     padding: 0.7rem;
     background-color: var(--clr-primary);
     position: relative;
   }
 
-  .nav__menu .menu-item-has-children ul li:hover {
+  .menu .menu-item-has-children ul li:hover {
     background-color: var(--clr-primary);
   }
 
-  .nav__menu .menu-item-has-children ul li a {
+  .menu .menu-item-has-children ul li a {
     display: block;
     color: var(--clr-white);
     text-transform: capitalize;
   }
 
-  .nav__menu .menu-item-has-children ul li a:hover {
+  .menu .menu-item-has-children ul li a:hover {
     display: block;
     color: var(--clr-secondary);
   }
 
   /* 2nd level menu-item-has-children */
 
-  .nav__menu .menu-item-has-children .menu-item-has-children:hover > ul {
+  .menu .menu-item-has-children .menu-item-has-children:hover > ul {
     position: absolute;
     top: 0;
     right: calc(100% - 17px);
@@ -246,7 +247,7 @@
     visibility: visible;
   }
 
-  .nav__menu .menu-item-has-children .menu-item-has-children ul {
+  .menu .menu-item-has-children .menu-item-has-children ul {
     position: absolute;
     top: 0;
     right: calc(100% - 17px);
