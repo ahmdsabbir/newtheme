@@ -10,7 +10,7 @@ if ( !defined('_themename_DIR_PATH') ) {
 }
 
 //require required files
-require_once _themename_DIR_PATH . '/lib/customizer.php';
+require_once _themename_DIR_PATH . '/lib/customizer/customizer.php';
 require_once _themename_DIR_PATH . '/lib/template-tags.php';
 require_once _themename_DIR_PATH . '/lib/helpers.php';
 require_once _themename_DIR_PATH . '/lib/enqueue-assets.php';
