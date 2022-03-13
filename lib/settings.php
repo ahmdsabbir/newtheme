@@ -58,3 +58,4 @@ add_action('wp_default_scripts', function() {
 //     wp_dequeue_style( 'wc-blocks-style' ); // WooCommerce block CSS
 // } 
 // add_action( 'wp_enqueue_scripts', '_themename_remove_wp_block_library_css', 100 );
+

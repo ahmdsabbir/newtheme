@@ -13,7 +13,6 @@ input[type="url"],
 input[type="week"],
 input:not([type]),
 textarea,
-
 input[type="button"],
 select {
   -webkit-appearance: none;
@@ -22,7 +21,8 @@ select {
   width: 100%;
   padding: 0.8rem;
   display: block;
-  text-align: center;
+
+  @include rounded;
 }
 input[type="submit"] {
   -webkit-appearance: none;
@@ -31,6 +31,8 @@ input[type="submit"] {
   padding: 0.8rem;
   display: block;
   height: 3.15rem;
+
+  @include rounded;
 }
 
 textarea {
