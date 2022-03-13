@@ -1,10 +1,9 @@
 img {
-    max-width: 100%;
+    max-width: 100% !important;
+    width: 100%;
+}
+figure, iframe {
+    max-width: 100% !important;
+    width: 100% !important;
 }
 
-.videos {
-    width: 500px !important;
-    iframe {
-        width: 100% !important;
-    }
-}

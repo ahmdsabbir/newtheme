@@ -21,7 +21,7 @@ select {
   width: 100%;
   padding: 0.8rem;
   display: block;
-
+  font-family: inherit;
   @include rounded;
 }
 input[type="submit"] {
