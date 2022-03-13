@@ -11,7 +11,7 @@
 defined( 'ABSPATH' ) || exit;
 
 $both_sidebar = 'sm-col-span-12 md-col-span-8 md-order-4';
-$one_sidebar  = 'sm-col-span-12 md-col-start-2 md-col-span-9 md-order-4';
+$one_sidebar  = 'sm-col-span-12 md-col-start-2 md-col-end-10 md-order-4';
 $no_sidebar   = 'sm-col-span-12 md-col-start-3 md-col-end-11 md-order-4';
 
 //Get sidebar layout from post_meta for this single post
