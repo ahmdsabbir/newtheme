@@ -22,11 +22,13 @@ function _themename_comment_callback( $comment, $args, $depth) {
             <?php if($comment->comment_approved == '0') : ?>
                 <p class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', '_themename' ); ?></p>
             <?php endif; ?>
+            
             <?php 
             if($comment->comment_type == '' || (($comment->comment_type == 'pingback' || $comment->comment_type == 'trackback') && !$args['short_ping'])) {
                 comment_text();
             }
             ?>
+            <?php get_comment( ); ?>
             <?php
             comment_reply_link( array_merge($args, array(
                 'depth' => $depth,

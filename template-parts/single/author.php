@@ -21,7 +21,7 @@ $author_dribble = get_the_author_meta('_themename_user_dribble', $author);
     </h2>
 
     <div id="author-avatar">
-        <?php echo get_avatar( $author_id, 100 ); //100 is the size of the avatar, in this case it's 100x100px ?>
+        <?php echo get_avatar( $author, 100 ); //100 is the size of the avatar, in this case it's 100x100px ?>
     </div><!-- # avatar -->
 
     <div id="author-content">
@@ -48,7 +48,7 @@ $author_dribble = get_the_author_meta('_themename_user_dribble', $author);
             <?php echo esc_html( $author_description ); ?>
         </p>
 
-        <?php if($author_twitter || $author_facebook || $author_github) : ?>
+        <?php if($author_twitter || $author_facebook || $author_insta || $author_pinterest || $author_dribble) : ?>
         <ul class="social-links">
             <?php if($author_twitter) :?>
                 <li><a href="<?php echo esc_url( $author_twitter ); ?>">Twitter</a></li>
