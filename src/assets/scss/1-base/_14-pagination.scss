@@ -1,0 +1,32 @@
+/**
+Pagination
+*/
+
+nav.pagination {
+  text-align: center;
+}
+
+nav.pagination > .nav-links {
+  
+  a,
+  span:not(.dots) {
+    display: inline-block;
+    border: 0.1rem solid var(--clr-gray);
+    color: var(--clr-gray);
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 0.3rem;
+    margin: 0.1rem;
+  }
+
+  span.current {
+    background-color: var(--clr-primary);
+    color: var(--clr-white);
+    cursor: not-allowed;
+  }
+
+  a:hover {
+    background-color: var(--clr-secondary);
+    color: var(--clr-white);
+  }
+}

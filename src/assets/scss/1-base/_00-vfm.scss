@@ -3,3 +3,7 @@ $breakpoints: (
   "md": "768px",
   "lg": "1024px",
 );
+
+@mixin rounded {
+  border-radius: 0.5rem;
+}

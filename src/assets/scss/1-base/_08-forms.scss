@@ -13,7 +13,6 @@ input[type="url"],
 input[type="week"],
 input:not([type]),
 textarea,
-input[type="submit"],
 input[type="button"],
 select {
   -webkit-appearance: none;
@@ -22,7 +21,20 @@ select {
   width: 100%;
   padding: 0.8rem;
   display: block;
+  font-family: inherit;
+  @include rounded;
 }
+input[type="submit"] {
+  -webkit-appearance: none;
+  border: 0.1rem solid var(--clr-black);
+  box-sizing: inherit;
+  padding: 0.8rem;
+  display: block;
+  height: 3.15rem;
+
+  @include rounded;
+}
+
 textarea {
   min-height: 9.5rem;
 }

@@ -4,7 +4,7 @@
   gap: 1rem;
   grid-template-columns: repeat(var(--grid-columns, 12), minmax(0, 1fr));
   grid-template-rows: repeat(var(--grid-rows, 1), minmax(0, 1fr));
-
+  padding: var(--gap, 1rem);
   & > * {
     grid-column: span var(--grid-columns, 12);
     grid-row: span var(--grid-rows, 1);

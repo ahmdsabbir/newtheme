@@ -15,25 +15,30 @@ pre > code {
 }
 
 blockquote {
-  margin-inline: 2rem 2rem;
-  margin-block: 0 1rem;
-  color: var(--clr-gray);
-  padding: 1rem 2rem;
+  color: var(--clr-primary);
+  padding: 1.5rem;
   border-width: 0.3rem;
   border-right: 0;
   border-style: solid;
   border-image: linear-gradient(
-      to bottom,
-      var(--clr-primary),
+    to bottom,
+    var(--clr-primary),
       var(--clr-secondary)
     )
     1 100%;
 
-  *:last-child {
-    margin-bottom: 0;
-  }
-  p {
-    margin: 0;
+    *:last-child {
+      margin-bottom: 0;
+    }
+    p {
+      margin: 0 0 .5rem;;
+    }
+    cite {
+      
+      color: var(--clr-secondary);
+    }
+    cite::before {
+    content:'- ';
   }
 }
 

@@ -13,6 +13,38 @@ function _themename__customize_register( $wp_customize ) {
         }
     ));
 
+
+    //############################################ Custom Range Control #################################
+    class WP_Customize_Range_Control extends WP_Customize_Control
+    {
+        public $type = 'custom_range';
+        public function enqueue()
+        {
+            wp_enqueue_script(
+                'cs-range-control',
+                get_template_directory_uri() . '/lib/customizer/range-control.js',
+                array('jquery'),
+                false,
+                true
+            );
+        }
+        public function render_content()
+        {
+            ?>
+            <label>
+                <?php if ( ! empty( $this->label )) : ?>
+                    <span class="customize-control-title"><?php echo esc_html($this->label); ?></span>
+                <?php endif; ?>
+                <div class="cs-range-value"><?php echo esc_attr($this->value()); ?></div>
+                <input data-input-type="range" type="range" <?php $this->input_attrs(); ?> value="<?php echo esc_attr($this->value()); ?>" <?php $this->link(); ?> />
+                <?php if ( ! empty( $this->description )) : ?>
+                    <span class="description customize-control-description"><?php echo $this->description; ?></span>
+                <?php endif; ?>
+            </label>
+            <?php
+        }
+    }
+
     /** #################### General Theme Options ###################### */
 
     $wp_customize->add_panel( '_themename_general_theme_options', array(
@@ -56,6 +88,26 @@ function _themename__customize_register( $wp_customize ) {
         'section' => '_themename_breadcrumb_options'
     ));
 
+    $wp_customize->add_setting('_themename_breadcrumb_height', array(
+        'default' => true,
+        'transport' => 'postMessage',
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Range_Control(
+            $wp_customize,
+            '_themename_breadcrumb_height',
+            array(
+                'label'       => __('Padding'),
+                'section'     => '_themename_breadcrumb_options',
+                'description' => __('Measurement is in rem.'),
+                'input_attrs' => array(
+                    'min' => 1,
+                    'max' => 20,
+                ),
+            )
+        )
+    );
 
     /**##################### footer ##################### */
 

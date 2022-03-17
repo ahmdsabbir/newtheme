@@ -57,7 +57,7 @@ $author_dribble = get_the_author_meta('_themename_user_dribble', $author);
                 <li><a href="<?php echo esc_url( $author_insta ); ?>">Instagram</a></li>
             <?php endif; ?>
             <?php if($author_pinterest) :?>
-                <li><a href="<?php echo iesc_url( $author_pinterest ); ?>">pinterest</a></li>
+                <li><a href="<?php echo esc_url( $author_pinterest ); ?>">pinterest</a></li>
             <?php endif; ?>
             <?php if($author_dribble) :?>
                 <li><a href="<?php echo esc_url( $author_dribble ); ?>">dribble</a></li>

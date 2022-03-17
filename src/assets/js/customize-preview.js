@@ -42,6 +42,20 @@ wp.customize('_themename_display_breadcrumb', (value) => {
     })
 } )
 
+wp.customize( '_themename_breadcrumb_height', (value) => {
+    value.bind( (to) => {
+        $('#_themename-stylesheet-inline-css').html(
+        	`
+			    .breadcrumb {
+                    height: ${to}rem;
+                }
+        	`);
+    } )
+})
+
+
+
+
 wp.customize('_themename_display_related_posts', (value) => {
     value.bind( (to) => {
         if(to) {
