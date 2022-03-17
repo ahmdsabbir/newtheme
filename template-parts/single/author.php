@@ -51,19 +51,39 @@ $author_dribble = get_the_author_meta('_themename_user_dribble', $author);
         <?php if($author_twitter || $author_facebook || $author_insta || $author_pinterest || $author_dribble) : ?>
         <ul class="social-links">
             <?php if($author_twitter) :?>
-                <li><a href="<?php echo esc_url( $author_twitter ); ?>">Twitter</a></li>
+                <li>
+                    <a href="<?php echo esc_url( $author_twitter ); ?>">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/src/images/twitter.svg">
+                    </a>
+                </li>
             <?php endif; ?>
             <?php if($author_facebook) :?>
-                <li><a href="<?php echo esc_url( $author_facebook ); ?>">Facebook</a></li>
+                <li>
+                    <a href="<?php echo esc_url( $author_facebook ); ?>">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/src/images/facebook.svg">
+                    </a>
+                </li>
             <?php endif; ?>
             <?php if($author_insta) :?>
-                <li><a href="<?php echo esc_url( $author_insta ); ?>">Instagram</a></li>
+                <li>
+                    <a href="<?php echo esc_url( $author_insta ); ?>">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/src/images/insta.svg">
+                    </a>
+                </li>
             <?php endif; ?>
             <?php if($author_pinterest) :?>
-                <li><a href="<?php echo esc_url( $author_pinterest ); ?>">pinterest</a></li>
+                <li>
+                    <a href="<?php echo esc_url( $author_pinterest ); ?>">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/src/images/pinterest.svg">
+                    </a>
+                </li>
             <?php endif; ?>
             <?php if($author_dribble) :?>
-                <li><a href="<?php echo esc_url( $author_dribble ); ?>">dribble</a></li>
+                <li>
+                    <a href="<?php echo esc_url( $author_dribble ); ?>">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/src/images/dribbble.svg">
+                    </a>
+                </li>
             <?php endif; ?>
         </ul>
     <?php endif; ?>

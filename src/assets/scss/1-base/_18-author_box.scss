@@ -1,3 +1,61 @@
 /**
 Author box
 */
+
+@media (min-width: map-get($breakpoints, "sm")) {
+  .author-info {
+    background: #ffff;
+    padding: var(--gap);
+    border-radius: var(--gap);
+    box-shadow: var(--box-shadow-regular);
+    .author-info-heading {
+      display: flex;
+      align-items: center;
+      padding: var(--gap);
+      #author-avatar {
+        max-width: 9rem;
+        width: 100%;
+        height: 9rem;
+        margin-right: var(--gap);
+        img {
+          width: 100%;
+        }
+      }
+      .author-meta {
+        h3 {
+          margin-bottom: var(--gap);
+        }
+      }
+    }
+
+    p {
+      padding: var(--gap);
+    }
+    .author-info-footer {
+      padding: var(--gap);
+
+      ul,
+      li {
+        list-style: none;
+      }
+      ul {
+        display: flex;
+      }
+      li {
+        margin-right: var(--gap);
+      }
+      li {
+        height: 2rem;
+        width: 2rem;
+        a {
+          box-shadow: var(--box-shadow-icons);
+          border-radius: 2rem;
+          padding: 1rem;
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
