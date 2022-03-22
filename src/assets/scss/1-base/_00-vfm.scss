@@ -7,3 +7,98 @@ $breakpoints: (
 @mixin rounded {
   border-radius: var(--radius);
 }
+
+@mixin center {
+  display: grid;
+  place-items: center;
+}
+
+@mixin flex {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@mixin flexStretch {
+  flex: 1 1 150px; // stretching
+  margin: 5px;
+}
+
+@mixin flexNoStretch {
+  flex: 0 1 150px; //no stretching
+  margin: 5px;
+}
+
+/* one sided layout */
+
+@mixin sidebar {
+  display: grid;
+  grid-template-columns: minmax(150px, 25%) 1fr;
+}
+
+/* full layout */
+@mixin twoSidebar {
+  display: grid;
+  grid-template: auto 1fr auto / auto 1fr auto;
+}
+@mixin header {
+  grid-column: 1/-1;
+}
+@mixin leftSide {
+  grid-column: 1/2;
+}
+@mixin main {
+  grid-column: 2/3;
+}
+@mixin rightSide {
+  grid-column: 3/-1;
+}
+
+/* 12 column grid */
+@mixin twelveGrid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+/* grid card */
+@mixin gridCard {
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+// grid card with auto fill
+@mixin gridCard {
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+/* mobile layout */
+@mixin mobileLayout {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+/* Grid with flexbox and card system */
+// use this in the parent
+@mixin gcard {
+  height: auto;
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: repeat(3, 1fr);
+}
+//  use this in the children
+@mixin flexCardWithGrid {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/*  character based card */
+
+// use this style inside the chil
+@mixin clampingCard {
+  width: clamp(23ch, 50%, 46ch);
+  display: flex;
+  flex-direction: column;
+}
