@@ -23,7 +23,7 @@ defined( 'ABSPATH' ) || exit;
   <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
 
-    <div class="container" id="<?php echo _themename_wrapper_id(); ?>-wrapper">
+    <div class="container wrapper" id="<?php echo _themename_wrapper_id(); ?>-wrapper">
 
       <div id="header-wrapper" class="sm-col-span-12 md-col-span-12 md-order-1">
 

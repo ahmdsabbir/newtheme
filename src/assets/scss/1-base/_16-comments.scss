@@ -1,3 +1,36 @@
 /**
 Comments
 */
+
+.comments-area {
+  @include every;
+  .comment-respond {
+    // .comment-reply-title {
+
+    // }
+    .comment-form {
+      textarea,
+      input {
+        background: var(--clr-background);
+        color: var(--clr-gray);
+        border-radius: 6px;
+        border: none;
+        outline: none;
+        font-size: 1rem;
+        font-weight: bold;
+
+        &:focus {
+          border: 0.2px solid var(--clr-primary);
+        }
+      }
+
+      input[type="checkbox"]:checked {
+        background: var(--clr-primary);
+      }
+      input[type="submit"] {
+        background: var(--clr-primary);
+        color: var(--clr-white);
+      }
+    }
+  }
+}

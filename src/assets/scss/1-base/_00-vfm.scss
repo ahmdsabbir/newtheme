@@ -8,11 +8,29 @@ $breakpoints: (
   border-radius: var(--radius);
 }
 
-@mixin center {
+@mixin gridCenter {
   display: grid;
   place-items: center;
 }
 
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin socilIcon {
+  padding: 1rem;
+  border-radius: 100%;
+  background-color: var(--clr-white);
+  border: 0.1px solid var(--clr-gray-lighter);
+  box-shadow: var(--box-shadow-icons);
+  margin: 0 var(--gap);
+  @include gridCenter;
+
+  &:hover {
+    box-shadow: var(--box-shadow-icons-hover);
+  }
+}
 @mixin flex {
   display: flex;
   justify-content: center;
@@ -101,4 +119,13 @@ $breakpoints: (
   width: clamp(23ch, 50%, 46ch);
   display: flex;
   flex-direction: column;
+}
+
+// for every section and every part use this mixin to make squarisng box shaodw design
+@mixin every {
+  margin: 2rem 0;
+  background: var(--clr-white);
+  border-radius: var(--radius);
+  box-shadow: var(--box-shadow-regular);
+  padding: var(--gap);
 }
