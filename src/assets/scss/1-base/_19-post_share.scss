@@ -1,3 +1,16 @@
 /**
 Post Share
 */
+.post-share {
+  @include every;
+  text-align: center;
+  h5 {
+    margin-bottom: 0.9rem;
+  }
+  .post-share-icons {
+    @include flexCenter;
+    a {
+      @include socilIcon;
+    }
+  }
+}

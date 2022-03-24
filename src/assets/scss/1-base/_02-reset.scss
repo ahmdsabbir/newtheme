@@ -17,9 +17,12 @@ html {
 }
 
 body {
-  background: #f9f9f9;
   color: var(--clr-black);
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
     Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.wrapper {
+  background: var(--clr-background);
 }
