@@ -33,6 +33,7 @@ if ( post_password_required() )
                     'style'       => 'ol',
                     'short_ping'  => true,
                     'avatar_size' => 50,
+                    'callback' => '_themename_comment_callback',
                 ) );
             ?>
         </ol><!-- .comment-list -->

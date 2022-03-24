@@ -15,8 +15,8 @@ $no_sidebar   = 'sm-col-span-12 md-col-start-3 md-col-end-11 md-order-4';
 <?php get_header(); ?> 
 
 <div class="<?php _themename_main_column_class($both_sidebar,$one_sidebar,  $no_sidebar); ?>">
-    <?php get_template_part( '/template-parts/archives/author'); ?>
-    <?php get_template_part( 'loop', 'archive' ); ?> 
+    <?php get_template_part( '/template-parts/archives/author');
+    get_template_part( 'loop', 'archive' ); ?> 
 </div><!-- .main end -->
 
 <?php get_template_part( 'template-parts/page/sidebars'); ?>
