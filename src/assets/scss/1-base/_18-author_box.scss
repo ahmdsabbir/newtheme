@@ -61,6 +61,9 @@ Author box
 }
 */
 .author-info {
+  @include rounded;
+  background-color: aqua;
+  padding: 1rem 0;
   display: grid;
   grid-template-columns: 1fr 4fr;
   grid-template-rows: 2fr 2fr 1fr;
@@ -69,6 +72,11 @@ Author box
     width: 8rem;
     height: 8rem;
     grid-column: 1 / span 1;
+    justify-self: center;
+    align-self: center;
+    img {
+      @include rounded;
+    }
   }
 
   .author-meta {
@@ -76,17 +84,18 @@ Author box
   }
   .author-info-desc {
     grid-column: 1 / span 2;
+    padding: 0 1rem;
   }
   .author-info-social {
     grid-column: 1 / span 2;
-    ul {
-      list-style-type: none;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      li {
-        margin-right: 2rem;
-      }
+    a {
+      padding: 0.5rem;
+      font-size: 1rem;
+      text-align: center;
+      text-decoration: none;
+      margin: 0 1.5rem;
+      background-color: white;
+      box-shadow: var(--box-shadow-icons);
     }
   }
 }
