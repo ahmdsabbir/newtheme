@@ -1,0 +1,18 @@
+// search  box design
+.widget_search {
+  form {
+    input,
+    button {
+      border-radius: 0.8rem;
+      background: var(--clr-background);
+    }
+
+    button {
+      //   margin-left: -50px;
+    }
+    input:focus {
+      outline: none;
+      border: 1px solid var(--clr-primary);
+    }
+  }
+}

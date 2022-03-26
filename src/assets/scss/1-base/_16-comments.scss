@@ -3,11 +3,63 @@ Comments
 */
 
 .comments-area {
-  @include every;
-  .comment-respond {
-    // .comment-reply-title {
+  ol,
+  ul {
+    list-style-type: none;
+  }
 
-    // }
+  @include every;
+
+  ol {
+    margin-bottom: 2rem;
+  }
+
+  li {
+    ol {
+      margin: 1.5rem 0.5rem auto 1.5rem;
+    }
+  }
+
+  .comment-parent {
+    display: flex;
+    align-items: center;
+    gap: var(--gap);
+    margin-bottom: 1rem;
+
+    // profile image container
+    .comment-img-container {
+      height: 32px;
+      width: 32px;
+      border-radius: 0.25rem;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border: none;
+      }
+    }
+
+    .comment-name-meta {
+      time {
+        color: var(--clr-gray-light);
+      }
+    }
+
+    // reply div
+    .comment-reply {
+      align-self: flex-end;
+      color: var(--color-primary);
+    }
+  }
+
+  .comment-text {
+    background: var(--clr-background);
+    padding: var(--gap);
+    border-radius: 0.25rem;
+  }
+  .comment-respond {
     .comment-form {
       textarea,
       input {

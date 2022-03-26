@@ -1,0 +1,8 @@
+// aside common styles
+
+aside {
+  .widget {
+    @include every;
+  }
+}
+@import "20-aside-search";
