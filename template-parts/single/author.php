@@ -22,9 +22,10 @@ $author_dribble = get_the_author_meta('_themename_user_dribble', $author);
     </h2>
 
 
-    <div class="author-avatar">
-        <?php echo get_avatar( $author, 100 ); //100 is the size of the avatar, in this case it's 100x100px ?>
-    </div><!-- author-avatar -->
+  <div class="author-avatar-meta">
+        <div class="author-avatar">
+            <?php echo get_avatar( $author, 100 ); //100 is the size of the avatar, in this case it's 100x100px ?>
+        </div><!-- author-avatar -->
 
     <div class="author-meta">
         <p>
@@ -45,6 +46,7 @@ $author_dribble = get_the_author_meta('_themename_user_dribble', $author);
             </a>
         </p>
     </div><!-- author-meta -->
+  </div>
 
     
 

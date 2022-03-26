@@ -2,7 +2,12 @@
 
 aside {
   .widget {
-    @include every;
+    margin: 2rem 0;
+    background: var(--clr-white);
+    border-radius: var(--radius);
+    box-shadow: var(--box-shadow-regular);
   }
 }
 @import "20-aside-search";
+
+@import "21-aside-categories";

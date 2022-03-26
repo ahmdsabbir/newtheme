@@ -26,7 +26,6 @@ function _themename_comment_callback($comment, $args, $depth) {
     <?php endif; ?>
     <!-- Approval MSG-->
 
-<<<<<<< HEAD
     <div class="comment-name-meta"><!-- commentator meta and name container-->
       
      <div>
@@ -38,15 +37,6 @@ function _themename_comment_callback($comment, $args, $depth) {
         <?php printf(/* translators: 1: date and time(s). */ esc_html__('%1$s at %2$s' , '5balloons_theme'), get_comment_date(),  get_comment_time()) ?>
       </time>
      </div>
-=======
-    <div class="commentator-name-meta"><!-- commentator meta and name container-->
-      
-      <strong><?php echo get_comment_author() ?></strong>
-
-      <time>
-        <?php printf(/* translators: 1: date and time(s). */ esc_html__('%1$s at %2$s' , '5balloons_theme'), get_comment_date(),  get_comment_time()) ?>
-      </time>
->>>>>>> 3215e3b32c3c2da66c91248245a18e1401c66fbb
 
     </div><!-- commentator meta and name container end -->
 
@@ -56,7 +46,6 @@ function _themename_comment_callback($comment, $args, $depth) {
 
   </div> <!-- commentators image, name and comment time  and also replay container ends-->
 
-<<<<<<< HEAD
    <div class="comment-text">
     <?php comment_text() ?>
   </div> 
@@ -66,12 +55,3 @@ function _themename_comment_callback($comment, $args, $depth) {
 <?php
         }
 endif;
-=======
-  <p>
-    <?php comment_text() ?>
-  </p>
-
-<?php
-        }
-endif;
->>>>>>> 3215e3b32c3c2da66c91248245a18e1401c66fbb

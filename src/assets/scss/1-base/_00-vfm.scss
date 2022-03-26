@@ -19,12 +19,13 @@ $breakpoints: (
   align-items: center;
 }
 @mixin socilIcon {
-  padding: 1rem;
+  width: 32px;
+  height: 32px;
   border-radius: 100%;
   background-color: var(--clr-white);
   border: 0.1px solid var(--clr-gray-lighter);
   box-shadow: var(--box-shadow-icons);
-  margin: 0 var(--gap);
+  margin-right: var(--gap);
   @include gridCenter;
 
   &:hover {
