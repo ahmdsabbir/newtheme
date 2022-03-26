@@ -1,7 +1,7 @@
 /**
 Author box
 */
-
+/**
 @media (min-width: map-get($breakpoints, "sm")) {
   .author-info {
     background: #ffff;
@@ -12,7 +12,7 @@ Author box
       display: flex;
       align-items: center;
       padding: var(--gap);
-      #author-avatar {
+      .author-avatar {
         max-width: 9rem;
         width: 100%;
         height: 9rem;
@@ -42,7 +42,7 @@ Author box
         display: flex;
       }
       li {
-        margin-right: var(--gap);
+        margin-right: calc(3 * var(--gap));
       }
       li {
         height: 2rem;
@@ -56,6 +56,46 @@ Author box
           }
         }
       }
+    }
+  }
+}
+*/
+.author-info {
+  @include rounded;
+  background-color: aqua;
+  padding: 1rem 0;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 2fr 2fr 1fr;
+
+  .author-avatar {
+    width: 8rem;
+    height: 8rem;
+    grid-column: 1 / span 1;
+    justify-self: center;
+    align-self: center;
+    img {
+      @include rounded;
+    }
+  }
+
+  .author-meta {
+    grid-column: 2 / span 1;
+  }
+  .author-info-desc {
+    grid-column: 1 / span 2;
+    padding: 0 1rem;
+  }
+  .author-info-social {
+    grid-column: 1 / span 2;
+    a {
+      padding: 0.5rem;
+      font-size: 1rem;
+      text-align: center;
+      text-decoration: none;
+      margin: 0 1.5rem;
+      background-color: white;
+      box-shadow: var(--box-shadow-icons);
     }
   }
 }

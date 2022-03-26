@@ -29,11 +29,11 @@ if ( post_password_required() )
  
         <ol class="comment-list">
             <?php
-                wp_list_comments( array(
+                wp_list_comments( array (
                     'style'       => 'ol',
                     'short_ping'  => true,
                     'avatar_size' => 50,
-                    'callback'     => '_themename_comment_callback'                
+                    'callback'    => '_themename_comment_callback',            
                     ) );
             ?>
         </ol><!-- .comment-list -->
