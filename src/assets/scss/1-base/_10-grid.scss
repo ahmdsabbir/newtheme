@@ -1,5 +1,7 @@
 .wrapper {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  padding: 0 1rem;
   gap: 1rem;
   overflow-wrap: break-word;
 }
@@ -85,6 +87,12 @@
     }
   }
   .has-left-sidebar {
-    grid-template-columns: 0.2fr 1fr 2fr 0.2fr;
+    grid-template-columns: 0.2fr minmax(0, 1fr) minmax(0, 2fr) 0.2fr;
+    .left-sidebar {
+      grid-column: 2/3;
+    }
+    .main {
+      grid-column: 3/4;
+    }
   }
 }
