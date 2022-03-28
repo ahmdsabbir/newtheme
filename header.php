@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
 
   $both_sidebar = 'has-two-sidebar';
   $left_sidebar  = 'has-left-sidebar';
-  $right_sidebar = 'has-right-sidebar'
+  $right_sidebar = 'has-right-sidebar';
   $no_sidebar   = 'has-no-sidebar';
 
 ?>
