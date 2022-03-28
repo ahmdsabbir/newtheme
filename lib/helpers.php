@@ -76,12 +76,13 @@ function _themename_wrapper_id() {
  * 
  *  
  */
-function _themename_main_column_class ($both, $one, $no, $additional = '') {
+function _themename_main_column_class ($both, $left, $right, $no, $additional = '') {
 
     $layout = get_post_meta(get_the_ID(), '__themename_post_layout', true);
 
     $for_both_sidebar   = $both;
-    $for_one_sidebar    = $one;
+    $for_left_sidebar    = $left;
+    $for_right_sidebar    = $right;
     $for_no_sidebar     = $no;
 
     if ( $additional != '' ) {  //put an extra space after class names if there is additional classes
@@ -97,7 +98,11 @@ function _themename_main_column_class ($both, $one, $no, $additional = '') {
         } elseif( !is_active_sidebar( 'right-sidebar' )  && !is_active_sidebar('left-sidebar') ) { //if no sidebar active
             echo $for_no_sidebar . $additional;
         } else { //if only one of the sidebar active
-            echo $for_one_sidebar . $additional;
+            if ( is_active_sidebar( 'right-sidebar' ) ) {
+                echo $for_right_sidebar . $additional;
+            } else {
+                echo $for_left_sidebar . $additional;
+            }
         }
     } elseif ( is_single() ) { //if single.php check if Sidebar is not shown in post_meta_box make the main container 12 column
         if ( $layout == 'no' ) {
@@ -108,7 +113,11 @@ function _themename_main_column_class ($both, $one, $no, $additional = '') {
             } elseif( !is_active_sidebar( 'right-sidebar' )  && !is_active_sidebar('left-sidebar') ) {
                 echo $for_no_sidebar . $additional;
             } else {
-                echo $for_one_sidebar . $additional;
+                if ( is_active_sidebar( 'right-sidebar' ) ) {
+                    echo $for_right_sidebar . $additional;
+                } else {
+                    echo $for_left_sidebar . $additional;
+                }
             }
         }
     }   
