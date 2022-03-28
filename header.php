@@ -29,7 +29,7 @@ defined( 'ABSPATH' ) || exit;
   <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
 
-    <div class="<?php _themename_main_column_class($both_sidebar, $left_sidebar, $right_sidebar, $no_sidebar); ?>" id="<?php echo _themename_wrapper_id(); ?>-wrapper">
+    <div class="wrapper <?php _themename_main_column_class($both_sidebar, $left_sidebar, $right_sidebar, $no_sidebar); ?>" id="<?php echo _themename_wrapper_id(); ?>-wrapper">
 
       <div id="header-wrapper" class="header">
 

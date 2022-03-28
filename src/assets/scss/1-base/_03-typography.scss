@@ -3,6 +3,7 @@ p {
   word-break: break-word;
   hyphens: auto;
   font-size: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 b,
@@ -39,4 +40,16 @@ h5 {
 }
 h6 {
   font-size: 1.1;
+}
+
+// single page heading margin
+.entry-content {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 1rem;
+  }
 }

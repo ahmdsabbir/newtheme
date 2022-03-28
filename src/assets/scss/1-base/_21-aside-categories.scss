@@ -11,7 +11,9 @@
   h4,
   h5,
   h5 {
-    padding: 1rem 1rem 0;
+    margin: 0;
+    padding: 1rem 1rem;
+    border-bottom: 1px solid var(--clr-gray-light);
   }
   ul,
   li {
@@ -20,6 +22,9 @@
   li {
     border-bottom: 1px solid var(--clr-gray-light);
     padding: var(--gap);
+    &:last-child {
+      border-bottom: none;
+    }
 
     a {
       text-decoration: none;

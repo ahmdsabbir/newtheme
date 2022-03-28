@@ -1,36 +1,61 @@
-#index-wrapper {
+.wrapper {
   display: grid;
-  grid-row: auto;
+  gap: 1rem;
+  overflow-wrap: break-word;
 }
 
 @media screen and (min-width: map-get($breakpoints, "sm")) {
+  .wrapper {
+    gap: 1.5rem;
+  }
+
   .has-two-sidebar {
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
     grid-template-rows: auto auto auto auto;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+
+    .header {
+      grid-column: 1/-1;
+    }
+    .left-sidebar {
+      grid-column: 1/2;
+      grid-row: 2/3;
+    }
+    .main {
+      grid-column: 2/-1;
+      grid-row: 2/-1;
+    }
+    .right-sidebar {
+      grid-column: 1/2;
+      grid-row: 3/4;
+    }
+    .footer {
+      grid-column: 1/-1;
+    }
   }
-  .header {
-    grid-column: 1/-1;
-  }
-  .left-sidebar {
-    grid-column: 1/2;
-    grid-row: 2/3;
-  }
-  .main {
-    grid-column: 2/-1;
-    grid-row: 2/-1;
-  }
-  .right-sidebar {
-    grid-column: 1/2;
-    grid-row: 3/4;
-  }
-  .footer {
-    grid-column: 1/-1;
+  .has-left-sidebar {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    grid-template-rows: auto auto auto;
+    .header {
+      grid-column: 1/-1;
+    }
+    .left-sidebar {
+      grid-column: 1/2;
+      grid-row: 2/3;
+    }
+    .main {
+      grid-column: 2/-1;
+      grid-row: 2/-1;
+    }
+    .footer {
+      grid-column: 1/-1;
+    }
   }
 }
 
 @media screen and (min-width: map-get($breakpoints, "md")) {
+  .wrapper {
+    gap: 2rem;
+  }
   .has-two-sidebar {
     grid-template-columns: 0.5fr 1.5fr 4fr 1.5fr 0.5fr;
     grid-row: auto;
@@ -58,5 +83,8 @@
       order: 5;
       grid-column: span 5;
     }
+  }
+  .has-left-sidebar {
+    grid-template-columns: 0.2fr 1fr 2fr 0.2fr;
   }
 }
