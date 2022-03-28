@@ -48,23 +48,7 @@ function _themename_categories_post_list() {
 
 }
 
-//Enable SVG upload
-// function _themename_enable_svg_upload( $mimes ) {
-//     //Only allow SVG upload by admins
-//     if ( !current_user_can( 'administrator' ) ) {
-//       return $mimes;
-//     }
-//     $mimes['svg']  = 'image/svg+xml';
-//     $mimes['svgz'] = 'image/svg+xml';
-    
-//     return $mimes;
-//   }
-//   add_filter('upload_mimes', '_themename_enable_svg_upload');
 
-/**
- * Function to get the wrapper ID of the div
- * return: string
- */
 function _themename_wrapper_id() {
 
     $wrapper_id = '';

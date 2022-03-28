@@ -1,69 +1,60 @@
-.container {
-  max-width: 100%;
+#index-wrapper {
   display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(var(--grid-columns, 12), minmax(0, 1fr));
-  grid-template-rows: repeat(var(--grid-rows, 1), minmax(0, 1fr));
-  padding: var(--gap, 1rem);
-  & > * {
-    grid-column: span var(--grid-columns, 12);
-    grid-row: span var(--grid-rows, 1);
+  grid-row: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .has-two-sidebar {
+    grid-template-columns: 1fr 2fr 1fr;
+
+    .header {
+      grid-column: 1 / -1;
+      order: 1;
+    }
+    .left-sidebar {
+      order: 2;
+      grid-column: 1 / 2;
+      grid-row: 1/2;
+    }
+    .main {
+      order: 4;
+      grid-column: 2 / 3;
+      grid-row: 2/-1;
+    }
+    .right-sidebar {
+      order: 3;
+      grid-column: 1 / 2;
+    }
+    .footer {
+      order: 5;
+      grid-column: 1/-1;
+    }
   }
 }
 
-@for $i from 1 through 12 {
-  .col-#{$i} {
-    --grid-columns: #{$i};
-  }
-  .row-#{$i} {
-    --grid-rows: #{$i};
-  }
-}
+@media screen and (min-width: 1200px) {
+  .has-two-sidebar {
+    grid-template-columns: 0.5fr 1.5fr 4fr 1.5fr 0.5fr;
 
-@each $breakpoint in map-keys($breakpoints) {
-  $breakpoint-width: map-get($breakpoints, $breakpoint);
-
-  @media (min-width: $breakpoint-width) {
-    @for $i from 1 through 13 {
-      @if $i < 13 {
-        .#{$breakpoint}-col-span-#{$i} {
-          grid-column: auto / span $i;
-        }
-      }
-
-      @if $i < 13 {
-        .#{$breakpoint}-col-start-#{$i} {
-          grid-column-start: #{$i};
-        }
-      }
-
-      @if $i > 1 {
-        .#{$breakpoint}-col-end-#{$i} {
-          grid-column-end: #{$i};
-        }
-      }
-
-      @if $i < 13 {
-        .#{$breakpoint}-row-span-#{$i} {
-          grid-row: auto / span $i;
-        }
-      }
-
-      @if $i < 13 {
-        .#{$breakpoint}-row-start-#{$i} {
-          grid-row-start: #{$i};
-        }
-      }
-
-      @if $i > 1 {
-        .#{$breakpoint}-row-end-#{$i} {
-          grid-row-end: #{$i};
-        }
-      }
-
-      .#{$breakpoint}-order-#{$i} {
-        order: #{$i};
-      }
+    .header {
+      grid-column: span 5;
+      order: 1;
+    }
+    .left-sidebar {
+      order: 2;
+      grid-column: 2 / span 1;
+    }
+    .main {
+      order: 3;
+      grid-column: 3 / span 1;
+    }
+    .right-sidebar {
+      order: 4;
+      grid-column: 4 / span 1;
+    }
+    .footer {
+      order: 5;
+      grid-column: span 5;
     }
   }
 }
