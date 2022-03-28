@@ -2,8 +2,9 @@
 
 aside {
   .widget {
-    margin: 2rem 0;
-    background: var(--clr-white);
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: var(--clr-background);
     border-radius: var(--radius);
     box-shadow: var(--box-shadow-regular);
   }

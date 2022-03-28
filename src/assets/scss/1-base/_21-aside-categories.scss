@@ -3,8 +3,8 @@
 */
 
 .widget_categories,
-.widget_archive,
-.widget_search {
+.widget_archive {
+  padding: 0 !important;
   h1,
   h2,
   h3,
@@ -18,7 +18,7 @@
     list-style: none;
   }
   li {
-    border-bottom: 1px solid var(--clr-gray-lighter);
+    border-bottom: 1px solid var(--clr-gray-light);
     padding: var(--gap);
 
     a {

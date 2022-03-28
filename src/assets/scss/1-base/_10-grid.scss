@@ -34,6 +34,7 @@
   .has-two-sidebar {
     grid-template-columns: 0.5fr 1.5fr 4fr 1.5fr 0.5fr;
     grid-row: auto;
+    gap: 1rem;
 
     .header {
       grid-column: span 5;
