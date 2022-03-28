@@ -12,7 +12,8 @@ defined( 'ABSPATH' ) || exit;
  $in_customizer = isset($GLOBALS['wp_customize']);
 
   $both_sidebar = 'has-two-sidebar';
-  $one_sidebar  = 'has-left-sidebar';
+  $left_sidebar  = 'has-left-sidebar';
+  $right_sidebar = 'has-right-sidebar'
   $no_sidebar   = 'has-no-sidebar';
 
 ?>
@@ -28,7 +29,7 @@ defined( 'ABSPATH' ) || exit;
   <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
 
-    <div class="<?php _themename_main_column_class($both_sidebar, $one_sidebar, $no_sidebar); ?>" id="<?php echo _themename_wrapper_id(); ?>-wrapper">
+    <div class="<?php _themename_main_column_class($both_sidebar, $left_sidebar, $right_sidebar, $no_sidebar); ?>" id="<?php echo _themename_wrapper_id(); ?>-wrapper">
 
       <div id="header-wrapper" class="header">
 
