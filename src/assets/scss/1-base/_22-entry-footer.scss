@@ -1,0 +1,25 @@
+// article footer style
+
+.entry-footer {
+  .entry-tags {
+    margin: 1.5rem 0;
+    a {
+      display: inline-block;
+      margin: 0.2rem 0.3rem 0;
+      padding: 0.25em 0.4em;
+      font-size: 75%;
+      line-height: 1;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: baseline;
+      border-radius: 0.25rem;
+      border: 0.2px solid var(--clr-primary);
+      text-decoration: none;
+
+      &:hover {
+        background-color: var(--clr-primary);
+        color: var(--clr-white);
+      }
+    }
+  }
+}

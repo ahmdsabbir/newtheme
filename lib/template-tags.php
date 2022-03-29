@@ -63,7 +63,7 @@ function _themename_reading_time() {
 
  function _themename_post_tag_list() {
     if(has_tag()) {
-        $tags_list = get_the_tag_list( '<ul><li>', '</li><li>', '</li></ul>' );
+        $tags_list = get_the_tag_list(  );
         printf(esc_html__( 'Tags: %s', '_themename' ), $tags_list);
     }
  }
@@ -145,9 +145,9 @@ function _themename_read_more_link($btn_class='') {
  */
 
 function _themename_entry_footer() {
-    echo '<p>';
+    echo '<p class="entry-cats">';
     _themename_post_catagory_list();
-    echo '</p><p>';
+    echo '</p><p class="entry-tags">';
     _themename_post_tag_list();
     echo '</p><p>';
     _themename_post_edit_link();
