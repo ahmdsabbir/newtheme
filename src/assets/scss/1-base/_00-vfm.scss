@@ -80,13 +80,13 @@ $breakpoints: (
 }
 
 /* grid card */
-@mixin gridCard {
+@mixin gridCardFit {
   display: grid;
   gap: var(--gap);
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
 // grid card with auto fill
-@mixin gridCard {
+@mixin gridCardFill {
   display: grid;
   gap: var(--gap);
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));

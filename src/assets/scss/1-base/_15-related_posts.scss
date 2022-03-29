@@ -1,3 +1,23 @@
 /**
 Related Posts
 */
+
+.related-posts {
+  @include gridCardFit;
+  .card {
+    background: var(--clr-white);
+    border-radius: var(--radius);
+    box-shadow: var(--box-shadow-regular);
+    padding: var(--gap);
+
+    > :not(:last-child) {
+      margin-bottom: 1rem;
+    }
+
+    &-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+}

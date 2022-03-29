@@ -8,10 +8,20 @@ Post Navigation
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
 
-    .previous-post {
-      border-right: 1px solid var(--clr-gray-lighter);
+    &::before {
+      position: absolute;
+      width: 1px;
+      left: 50%;
+      transform: translate(-50%, -20%);
+      top: 25%;
+      height: 70%;
+      background-color: var(--clr-gray-light);
+      opacity: 0.25;
+      content: "";
     }
+
     .previous-post,
     .next-post {
       padding: var(--gap) 0;
@@ -24,6 +34,9 @@ Post Navigation
       span:nth-child(1) {
         margin-bottom: 1rem;
         color: var(--clr-gray-light);
+        &:hover {
+          text-decoration: none;
+        }
       }
     }
     .next-post {
