@@ -1,7 +1,6 @@
 .wrapper {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  padding: 0 1rem;
   gap: 1rem;
   overflow-wrap: break-word;
 }
