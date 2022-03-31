@@ -52,7 +52,7 @@ $related_posts = _themename_related_posts(3);
             </div><!-- card-body -->
             
             <div class="card-footer">
-             <small> <?php _themename_reading_time(); ?></small>
+             <small> Published On </small>
             </div><!-- card-footer -->
 
         </div><!-- card -->
