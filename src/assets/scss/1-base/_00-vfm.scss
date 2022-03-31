@@ -111,7 +111,7 @@ $breakpoints: (
   grid-template-columns: repeat(3, 1fr);
 }
 //  use this in the children
-@mixin flexCardWithGrid {
+@mixin flexColumn {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
