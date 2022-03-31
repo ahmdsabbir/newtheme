@@ -8,15 +8,18 @@ Related Posts
     background: var(--clr-white);
     border-radius: var(--radius);
     box-shadow: var(--box-shadow-regular);
+    margin-bottom: 1rem;
     position: relative;
+    @include flexColumn;
+    overflow: hidden;
     .card-header {
       margin-bottom: 0.5rem;
     }
     .card-category {
       margin: 0;
       position: absolute;
-      top: 0;
-      left: 0;
+      top: 0.5rem;
+      left: 0.5rem;
 
       a {
         display: inline-block;
@@ -52,6 +55,7 @@ Related Posts
           align-items: center;
           span {
             margin-left: 0.3rem;
+            font-weight: bold;
           }
         }
         margin-bottom: 1rem;

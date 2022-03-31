@@ -39,15 +39,12 @@ $related_posts = _themename_related_posts(3);
                 <div class="card-meta">
 
                      <div class="card-author-holder"> <!-- author avatar and name starts --> 
-
                         <div class="card-author-avatar">
                             <?php echo get_avatar( $author, 100 ); //100 is the size of the avatar, in this case it's 100x100px ?>
                         </div><!-- author-avatar -->
-
                         <span>
-                            <?php echo get_author_name( ) ?>
+                        <small> Author Name</small>
                         </span>
-
                      </div><!-- author avatar and name ends--> 
 
                      <div class="card-publish-time">
