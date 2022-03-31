@@ -1,7 +1,6 @@
 .wrapper {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  padding: 0 1rem;
   gap: 1rem;
   overflow-wrap: break-word;
 }
@@ -76,7 +75,7 @@
     gap: 2rem;
   }
   .has-two-sidebar {
-    grid-template-columns: 0.5fr 1.5fr 4fr 1.5fr 0.5fr;
+    grid-template-columns: 0.1fr 1.5fr 3.5fr 1.5fr 0.1fr;
     grid-row: auto;
     gap: 1rem;
 

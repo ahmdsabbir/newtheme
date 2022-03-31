@@ -8,16 +8,86 @@ Related Posts
     background: var(--clr-white);
     border-radius: var(--radius);
     box-shadow: var(--box-shadow-regular);
-    padding: var(--gap);
+    position: relative;
+    .card-header {
+      margin-bottom: 0.5rem;
+    }
+    .card-category {
+      margin: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
 
-    > :not(:last-child) {
-      margin-bottom: 1rem;
+      a {
+        display: inline-block;
+        margin: 0.2rem 0.3rem 0;
+        padding: 0.25em 0.4em;
+        font-size: 75%;
+        font-weight: bold;
+        line-height: 1;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: baseline;
+        border-radius: 0.25rem;
+        border: 0.2px solid var(--clr-primary);
+        background-color: var(--clr-gray-lighter);
+        text-decoration: none;
+        &:hover {
+          color: var(--clr-white);
+          background-color: var(--clr-primary);
+        }
+      }
     }
 
+    &-body,
+    &-footer {
+      padding: 0 var(--gap);
+    }
+
+    &-body {
+      margin-bottom: 1rem;
+      .card-meta {
+        .card-author-holder {
+          display: flex;
+          align-items: center;
+          span {
+            margin-left: 0.3rem;
+          }
+        }
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+        .card-author-avatar {
+          overflow: hidden;
+          // max-width: 1.75rem; // for min width: 640px/ 768px;
+          // max-height: 1.75rem; // for min width: 640px/ 768px;
+          width: 1.25rem;
+          height: 1.25rem;
+          border-radius: 9999px;
+
+          img {
+            object-fit: cover;
+          }
+        }
+
+        .card-publish-time {
+          font-size: 0.8rem;
+          margin-bottom: 0;
+        }
+      }
+      a {
+        color: var(--clr-black);
+        font-size: 1rem;
+        font-weight: bold;
+      }
+    }
     &-footer {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      margin-bottom: 1rem;
     }
   }
 }

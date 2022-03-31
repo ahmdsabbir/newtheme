@@ -28,23 +28,23 @@ $author_dribble = get_the_author_meta('_themename_user_dribble', $author);
         </div><!-- author-avatar -->
 
     <div class="author-meta">
-        <p>
+        <span class="author-meta-tag">
             Author
-        </p>
-        <p>
+        </span>
+        <h2>
             <?php if($author_website) : ?>
                 <a href="<?php echo esc_url( $author_website ); ?>" target="_blank"><?php echo esc_html( $author_display ); ?></a>
             <?php else: ?>
                 <?php echo esc_html( $author_display ); ?>
             <?php endif; ?>
-        </p>
-        <p>
+        </h2>
+        <span>
             <a href="<?php echo esc_url( $author_posts_url ); ?>">
                 <?php
                     printf(esc_html(_n('Has written %s post', 'Has written %s posts', $author_posts_number, '_themename')), number_format_i18n( $author_posts_number ))
                 ?>
             </a>
-        </p>
+        </span>
     </div><!-- author-meta -->
   </div>
 
