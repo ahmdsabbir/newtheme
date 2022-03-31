@@ -43,7 +43,7 @@ $related_posts = _themename_related_posts(3);
                             <?php echo get_avatar( $author, 100 ); //100 is the size of the avatar, in this case it's 100x100px ?>
                         </div><!-- author-avatar -->
                         <span>
-                        <small> Author Name</small>
+                        <small> <?php echo get_author_name(); ?></small>
                         </span>
                      </div><!-- author avatar and name ends--> 
 
