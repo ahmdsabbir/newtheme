@@ -83,7 +83,11 @@ $breakpoints: (
 @mixin gridCardFit {
   display: grid;
   gap: var(--gap);
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+
+  @media screen and (min-width: 640px) {
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  }
 }
 // grid card with auto fill
 @mixin gridCardFill {

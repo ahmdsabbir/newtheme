@@ -33,11 +33,16 @@ $related_posts = _themename_related_posts(3);
 
             <div class="card-body">
                 <div class="card-meta">
+                     <div class="card-author-holder"> <!-- author avatar and name starts --> 
                      <div class="card-author-avatar">
                          <?php echo get_avatar( $author, 100 ); //100 is the size of the avatar, in this case it's 100x100px ?>
                      </div><!-- author-avatar -->
+                     <span>
+                       Author Name
+                    </span>
+                     </div><!-- author avatar and name ends--> 
                      <div class="card-publish-time">
-                     <p><?php _themename_reading_time(); ?></p>
+                     <?php _themename_reading_time(); ?>
                      </div>
                 </div> <!-- card-author-meta -->
                 
@@ -47,7 +52,7 @@ $related_posts = _themename_related_posts(3);
             </div><!-- card-body -->
             
             <div class="card-footer">
-                <p><?php _themename_reading_time(); ?></p>
+             <small> <?php _themename_reading_time(); ?></small>
             </div><!-- card-footer -->
 
         </div><!-- card -->
