@@ -21,24 +21,23 @@ blockquote {
   border-right: 0;
   border-style: solid;
   border-image: linear-gradient(
-    to bottom,
-    var(--clr-primary),
+      to bottom,
+      var(--clr-primary),
       var(--clr-secondary)
     )
     1 100%;
 
-    *:last-child {
-      margin-bottom: 0;
-    }
-    p {
-      margin: 0 0 .5rem;;
-    }
-    cite {
-      
-      color: var(--clr-secondary);
-    }
-    cite::before {
-    content:'- ';
+  *:last-child {
+    margin-bottom: 0;
+  }
+  p {
+    margin: 0 0 0.5rem;
+  }
+  cite {
+    color: var(--clr-secondary);
+  }
+  cite::before {
+    content: "- ";
   }
 }
 
@@ -47,4 +46,11 @@ hr {
   margin-bottom: 3.5rem;
   border-width: 0;
   border-top: 1px solid var(--clr-gray);
+}
+
+/*
+* Footer info
+*/
+.cr-text {
+  text-align: center;
 }

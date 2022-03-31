@@ -5,13 +5,13 @@ $footer_layout = preg_replace('/\s+/', '', $footer_layout);
 $columns = explode(',', $footer_layout);
 ?>
 
-<div class="container">
+<div class="footer-widgets">
 
     <?php 
 
     foreach($columns as $index => $column) : ?>
 
-        <div class="sm-col-span-12 md-col-span-<?php echo $column ?>">
+        <div class="fcol-<?php echo $column ?>">
             <?php
             if( is_active_sidebar( 'footer-sidebar-' . ($index + 1) ) ) {
                 dynamic_sidebar('footer-sidebar-' . ($index + 1));

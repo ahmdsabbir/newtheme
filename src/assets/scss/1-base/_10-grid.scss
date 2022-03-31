@@ -52,6 +52,23 @@
       grid-column: 1/-1;
     }
   }
+  .footer-widgets {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+
+    & > * {
+      grid-column: span var(--fcol-span);
+      border: 1px solid aquamarine;
+    }
+
+    @for $i from 1 through 13 {
+      @if $i < 13 {
+        .fcol-#{$i} {
+          grid-column: auto / span $i;
+        }
+      }
+    }
+  }
 }
 
 @media screen and (min-width: map-get($breakpoints, "md")) {
@@ -93,6 +110,24 @@
     }
     .main {
       grid-column: 3/4;
+    }
+  }
+
+  .footer-widgets {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+
+    & > * {
+      grid-column: span var(--fcol-span);
+      border: 1px solid aquamarine;
+    }
+
+    @for $i from 1 through 13 {
+      @if $i < 13 {
+        .fcol-#{$i} {
+          grid-column: auto / span $i;
+        }
+      }
     }
   }
 }
