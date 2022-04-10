@@ -16,53 +16,47 @@ $related_posts = _themename_related_posts(3);
         
         <div class="card">
 
-            <div class="card-category"> 
-                
-                <?php 
-                $cats = get_the_category( $related_post->ID );
+            <div class="heading">
 
-                foreach ($cats as $cat): ?>
-                    <a href="<?php echo get_term_link($cat->term_id); ?>"><?php echo $cat->name; ?></a>
-                <?php endforeach;  ?>
+                <div class="categories">
+                    <?php 
+                        $cats = get_the_category( $related_post->ID );
+
+                        foreach ($cats as $cat): ?>
+                            <a href="<?php echo get_term_link($cat->term_id); ?>"><?php echo $cat->name; ?></a>
+                    <?php endforeach;  ?>
+                </div>
+
+                <?php if(has_post_thumbnail( $related_post->ID )): ?>
+                    <img src="<?php echo get_the_post_thumbnail_url($related_post->ID) ?>" alt="" />
+                <?php endif; ?>          
+
+                <div class="meta">
+                <p><?php echo get_avatar( $author, 100 ); ?><span><?php echo get_author_name(); ?></span></p>
+                <p><?php _themename_reading_time(); ?></p>
+                </div>
             </div>
-        
-            <?php if(has_post_thumbnail( $related_post->ID )): ?>
 
-            <div class="card-header">
-                <img src="<?php echo get_the_post_thumbnail_url($related_post->ID) ?>" alt="">
-            </div><!-- card-header -->
+            <div class="body">
+                <h3>
+                    <a href="<?php the_permalink($related_post->ID); ?>">
+                        <?php  echo $related_post->post_title; ?>
+                    </a>      
+                </h3>
 
-            <?php endif; ?>
+                <p class="excerpt">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam di
+                atque itaque at deserunt, nulla ullam voluptatem a iure nam, sed
+                modi nihil quidem molestias. Eaque, odio officia?
+                </p>
+            </div>
 
-            <div class="card-body">
+            <div class="footer">
+                <a href=""><?php _themename_published_on(); ?></a>
+                <a href="#"><?php _themename_published_on(); ?></a>
+            </div>
 
-                <div class="card-meta">
-
-                     <div class="card-author-holder"> <!-- author avatar and name starts --> 
-                        <div class="card-author-avatar">
-                            <?php echo get_avatar( $author, 100 ); //100 is the size of the avatar, in this case it's 100x100px ?>
-                        </div><!-- author-avatar -->
-                        <span>
-                        <small> <?php echo get_author_name(); ?></small>
-                        </span>
-                     </div><!-- author avatar and name ends--> 
-
-                     <div class="card-publish-time">
-                        <?php _themename_reading_time(); ?>
-                     </div><!-- card-publish-time -->
-
-                </div> <!-- card-author-meta -->
-                
-                <a href="<?php the_permalink($related_post->ID); ?>">
-                    <?php  echo $related_post->post_title; ?>
-                </a>
-            </div><!-- card-body -->
-            
-            <div class="card-footer">
-             <small> <?php _themename_published_on(); ?> </small>
-            </div><!-- card-footer -->
-
-        </div><!-- card -->
+        </div>
 
     <?php endforeach; ?>
 
