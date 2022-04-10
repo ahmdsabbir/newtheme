@@ -30,14 +30,17 @@ $related_posts = _themename_related_posts(3);
                 <?php if(has_post_thumbnail( $related_post->ID )): ?>
                     <img src="<?php echo get_the_post_thumbnail_url($related_post->ID) ?>" alt="" />
                 <?php endif; ?>          
-
-                <div class="meta">
-                <p><?php echo get_avatar( $author, 100 ); ?><span><?php echo get_author_name(); ?></span></p>
-                <p><?php _themename_reading_time(); ?></p>
-                </div>
             </div>
 
             <div class="body">
+                 <div class="meta">
+                     <a href="#" class="meta-author">
+                        <div class="meta-author-avatar"><?php echo get_avatar( $author, 100 ); ?></div>
+                        <span><?php echo get_author_name(); ?></span>
+                    </a>
+                    <span class="meta-separator">·</span>
+                    <span class="meta-readTime"><?php _themename_reading_time(); ?></span>
+                </div> <!-- meta author profile name -->
                 <h3>
                     <a href="<?php the_permalink($related_post->ID); ?>">
                         <?php  echo $related_post->post_title; ?>
@@ -49,12 +52,13 @@ $related_posts = _themename_related_posts(3);
                 atque itaque at deserunt, nulla ullam voluptatem a iure nam, sed
                 modi nihil quidem molestias. Eaque, odio officia?
                 </p>
+                
+                <div class="footer">
+                    <a href=""><?php _themename_published_on(); ?></a>
+                </div>
+              
             </div>
 
-            <div class="footer">
-                <a href=""><?php _themename_published_on(); ?></a>
-                <a href="#"><?php _themename_published_on(); ?></a>
-            </div>
 
         </div>
 
