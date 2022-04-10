@@ -14,6 +14,8 @@ Author box
   .author-meta {
     a {
       color: inherit;
+      text-decoration: none;
+      cursor: pointer;
     }
     span:nth-child(1) {
       opacity: 0.7;
@@ -47,6 +49,8 @@ Author box
     padding-bottom: 1rem;
     a {
       @include socilIcon;
+      text-decoration: none;
+      cursor: pointer;
     }
   }
 }

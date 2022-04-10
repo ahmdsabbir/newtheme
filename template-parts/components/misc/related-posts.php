@@ -53,13 +53,13 @@ $related_posts = _themename_related_posts(3);
                 modi nihil quidem molestias. Eaque, odio officia?
                 </p>
                 
-                <div class="footer">
+
+            </div>
+
+            <div class="footer">
                     <a href=""><?php _themename_published_on(); ?></a>
                 </div>
               
-            </div>
-
-
         </div>
 
     <?php endforeach; ?>

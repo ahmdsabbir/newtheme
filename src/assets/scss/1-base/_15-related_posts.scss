@@ -7,7 +7,7 @@ Related Posts
 
   .card {
     overflow: hidden;
-    outline: 1px solid black;
+    border: 1px solid var(--clr-gray-light);
     border-radius: 0.5rem;
     height: 100%;
 
@@ -30,12 +30,20 @@ Related Posts
       padding: 0.5rem;
       a {
         font-size: 0.8rem;
-        text-decoration: none;
-        background-color: transparent;
-        color: rgb(37, 46, 41);
+        color: var(--clr-primary);
         border-radius: 1rem;
         padding: 0.2rem 0.5rem;
-        outline: solid rgb(36, 43, 39) 0.01rem;
+        border: 1px solid var(--clr-gray);
+        text-decoration: none;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+
+        &:hover {
+          color: var(--clr-white);
+          border: 1px solid var(--clr-white);
+          background-color: var(--clr-primary);
+        }
       }
     }
     img {
@@ -46,9 +54,8 @@ Related Posts
   }
 
   .body {
-    padding: var(--gap);
-    @include flexColumn;
-    flex-grow: 1;
+    padding: var(--gap) var(--gap) 0;
+
     .meta {
       grid-column: 1/-1;
       display: flex;
@@ -67,7 +74,7 @@ Related Posts
           justify-content: center;
           height: 1.75rem;
           width: 1.75rem;
-          border: 1px solid red;
+          border: 1px solid var(--clr-gray-light);
           border-radius: 9999px;
           overflow: hidden;
           img {
@@ -91,12 +98,22 @@ Related Posts
     }
     h3 {
       margin: 0.75rem 0;
+      a {
+        text-decoration: none;
+        cursor: pointer;
+      }
     }
   }
 
   .footer {
+    padding: 0 var(--gap) var(--gap);
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+    a {
+      color: var(--clr-gray);
+      text-decoration: none;
+      cursor: pointer;
+    }
   }
 }
